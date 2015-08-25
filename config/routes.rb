@@ -20,18 +20,44 @@ Rails.application.routes.draw do
   post "/login",       to: "sessions#create"
   delete "/logout",    to: "sessions#destroy"
 
-  namespace :admin do
+  namespace :sellers, path: ':seller', as: :seller do
+    get '/', to: 'products#index'
+    resources :products, only: [:index, :show]
+    resources :categories, param: :slug, only: [:show]
+
+
+    namespace :admin do
+      resources :products
+      resources :orders, only: [:index, :show, :update]
+
+      get "/",           to: "admins#index"
+      get "/dashboard",  to: "admins#index"
+
+      get "/admin/ordered-orders",   to: "admin/orders#index_ordered"
+      get "/admin/paid-orders",      to: "admin/orders#index_paid"
+      get "/admin/cancelled-orders", to: "admin/orders#index_cancelled"
+      get "/admin/completed-orders", to: "admin/orders#index_completed"
+    end
+  end
+
+  namespace :super_admin do
     resources :products
+    resources :users
+    resources :sellers
     resources :orders, only: [:index, :show, :update]
 
     get "/",           to: "admins#index"
     get "/dashboard",  to: "admins#index"
-  end
+   end
 
-  get "/admin/ordered-orders",   to: "admin/orders#index_ordered"
-  get "/admin/paid-orders",      to: "admin/orders#index_paid"
-  get "/admin/cancelled-orders", to: "admin/orders#index_cancelled"
-  get "/admin/completed-orders", to: "admin/orders#index_completed"
+  # namespace :admin do
+  #   resources :products
+  #   resources :orders, only: [:index, :show, :update]
+  #
+  #   get "/",           to: "admins#index"
+  #   get "/dashboard",  to: "admins#index"
+  # end
+
 
   resources :charges
 
