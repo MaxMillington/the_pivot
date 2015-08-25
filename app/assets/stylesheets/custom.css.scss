@@ -35,22 +35,31 @@ h6 {
 .page-header {
   border: 0;
   color: #fff;
-  float: right;
+  float: left;
   font-weight: 500;
 }
 
 .featured {
   color: #000;
   float: none;
+  text-align: center;
 }
 
 .main-image {
-  background: url(image-path("dew-drops-carnivorous-plant.jpg")) no-repeat center center;
+  background: url(image-path("goldeneye.jpg")) center center;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
-  height: 362px;
+  height: 500px;
+}
+
+#search {
+  width: 400px;
+  margin-top:180px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(0,0,0,.5);
 }
 
 #index-foods,

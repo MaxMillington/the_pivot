@@ -9,15 +9,23 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Redrum Nursery</a>
+      <a class="navbar-brand" href="/">Collector's World</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-        <li>
-          <%= link_to "Logged in as #{current_user.first_name}" \
-            " #{current_user.last_name}", dashboard_path %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= "#{current_user.first_name} #{current_user.last_name}" %>
+            <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/#">Feed</a>
+            </li>
+            <li>
+              <a href="/#">Profile</a>
+            </li>
+          </ul>
         </li>
         <% end %>
         <% if current_admin? %>
@@ -26,21 +34,41 @@
         </li>
         <% end %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sellers
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li>
-              <a href="/products">All Products</a>
-            </li>
-
-            <li>
-              <a href="/categories/plants">Plants</a>
+              <a href="/#">GameStop</a>
             </li>
             <li>
-              <a href="/categories/food">Food</a>
+              <a href="/#">Sports N Things</a>
             </li>
             <li>
-              <a href="/categories/accessories">Accessories</a>
+              <a href="/#">Animals R Us</a>
+            </li>
+            <li>
+              <a href="/#">Toyz Inc</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories
+            <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/#">Classic Games</a>
+            </li>
+            <li>
+              <a href="/#">Video Games</a>
+            </li>
+            <li>
+              <a href="/#">Sports Memorabilia</a>
+            </li>
+            <li>
+              <a href="/#">Stuffed Animals</a>
+            </li>
+            <li>
+              <a href="/#">Weird and Wacky</a>
             </li>
           </ul>
         </li>
