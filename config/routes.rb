@@ -20,7 +20,22 @@ Rails.application.routes.draw do
   post "/login",       to: "sessions#create"
   delete "/logout",    to: "sessions#destroy"
 
-  namespace :admin do
+  namespace :sellers, path: ':seller', as: :seller do
+    get '/', to: 'products#index'
+    resources :products, only: [:index, :show]
+    resources :categories, param: :slug, only: [:show]
+    resources :orders, only: [:index, :show]
+
+    namespace :admin do
+      resources :products
+      resources :orders, only: [:index, :show, :update]
+
+      get "/",           to: "admins#index"
+      get "/dashboard",  to: "admins#index"
+    end
+  end
+
+   namespace :admin do
     resources :products
     resources :orders, only: [:index, :show, :update]
 
