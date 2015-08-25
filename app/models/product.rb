@@ -1,7 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :category
-  has_many :order_items
-  has_many :orders, through: :order_items
+  has_many :auctions
 
   before_validation :set_default_image
   validates :name, :description, :price, :category_id, presence: true

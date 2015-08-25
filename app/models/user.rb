@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :orders
-  has_many :addresses
+  has_many :bids
+  has_many :auctions, through: :bids
+  has_many :addresses, as: :addressable
 
   before_validation :strip_whitespace
   validates :first_name, :last_name, :email, presence: true
