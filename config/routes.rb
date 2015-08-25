@@ -4,17 +4,15 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, param: :slug, only: [:show]
   resources :orders, only: [:index, :show]
-  resources :cart_items, only: [:create, :update, :destroy]
   resources :addresses, only: [:new, :update, :create]
 
-  get "/dashboard",    to: "users#show"
 
-  patch "/account",    to: "users#update"
-  post "/account",     to: "users#create"
-  get "/account/new",  to: "users#new"
-  get "/account/edit", to: "users#edit"
-
-  get "/cart",         to: "cart_items#index"
+  get "/profile",    to: "users#show"
+  get "/my-bids",   to: "users#feed"
+  patch "/profile",    to: "users#update"
+  post "/profile",     to: "users#create"
+  get "/profile/new",  to: "users#new"
+  get "/profile/edit", to: "users#edit"
 
   get "/login",        to: "sessions#new"
   post "/login",       to: "sessions#create"
@@ -49,15 +47,6 @@ Rails.application.routes.draw do
     get "/",           to: "admins#index"
     get "/dashboard",  to: "admins#index"
    end
-
-  # namespace :admin do
-  #   resources :products
-  #   resources :orders, only: [:index, :show, :update]
-  #
-  #   get "/",           to: "admins#index"
-  #   get "/dashboard",  to: "admins#index"
-  # end
-
 
   resources :charges
 
