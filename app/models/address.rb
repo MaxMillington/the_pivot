@@ -1,5 +1,6 @@
 class Address < ActiveRecord::Base
   belongs_to :user
+  belongs_to :addressable, polymorphic: true
 
   before_validation :strip_whitespace
   validates :address_1, :city, :state, :zip_code, presence: true
