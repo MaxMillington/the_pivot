@@ -3,9 +3,7 @@ class Product < ActiveRecord::Base
   has_many :auctions
 
   before_validation :set_default_image
-  validates :name, :description, :price, :category_id, presence: true
-  validates :name, uniqueness: true
-  validates :price, numericality: { greater_than: 0 }
+  validates :name, :description, :category_id, presence: true
 
   enum status: %w(active inactive)
 
