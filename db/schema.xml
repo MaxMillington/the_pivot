@@ -194,14 +194,14 @@
     <row name="new field" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
-    <row name="user_id" null="1" autoincrement="0">
+    <row name="addressable_id" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default><relation table="users" row="id" />
+      <relation table="sellers" row="id" />
     </row>
-    <row name="seller_id" null="1" autoincrement="0">
+    <row name="addressable_type" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
-      <default>NULL</default><relation table="sellers" row="id" />
-    </row>
+      <default>NULL</default></row>
     <key type="PRIMARY" name="">
       <part>id</part>
     </key>
