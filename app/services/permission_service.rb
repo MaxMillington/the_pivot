@@ -24,29 +24,48 @@ class PermissionService
   private
 
   def platform_admin_permissions
-    return true if controller == 'stores' && action.in?(%w(index show))
+    return true if controller == 'static_pages' && action.in?(%w(index show))
     return true if controller == 'sessions' && action.in?(%w(new create destroy))
-    return true if controller == 'items' && action.in?(%w(index show))
-    return true if controller == 'orders' && action.in?(%w(index show))
-    return true if controller == 'users' && action.in?(%w(index show))
+    return true if controller == 'users' && action.in?(%w(show feed edit update destroy))
+    return true if controller == 'categories' && action.in?(%w(index show))
+    return true if controller == 'products' && action.in?(%w(index show new create edit update destroy))
+    return true if controller == 'sellers' && action.in?(%w(index show new create edit update))
+    return true if controller == 'auctions' && action.in?(%w(index show))
+    return true if controller == 'bids' && action.in?(%w(index show new create edit update))
+    return true if controller == 'addresses' && action.in?(%w(new create edit update))
   end
 
   def seller_admin_permissions
-    return true if controller == 'stores' && action.in?(%w(index show))
+    return true if controller == 'static_pages' && action.in?(%w(index show))
     return true if controller == 'sessions' && action.in?(%w(new create destroy))
-    return true if controller == 'items' && action.in?(%w(index show))
-    return true if controller == 'orders' && action.in?(%w(index show))
-
+    return true if controller == 'users' && action.in?(%w(show feed edit update))
+    return true if controller == 'categories' && action.in?(%w(index show))
+    return true if controller == 'products' && action.in?(%w(index show new create edit update destroy))
+    return true if controller == 'sellers' && action.in?(%w(index show new edit update))
+    return true if controller == 'auctions' && action.in?(%w(index show))
+    return true if controller == 'bids' && action.in?(%w(index show new create edit update))
+    return true if controller == 'addresses' && action.in?(%w(new create edit update))
   end
 
   def registered_user_permissions
     return true if controller == 'static_pages' && action.in?(%w(index show))
     return true if controller == 'sessions' && action.in?(%w(new create destroy))
+    return true if controller == 'users' && action.in?(%w(show feed edit update))
+    return true if controller == 'categories' && action.in?(%w(index show))
+    return true if controller == 'products' && action.in?(%w(index show))
+    return true if controller == 'sellers' && action.in?(%w(index show))
+    return true if controller == 'auctions' && action.in?(%w(index show))
+    return true if controller == 'bids' && action.in?(%w(index show new create edit update))
+    return true if controller == 'addresses' && action.in?(%w(new create edit update))
   end
 
   def guest_user_permissions
     return true if controller == 'static_pages' && action == 'index'
     return true if controller == 'sessions' && action.in?(%w(new create))
     return true if controller == 'users' && action.in?(%w(new create))
+    return true if controller == 'categories' && action.in?(%w(index show))
+    return true if controller == 'products' && action.in?(%w(index show))
+    return true if controller == 'sellers' && action.in?(%w(index show))
+    return true if controller == 'auctions' && action.in?(%w(index show))
   end
 end

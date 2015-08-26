@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   end
 
   def default_role
-    self.role ||= 'registered_user'
+    self.roles << Role.create(name: 'registered_user')
   end
 
 end
