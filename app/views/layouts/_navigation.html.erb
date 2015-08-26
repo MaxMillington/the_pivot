@@ -20,10 +20,10 @@
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li>
-              <a href="/#">Feed</a>
+              <%= link_to 'Feed', my_bids_path(current_user) %>
             </li>
             <li>
-              <a href="/#">Profile</a>
+              <%= link_to 'Profile', profile_path(current_user) %>
             </li>
           </ul>
         </li>
@@ -37,39 +37,22 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sellers
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
+            <% Seller.all.each do |seller| %>
             <li>
-              <a href="/#">GameStop</a>
+              <%= link_to seller.name, seller_path(seller) %>
             </li>
-            <li>
-              <a href="/#">Sports N Things</a>
-            </li>
-            <li>
-              <a href="/#">Animals R Us</a>
-            </li>
-            <li>
-              <a href="/#">Toyz Inc</a>
-            </li>
+            <% end %>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories
             <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li>
-              <a href="/#">Classic Games</a>
-            </li>
-            <li>
-              <a href="/#">Video Games</a>
-            </li>
-            <li>
-              <a href="/#">Sports Memorabilia</a>
-            </li>
-            <li>
-              <a href="/#">Stuffed Animals</a>
-            </li>
-            <li>
-              <a href="/#">Weird and Wacky</a>
-            </li>
+            <% Category.all.each do |category| %>
+                <li>
+                  <%= link_to category.name, category_path(category) %>
+                </li>
+            <% end %>
           </ul>
         </li>
         <% if current_user %>
