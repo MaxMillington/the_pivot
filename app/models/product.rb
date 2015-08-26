@@ -5,9 +5,6 @@ class Product < ActiveRecord::Base
   before_validation :set_default_image
   validates :name, :description, :category_id, presence: true
 
-  enum status: ["Video Games", "Instruments", "Sports", "Toys",
-                "Cars", "Comics", "Books", "Antiques", "Entertainment", "Guns"]
-
   scope :category_id, -> (category_id) { where category_id: category_id }
 
   private

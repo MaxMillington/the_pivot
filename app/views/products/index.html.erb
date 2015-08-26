@@ -58,7 +58,7 @@
 
       <div class="row"> <br>
         <div class="col-sm-4 col-lg-4 col-md-4">
-          <% @all_products.each do |product| %>
+          <% @products.each do |product| %>
         <div class="thumbnail">
          <%=link_to image_tag(product.image_url),
                          product_path(product.id),
@@ -83,7 +83,7 @@
     <div class="col-lg-12">
       <ul class="pagination">
         <li>
-          <a href="<%= will_paginate @all_products %>"></a>
+          <a href="<%= will_paginate @products %>"></a>
         </li>
       </ul>
     </div>
