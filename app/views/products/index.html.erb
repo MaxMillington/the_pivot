@@ -1,13 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+
+
+<!-- Page Content -->
 <div class="container">
 
-  <div class="page-header featured">
-    <h1>Products</h1>
+  <div class="row">
+
+    <div class="col-md-3"><br>
+      <div class="list-group">
+        <% @categories.each do |category| %>
+            <a href="#" class="list-group-item"><%= category.name %></a>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+
+      <div class="row carousel-holder">
+
+        <div class="col-md-12">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <% number1 = rand(500) %>
+              <% number2 = rand(500) %>
+              <% number3 = rand(500) %>
+              <div class="item active">
+                <img class="slide-image" src="<%= Product.find(number1).image_url %>" alt="">
+              </div>
+              <div class="item">
+                <img class="slide-image" src="<%= Product.find(number2).image_url %>" alt="">
+              </div>
+              <div class="item">
+                <img class="slide-image" src="<%= Product.find(number3).image_url %>" alt="">
+              </div>
+            </div>
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row"> <br>
+        <% number4 = rand(500) %>
+        <% number5 = rand(500) %>
+        <% number6 = rand(500) %>
+        <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="thumbnail">
+            <img src="<%= Product.find(number4).image_url %>" alt="">
+            <div class="caption">
+              <h4><a href="#">First Product</a>
+              </h4>
+              <p><%= Product.find(number4).description %></a>.</p>
+            </div>
+            <div class="ratings">
+              <p class="pull-right">15 reviews</p>
+              <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="thumbnail">
+            <img src="<%= Product.find(number5).image_url %>" alt="">
+            <div class="caption">
+              <h4><a href="#">Second Product</a>
+              </h4>
+              <p><%= Product.find(number5).description %></p>
+            </div>
+            <div class="ratings">
+              <p class="pull-right">12 reviews</p>
+              <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="thumbnail">
+            <img src="<%= Product.find(number6).image_url %>" alt="">
+            <div class="caption">
+              <h4><a href="#">Third Product</a>
+              </h4>
+              <p><%= Product.find(number6).description %></p>
+            </div>
+            <div class="ratings">
+              <p class="pull-right">31 reviews</p>
+              <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="row">
-    <%= render partial: "partials/product_thumbnail",
-               collection: @products,
-               as: :product %>
-  </div> <!-- end row -->
+</div>
 
-</div> <!-- end container -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

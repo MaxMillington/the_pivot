@@ -52,6 +52,7 @@ group :development, :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'simplecov', :require => false
+  gem 'pry'
 
   gem 'better_errors'
   gem 'awesome_print'

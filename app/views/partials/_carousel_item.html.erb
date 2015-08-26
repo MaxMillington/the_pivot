@@ -4,7 +4,7 @@
                   alt: "#{featured_product.name} image" %>
     <div class="caption clearfix">
       <h4 class="pull-right">
-        <%= number_to_currency(featured_product.price) %>
+
       </h4>
       <h4>
         <%= link_to featured_product.name, product_path(featured_product) %>
@@ -15,8 +15,7 @@
       <%= button_to "Retired", {}, class: "btn btn-primary btn-lg",
           disabled: "disabled" %>
       <% else %>
-      <%= button_to "Add to Cart", cart_items_path(product_id: featured_product.id),
-          class: "btn btn-primary btn-sm pull-right" %>
+
       <% end %>
     </div>
   </div>
