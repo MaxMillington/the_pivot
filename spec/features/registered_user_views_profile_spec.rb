@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User can view User info" do
+feature "Registered user can view user profile" do
   before do
     user = User.create(first_name: "Jane",
                        last_name:  "Doe",
@@ -26,8 +26,8 @@ feature "User can view User info" do
       .and_return(user)
   end
 
-  scenario "User visits Dashboard and sees all User info" do
-    visit dashboard_path
+  scenario "User visits profile and sees all User info" do
+    visit profile_path
 
     expect(page).to have_content("Jane")
     expect(page).to have_content("Doe")
