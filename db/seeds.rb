@@ -48,26 +48,26 @@ class Seed
   end
 
   def generate_addresses
-    1.upto(101) do |i|
+    1.upto(100) do |i|
       Address.create!(
         type_of: 0,
         address_1: Faker::Address.street_address,
         city: Faker::Address.city,
         state: Faker::Address.state_abbr,
         zip_code: Faker::Address.zip_code.to_i,
-        addressable_type: "user",
+        addressable_type: "User",
         addressable_id: i 
       )
     end
 
-    1.upto(21) do |i|
+    1.upto(20) do |i|
       Address.create!(
         type_of: 0, 
         address_1: Faker::Address.street_address,
         city: Faker::Address.city,
         state: Faker::Address.state_abbr,
         zip_code: Faker::Address.zip_code.to_i,
-        addressable_type: "seller",
+        addressable_type: "Seller",
         addressable_id: i
       )
     end
