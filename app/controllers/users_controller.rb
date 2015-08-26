@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "Welcome to Redrum Nursery," \
+      flash[:success] = "Welcome to Collector's World," \
         " #{@user.first_name} #{@user.last_name}!"
       redirect_to profile_path
     else
@@ -61,4 +61,5 @@ class UsersController < ApplicationController
       redirect_to login_path
     end
   end
+
 end

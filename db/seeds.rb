@@ -6,6 +6,7 @@ class Seed
     seed.generate_addresses
     seed.generate_categories
     seed.generate_products
+    seed.generate_roles
   end
 
   def generate_users
@@ -76,7 +77,7 @@ class Seed
 
   def generate_categories
     Category.create!(
-      name: "Games",
+      name: "Video Games",
       description: Faker::Lorem.paragraph,
       image_url: 'pacman.jpg')
     Category.create!(
@@ -95,9 +96,10 @@ class Seed
       name: "Cars",
       description: Faker::Lorem.paragraph,
       image_url: 'model_e.jpg')
-    # Category.create!(
-    #   name: "Animals",
-    #   description: Faker::Lorem.paragraph)
+    Category.create!(
+      name: "Comics",
+      description: Faker::Lorem.paragraph,
+      image_url: 'action_comics.jpg')
     Category.create!(
       name: "Books",
       description: Faker::Lorem.paragraph,
@@ -128,6 +130,12 @@ class Seed
           seller_id: Seller.all.sample.id)
       end
     end
+  end
+
+  def generate_roles
+    Role.create!(name: "platform_admin")
+    Role.create!(name: "seller_admin")
+    Role.create!(name: "registered_user")
   end
 
 end

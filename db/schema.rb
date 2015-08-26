@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826175655) do
+
+ActiveRecord::Schema.define(version: 20150826181240) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +80,12 @@ ActiveRecord::Schema.define(version: 20150826175655) do
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["seller_id"], name: "index_products_on_seller_id", using: :btree
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sellers", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
@@ -86,14 +94,24 @@ ActiveRecord::Schema.define(version: 20150826175655) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_roles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_roles", ["role_id"], name: "index_user_roles_on_role_id", using: :btree
+  add_index "user_roles", ["user_id"], name: "index_user_roles_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.text     "email"
     t.text     "password_digest"
     t.text     "first_name"
     t.text     "last_name"
-    t.integer  "role",            default: 0
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "role"
   end
 
   add_foreign_key "addresses", "users", column: "addressable_id"
@@ -102,4 +120,6 @@ ActiveRecord::Schema.define(version: 20150826175655) do
   add_foreign_key "bids", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "sellers"
+  add_foreign_key "user_roles", "roles"
+  add_foreign_key "user_roles", "users"
 end
