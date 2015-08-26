@@ -64,7 +64,7 @@
           <div class="thumbnail">
             <img src="<%= Product.find(number4).image_url %>" alt="">
             <div class="caption">
-              <h4><a href="#">First Product</a>
+              <h4><%= link_to Product.find(number4).name, product_path(Product.find(number4).id) %>></a>
               </h4>
               <p><%= Product.find(number4).description %></a>.</p>
             </div>
@@ -85,7 +85,7 @@
           <div class="thumbnail">
             <img src="<%= Product.find(number5).image_url %>" alt="">
             <div class="caption">
-              <h4><a href="#">Second Product</a>
+              <h4><%= link_to Product.find(number5).name, product_path(Product.find(number5).id) %></a>
               </h4>
               <p><%= Product.find(number5).description %></p>
             </div>
@@ -106,7 +106,7 @@
           <div class="thumbnail">
             <img src="<%= Product.find(number6).image_url %>" alt="">
             <div class="caption">
-              <h4><a href="#">Third Product</a>
+              <h4><%= link_to Product.find(number6).name, product_path(Product.find(number6).id) %></a>
               </h4>
               <p><%= Product.find(number6).description %></p>
             </div>
