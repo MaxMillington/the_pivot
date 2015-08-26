@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       if current_admin?
         redirect_to admin_dashboard_path
       else
-        redirect_to dashboard_path
+        redirect_to profile_path
       end
     else
       flash[:warning] = "Unable to Login with this Email and" \
