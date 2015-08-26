@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150826214147) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.text     "slug"
+    t.string   "image_url"
   end
 
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree

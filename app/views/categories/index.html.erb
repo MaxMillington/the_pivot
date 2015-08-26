@@ -9,13 +9,12 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Shop Item - Start Bootstrap Template</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link href="css/shop-item.css" rel="stylesheet">
+  <link href="css/3-col-portfolio.css" rel="stylesheet">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,49 +27,38 @@
 
 <body>
 
+  <!-- /.container -->
+</nav>
+
 <!-- Page Content -->
 <div class="container">
 
+  <!-- Page Header -->
   <div class="row">
-
-    <div class="col-md-9"><br>
-
-      <div class="thumbnail">
-        <%= image_tag @product.image_url, class: "img-responsive" %>
-        <div class="caption-full">
-          <h4><a href="#"><%= @product.name %></a>
-          </h4>
-          <p><%= @product.description %></p><br>
-          <p>Condition: <%= @product.condition %></p>
-          <p>Category: <%= Category.find(@product.category_id).name %></p>
-          <p>Seller: <%= Seller.find(@product.seller_id).name %></p><br>
-        </div>
-      </div>
-
-      <div class="well">
-
-        <div class="text-right">
-          <a class="btn btn-success">Contact Seller</a>
-        </div>
-
-
-        </div>
-
-      </div>
-
+    <div class="col-lg-12">
+      <h1 class="page-header">Page Heading
+        <small>Categories</small>
+      </h1>
     </div>
-
   </div>
+  <!-- /.row -->
 
+  <!-- Projects Row -->
+  <div class="row">
+    <% @categories.each do |category| %>
+  <div class="col-md-4 portfolio-item">
+      <a>
+        <%= link_to image_tag(category.image_url),
+                    {controller: 'products', action: 'index', :category_id => category.id },
+                    class: 'img-responsive'%>
+      </a>
+      <h3>
+        <a><%= category.name %></a>
+      </h3>
+      <p><%= category.description %></p>
+    </div>
+  <% end %>
 </div>
-<!-- /.container -->
-
-<div class="container">
-
-  <hr>
-
-</div>
-<!-- /.container -->
 
 <!-- jQuery -->
 <script src="js/jquery.js"></script>

@@ -13,7 +13,9 @@
     <div class="col-md-3"><br>
       <div class="list-group">
         <% @categories.each do |category| %>
-            <a href="#" class="list-group-item"><%= category.name %></a>
+            <%= link_to category.name,
+                        {controller: 'products', action: 'index', :category_id => category.id },
+                        class: 'list-group-item' %>
         <% end %>
       </div>
     </div>
@@ -30,9 +32,9 @@
               <li data-target="#carousel-example-generic" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-              <% number1 = rand(500) %>
-              <% number2 = rand(500) %>
-              <% number3 = rand(500) %>
+              <% number1 = rand(400) %>
+              <% number2 = rand(400) %>
+              <% number3 = rand(400) %>
               <div class="item active">
                 <img class="slide-image" src="<%= Product.find(number1).image_url %>" alt="">
               </div>
@@ -55,70 +57,19 @@
       </div>
 
       <div class="row"> <br>
-        <% number4 = rand(500) %>
-        <% number5 = rand(500) %>
-        <% number6 = rand(500) %>
         <div class="col-sm-4 col-lg-4 col-md-4">
-          <div class="thumbnail">
-            <img src="<%= Product.find(number4).image_url %>" alt="">
+          <% @products.each do |product| %>
+        <div class="thumbnail">
+         <%=link_to image_tag(product.image_url),
+                         product_path(product.id),
+                         class: 'img-responsive'%>
             <div class="caption">
-              <h4><a href="#">First Product</a>
+              <h4><%= link_to product.name, product_path(product.id) %>
               </h4>
-              <p><%= Product.find(number4).description %></a>.</p>
-            </div>
-            <div class="ratings">
-              <p class="pull-right">15 reviews</p>
-              <p>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-              </p>
+              <p><%= product.description %></p>
             </div>
           </div>
-        </div>
-
-        <div class="col-sm-4 col-lg-4 col-md-4">
-          <div class="thumbnail">
-            <img src="<%= Product.find(number5).image_url %>" alt="">
-            <div class="caption">
-              <h4><a href="#">Second Product</a>
-              </h4>
-              <p><%= Product.find(number5).description %></p>
-            </div>
-            <div class="ratings">
-              <p class="pull-right">12 reviews</p>
-              <p>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-4 col-lg-4 col-md-4">
-          <div class="thumbnail">
-            <img src="<%= Product.find(number6).image_url %>" alt="">
-            <div class="caption">
-              <h4><a href="#">Third Product</a>
-              </h4>
-              <p><%= Product.find(number6).description %></p>
-            </div>
-            <div class="ratings">
-              <p class="pull-right">31 reviews</p>
-              <p>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-              </p>
-            </div>
-          </div>
+          <% end %>
         </div>
 
       </div>
@@ -126,6 +77,18 @@
     </div>
 
   </div>
+
+  <!-- Pagination -->
+  <div class="row text-center">
+    <div class="col-lg-12">
+      <ul class="pagination">
+        <li>
+          <a href="<%= will_paginate @products %>"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
 
 </div>
 
