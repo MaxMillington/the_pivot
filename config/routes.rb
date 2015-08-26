@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   root to: "static_pages#index"
 
   resources :products, only: [:index, :show]
-  resources :categories, param: :slug, only: [:show]
-  resources :orders, only: [:index, :show]
-  resources :addresses, only: [:new, :update, :create]
+  resources :categories, param: :slug, only: [:index,:show]
+  resources :auctions, only: [:index, :show]
+  resources :bids, only: [:index,:show,:new,:create,:edit,:update]
+  resources :addresses, only: [:new,:create,:edit,:update]
 
 
   get "/profile",    to: "users#show"
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
     get '/', to: 'products#index'
     resources :products, only: [:index, :show]
     resources :categories, param: :slug, only: [:show]
-
 
     namespace :admin do
       resources :products
