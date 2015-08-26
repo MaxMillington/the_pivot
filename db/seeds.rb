@@ -29,15 +29,13 @@ class Seed
       first_name: "business",
       last_name: "admin",
       email: "admin@turing.io",
-      password: "password",
-      role: 1)
+      password: "password")
 
     User.create!(
       first_name: "super",
       last_name: "admin",
       email: "super@turing.io",
-      password: "password",
-      role: 2)
+      password: "password")
   end
 
   def generate_sellers
