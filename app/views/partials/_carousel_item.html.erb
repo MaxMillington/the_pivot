@@ -2,19 +2,5 @@
   <div class="feature-card thumbnail">
     <%= image_tag featured_product.image_url, class: "img-responsive", 
                   alt: "#{featured_product.name} image" %>
-    <div class="caption clearfix">
-      <h4>
-        <%= link_to featured_product.name, product_path(featured_product) %>
-      </h4>
-    </div>
-    <div class="clearfix btm-right">
-      <% if featured_product.inactive? %>
-      <%= button_to "Retired", {}, class: "btn btn-primary btn-lg",
-          disabled: "disabled" %>
-      <% else %>
-      <%= button_to "Add to Cart", '/#',
-          class: "btn btn-primary btn-sm pull-right" %>
-      <% end %>
-    </div>
   </div>
 </div>
