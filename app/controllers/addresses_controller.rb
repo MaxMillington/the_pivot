@@ -9,7 +9,7 @@ class AddressesController < ApplicationController
 
     if @address.save
       flash[:success] = "Address created."
-      redirect_to account_edit_path
+      redirect_to profile_edit_path
     else
       flash.now[:warning] = @address.errors.full_messages.join(". ")
       render :new
@@ -21,10 +21,10 @@ class AddressesController < ApplicationController
 
     if @address.update(address_params)
       flash[:success] = "Your address has been updated."
-      redirect_to account_edit_path
+      redirect_to profile_edit_path
     else
       flash[:warning] = @address.errors.full_messages.join(". ")
-      redirect_to account_edit_path
+      redirect_to profile_edit_path
     end
   end
 
