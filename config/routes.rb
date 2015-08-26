@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resources :categories, param: :slug, only: [:show]
-  resources :orders, only: [:index, :show]
+  resources :auction, only: [:index, :show]
   resources :addresses, only: [:new, :update, :create]
 
 

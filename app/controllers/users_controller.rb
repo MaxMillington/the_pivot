@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @auctions = current_user.auctions
   end
 
   def edit
