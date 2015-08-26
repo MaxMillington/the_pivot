@@ -47,8 +47,10 @@
   <div class="row">
     <% @categories.each do |category| %>
   <div class="col-md-4 portfolio-item">
-      <a href="#">
-        <%= image_tag category.image_url, class: 'img-responsive' %>
+      <a>
+        <%= link_to image_tag(category.image_url),
+                    {controller: 'products', action: 'index', :category_id => category.id },
+                    class: 'img-responsive'%>
       </a>
       <h3>
         <a href="#"><%= category.name %></a>
