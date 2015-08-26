@@ -5,9 +5,31 @@
   </div>
 
   <div class="row">
-    <%= render partial: "partials/product_thumbnail",
-               collection: @products,
-               as: :product %>
+    <% @products.each do |product| %>
+        <div class="col-sm-4 col-lg-4 col-md-4">
+          <a href="<%= product_path(product) %>">
+            <div class="product-card thumbnail">
+              <%= image_tag product.image_url, class: "img-responsive",
+                            alt: "#{product.name} image" %>
+              <div class="caption">
+                <h4><%= product.name %></h4>
+                <p><%= product.description %></p>
+                <div class="clearfix btm-right">
+                  <% if product.inactive? %>
+                      <%= button_to "Retired", {}, class: "btn btn-primary btn-lg",
+                                    disabled: "disabled" %>
+                  <% else %>
+
+                  <% end %>
+    <% end  %>
+    </div>
+    </div>
+    </div>
+    </a>
+    </div>
+
+
+
   </div> <!-- end row -->
 
 </div> <!-- end container -->
