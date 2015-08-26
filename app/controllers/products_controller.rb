@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @all_products = Product.paginate(:page => params[:page], :per_page => 25)
+    @all_products = Product.paginate(:page => params[:page], :per_page => 20)
     @categories = Category.all
     @products = Product.find_by(category_id: params[:category_id])
   end

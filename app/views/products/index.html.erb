@@ -60,11 +60,13 @@
         <div class="col-sm-4 col-lg-4 col-md-4">
           <% @all_products.each do |product| %>
         <div class="thumbnail">
-        <img src="" alt="">
+         <%=link_to image_tag(product.image_url),
+                         product_path(product.id),
+                         class: 'img-responsive'%>
             <div class="caption">
-              <h4><%= link_to product.name, product_path(product.id) %>></a>
+              <h4><%= link_to product.name, product_path(product.id) %>
               </h4>
-              <p><%= product.description %></a>.</p>
+              <p><%= product.description %></p>
             </div>
           </div>
           <% end %>

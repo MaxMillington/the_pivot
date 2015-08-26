@@ -119,6 +119,79 @@ class Seed
   end
 
   def generate_products
+
+
+    Product.create(name: "Vintage Atari Gaming System",
+                   description: "Take a trip back in time and kill some alien invaders and play some pong in this classic video game console ",
+                   image_url: "atari.jpg",
+                   category_id: 1,
+                   condition: "good",
+                   seller_id: Seller.all.sample.id)
+
+    Product.create(name: "Vintage Gibson 1959 Les Paul",
+                   description: "Purchasing this Holy Grail of electric guitars will put you in the same category as guitar legends like Jimmy Page and Michael Bloomfield.",
+                   image_url: "les_paul.jpg",
+                   category_id: 2,
+                   condition: "excellent",
+                   seller_id: Seller.all.sample.id)
+
+    Product.create(name: "Singed Lawrence Taylor Jersey",
+                   description: "Own the jersey of the most dangerous linebacker every to set foot on the field.",
+                   image_url: "lt.jpeg",
+                   category_id: 3,
+                   condition: "mint",
+                   seller_id: Seller.all.sample.id)
+
+    Product.create(name: "AT-AT Set",
+                   description: "Take down the rebellion on the icy planet of Hoth with this unique set of AT-AT walkers.",
+                   image_url: "atat.jpg",
+                   category_id: 4,
+                   condition: "good",
+                   seller_id: Seller.all.sample.id)
+
+    Product.create(name: "Ferrari California",
+                   description: "Drive off into the sunset in what is widely considered to be one of the most attractive automobiles ever made.",
+                   image_url: "Ferrari_California.jpg",
+                   category_id: 5,
+                   condition: "mint",
+                   seller_id: Seller.all.sample.id)
+
+    Product.create(name: "Action Comics No. 1",
+                   description: "Put off your retirment a few decades and purchase the first appearance of America's most beloved super hero.",
+                   image_url: "action_comics.jpg",
+                   category_id: 6,
+                   condition: "mint",
+                   seller_id: Seller.all.sample.id)
+
+    Product.create(name: "First Edition Hobbit",
+                   description: "Introduce yourself to Bilbo and Gandalf and their unexpected journey to Lonely Mountain.",
+                   image_url: "hobbit.jpg",
+                   category_id: 7,
+                   condition: "poor",
+                   seller_id: Seller.all.sample.id)
+
+    Product.create(name: "1920's Tiffany Lamp",
+                   description: "Own this gorgeous Tiffany lamp from the golden era of luxury.",
+                   image_url: "tiffany.jpg",
+                   category_id: 8,
+                   condition: "mint",
+                   seller_id: Seller.all.sample.id)
+
+    Product.create(name: "Michael Jackson's Glove",
+                   description: "Prove that Billy Jean is not your lover with Michael Jackson's one of a kind diamond studded glove.",
+                   image_url: "glove.jpg",
+                   category_id: 9,
+                   condition: "mint",
+                   seller_id: Seller.all.sample.id)
+
+    Product.create(name: "Original Walker Colt",
+                   description: "Go ahead, make someone's day with this highly sought after Spanish American War classic.",
+                   image_url: "colt.jpg",
+                   category_id: 10,
+                   condition: "good",
+                   seller_id: Seller.all.sample.id)
+
+
     Category.all.each do |category|
       50.times do |i|
         product = Product.create!(
