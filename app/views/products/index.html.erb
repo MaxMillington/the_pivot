@@ -57,70 +57,17 @@
       </div>
 
       <div class="row"> <br>
-        <% number4 = rand(400) %>
-        <% number5 = rand(400) %>
-        <% number6 = rand(400) %>
         <div class="col-sm-4 col-lg-4 col-md-4">
-          <div class="thumbnail">
-            <img src="<%= Product.find(number4).image_url %>" alt="">
+          <% @all_products.each do |product| %>
+        <div class="thumbnail">
+        <img src="" alt="">
             <div class="caption">
-              <h4><%= link_to Product.find(number4).name, product_path(Product.find(number4).id) %>></a>
+              <h4><%= link_to product.name, product_path(product.id) %>></a>
               </h4>
-              <p><%= Product.find(number4).description %></a>.</p>
-            </div>
-            <div class="ratings">
-              <p class="pull-right">15 reviews</p>
-              <p>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-              </p>
+              <p><%= product.description %></a>.</p>
             </div>
           </div>
-        </div>
-
-        <div class="col-sm-4 col-lg-4 col-md-4">
-          <div class="thumbnail">
-            <img src="<%= Product.find(number5).image_url %>" alt="">
-            <div class="caption">
-              <h4><%= link_to Product.find(number5).name, product_path(Product.find(number5).id) %></a>
-              </h4>
-              <p><%= Product.find(number5).description %></p>
-            </div>
-            <div class="ratings">
-              <p class="pull-right">12 reviews</p>
-              <p>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-4 col-lg-4 col-md-4">
-          <div class="thumbnail">
-            <img src="<%= Product.find(number6).image_url %>" alt="">
-            <div class="caption">
-              <h4><%= link_to Product.find(number6).name, product_path(Product.find(number6).id) %></a>
-              </h4>
-              <p><%= Product.find(number6).description %></p>
-            </div>
-            <div class="ratings">
-              <p class="pull-right">31 reviews</p>
-              <p>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>
-              </p>
-            </div>
-          </div>
+          <% end %>
         </div>
 
       </div>
@@ -134,30 +81,12 @@
     <div class="col-lg-12">
       <ul class="pagination">
         <li>
-          <a href="#">&laquo;</a>
-        </li>
-        <li class="active">
-          <a href="#">1</a>
-        </li>
-        <li>
-          <a href="#">2</a>
-        </li>
-        <li>
-          <a href="#">3</a>
-        </li>
-        <li>
-          <a href="#">4</a>
-        </li>
-        <li>
-          <a href="#">5</a>
-        </li>
-        <li>
-          <a href="#">&raquo;</a>
+          <a href="<%= will_paginate @all_products %>"></a>
         </li>
       </ul>
     </div>
   </div>
-  <!-- /.row -->
+
 
 </div>
 

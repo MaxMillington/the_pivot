@@ -45,6 +45,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'twilio-ruby'
 
 gem 'figaro'
+gem 'will_paginate', '~> 3.0.6'
+
 
 group :development, :test do
   gem 'rspec-rails'
