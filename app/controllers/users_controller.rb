@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       flash[:success] = "Welcome to Redrum Nursery," \
         " #{@user.first_name} #{@user.last_name}!"
-      redirect_to dashboard_path
+      redirect_to profile_path
     else
       flash.now[:warning] = @user.errors.full_messages.join(". ")
       render :new
@@ -20,6 +20,9 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def feed
   end
 
   def edit

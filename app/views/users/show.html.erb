@@ -5,7 +5,7 @@
       <h3><%= current_user.full_name %></h3>
       <p><%= current_user.email %></p>
       <%= link_to "Edit Account",
-          account_edit_path,
+          profile_edit_path,
           class: "btn btn-success" %>
     </div>
     <div id="billing-address" class="col-sm-4">
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="well col-sm-12">
-    <h3 class="text-center">Your Past Orders</h3>
+    <h3 class="text-center">Your Past Bids</h3>
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
@@ -43,7 +43,7 @@
           </tr>
         </thead>
         <tbody>
-          <% current_user.orders.each do |order| %>
+          <% current_user.bids.each do |order| %>
             <tr>
               <td><%= order.created_at.strftime("%b %d, %Y") %></td>
               <td><%= order.id %></td>
