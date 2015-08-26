@@ -7,8 +7,7 @@ class Product < ActiveRecord::Base
 
   enum status: %w(active inactive)
 
-  scope :active, -> { where(status: 0) }
-  scope :inactive, -> { where(status: 1) }
+  scope :, -> { where(status: 1) }
 
   private
 

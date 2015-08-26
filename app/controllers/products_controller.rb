@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @all_products = Product.all
     @categories = Category.all
-
+    @products = Product.find_by(category_id: params[:category_id])
   end
 
   def show
