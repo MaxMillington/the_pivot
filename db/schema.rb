@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20150826232142) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sellers", force: :cascade do |t|
+  create_table "seller", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
     t.string   "email"
@@ -119,8 +119,8 @@ ActiveRecord::Schema.define(version: 20150826232142) do
   add_foreign_key "bids", "auctions"
   add_foreign_key "bids", "users"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "sellers"
+  add_foreign_key "products", "seller"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
-  add_foreign_key "users", "sellers"
+  add_foreign_key "users", "seller"
 end

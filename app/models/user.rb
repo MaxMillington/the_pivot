@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :addresses, as: :addressable
   has_many :user_roles
   has_many :roles, through: :user_roles
+  belongs_to :seller
 
   before_save :default_role
   before_validation :strip_whitespace

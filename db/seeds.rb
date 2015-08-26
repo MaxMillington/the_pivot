@@ -2,8 +2,8 @@ class Seed
   def self.start
     seed = Seed.new
     seed.generate_roles
-    seed.generate_users
     seed.generate_sellers
+    seed.generate_users
     seed.generate_addresses
     seed.generate_categories
     seed.generate_products
@@ -35,7 +35,8 @@ class Seed
     first_name: "seller",
     last_name: "admin",
     email: "admin@turing.io",
-    password: "password")
+    password: "password",
+    seller_id: 1)
 
     seller_admin.roles << Role.find_by(name: "seller_admin")
 
@@ -128,7 +129,6 @@ class Seed
   end
 
   def generate_products
-
 
     Product.create(name: "Vintage Atari Gaming System",
     description: "Take a trip back in time and kill some alien invaders and play some pong in this classic video game console ",
