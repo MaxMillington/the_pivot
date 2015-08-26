@@ -13,7 +13,9 @@
     <div class="col-md-3"><br>
       <div class="list-group">
         <% @categories.each do |category| %>
-            <a href="#" class="list-group-item"><%= category.name %></a>
+            <%= link_to category.name,
+                        {controller: 'products', action: 'index', :category_id => category.id },
+                        class: 'list-group-item' %>
         <% end %>
       </div>
     </div>
@@ -30,9 +32,9 @@
               <li data-target="#carousel-example-generic" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-              <% number1 = rand(500) %>
-              <% number2 = rand(500) %>
-              <% number3 = rand(500) %>
+              <% number1 = rand(400) %>
+              <% number2 = rand(400) %>
+              <% number3 = rand(400) %>
               <div class="item active">
                 <img class="slide-image" src="<%= Product.find(number1).image_url %>" alt="">
               </div>
@@ -55,9 +57,9 @@
       </div>
 
       <div class="row"> <br>
-        <% number4 = rand(500) %>
-        <% number5 = rand(500) %>
-        <% number6 = rand(500) %>
+        <% number4 = rand(400) %>
+        <% number5 = rand(400) %>
+        <% number6 = rand(400) %>
         <div class="col-sm-4 col-lg-4 col-md-4">
           <div class="thumbnail">
             <img src="<%= Product.find(number4).image_url %>" alt="">
