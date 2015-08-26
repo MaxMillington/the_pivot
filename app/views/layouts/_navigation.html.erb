@@ -28,9 +28,9 @@
           </ul>
         </li>
         <% end %>
-        <% if current_admin? %>
+        <% if seller_admin? %>
         <li>
-          <%= link_to "Admin Dashboard", admin_dashboard_path %>
+          <%= link_to "Seller Dashboard", seller_admin_dashboard_path %>
         </li>
         <% end %>
         <li class="dropdown">
