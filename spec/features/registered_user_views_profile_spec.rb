@@ -52,6 +52,8 @@ feature "Registered user can view user profile" do
     @auction.bids.create(amount: 16.00,
                          user_id: user2.id)
 
+    @auction.bids.create(amount: 18.00,
+                         user_id: user1.id)
   end
 
   scenario "User visits profile and sees all User info" do
@@ -80,7 +82,7 @@ feature "Registered user can view user profile" do
 
   scenario "User visists profile and sees auction history" do
     visit profile_path
-
+    save_and_open_page
     within('tr', text: "# #{@auction.id}") do
       expect(page).to have_content("The Amazing Spider-Man")
       expect(page).to have_content("July  7, 2015 at  9:33 PM")

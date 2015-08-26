@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @auctions = current_user.auctions
+    @auctions = current_user.auctions.uniq
   end
 
   def feed
