@@ -77,34 +77,43 @@ class Seed
   def generate_categories
     Category.create!(
       name: "Games",
-      description: Faker::Lorem.paragraph)
+      description: Faker::Lorem.paragraph,
+      image_url: 'pacman.jpg')
     Category.create!(
       name: "Instruments",
-      description: Faker::Lorem.paragraph)
+      description: Faker::Lorem.paragraph,
+      image_url: 'nocaster.jpg')
     Category.create!(
       name: "Sports",
-      description: Faker::Lorem.paragraph)
+      description: Faker::Lorem.paragraph,
+      image_url: 'MJ.jpg')
     Category.create!(
       name: "Toys",
-      description: Faker::Lorem.paragraph)
+      description: Faker::Lorem.paragraph,
+      image_url: 'boba_fett.jpg')
     Category.create!(
       name: "Cars",
-      description: Faker::Lorem.paragraph)
-    Category.create!(
-      name: "Animals",
-      description: Faker::Lorem.paragraph)
+      description: Faker::Lorem.paragraph,
+      image_url: 'model_e.jpg')
+    # Category.create!(
+    #   name: "Animals",
+    #   description: Faker::Lorem.paragraph)
     Category.create!(
       name: "Books",
-      description: Faker::Lorem.paragraph)
+      description: Faker::Lorem.paragraph,
+      image_url: 'bible.jpg')
     Category.create!(
       name: "Antiques",
-      description: Faker::Lorem.paragraph)
+      description: Faker::Lorem.paragraph,
+      image_url: 'chippendale.jpg')
     Category.create!(
       name: "Entertainment",
-      description: Faker::Lorem.paragraph)
+      description: Faker::Lorem.paragraph,
+      image_url: 'marilyn.jpg')
     Category.create!(
       name: "Guns",
-      description: Faker::Lorem.paragraph)
+      description: Faker::Lorem.paragraph,
+      image_url: 'guns.jpg')
   end
 
   def generate_products
