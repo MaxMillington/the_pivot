@@ -5,6 +5,7 @@ class AuctionsController < ApplicationController
   end
 
   def show
+    @bid = Bid.new
     @auction = Auction.find(params[:id])
   end
 
