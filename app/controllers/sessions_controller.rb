@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         if platform_admin?
           redirect_to platform_admin_dashboard_path
         elsif seller_admin?
-          redirect_to seller_admin_dashboard_path
+          redirect_to seller_dashboard_path(user.seller.slug)
         else
           redirect_to profile_path
         end

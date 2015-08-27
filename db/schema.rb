@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826214147) do
+ActiveRecord::Schema.define(version: 20150826232142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20150826214147) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sellers", force: :cascade do |t|
+  create_table "seller", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
     t.string   "email"
@@ -109,14 +109,18 @@ ActiveRecord::Schema.define(version: 20150826214147) do
     t.text     "last_name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "seller_id"
   end
+
+  add_index "users", ["seller_id"], name: "index_users_on_seller_id", using: :btree
 
   add_foreign_key "addresses", "users", column: "addressable_id"
   add_foreign_key "auctions", "products"
   add_foreign_key "bids", "auctions"
   add_foreign_key "bids", "users"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "sellers"
+  add_foreign_key "products", "seller"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
+  add_foreign_key "users", "seller"
 end

@@ -1,6 +1,6 @@
 class CreateSellers < ActiveRecord::Migration
   def change
-    create_table :sellers do |t|
+    create_table :seller do |t|
       t.string :name
       t.string :slug
       t.string :email

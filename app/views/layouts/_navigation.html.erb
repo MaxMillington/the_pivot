@@ -30,7 +30,7 @@
         <% end %>
         <% if seller_admin? %>
         <li>
-          <%= link_to "Seller Dashboard", seller_admin_dashboard_path %>
+          <%= link_to "Seller Dashboard", seller_dashboard_path(current_user.seller.slug) %>
         </li>
         <% end %>
         <li class="dropdown">
