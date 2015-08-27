@@ -29,13 +29,6 @@ Rails.application.routes.draw do
   post "/login",       to: "sessions#create"
   delete "/logout",    to: "sessions#destroy"
 
-  namespace :seller, path: ':seller', as: :seller do
-    get '/', to: 'products#index'
-    resources :categories, param: :slug, only: [:show]
-    resources :products
-    get "/dashboard",  to: "sellers#index"
-  end
-
   namespace :super_admin do
     resources :products
     resources :users
@@ -44,7 +37,14 @@ Rails.application.routes.draw do
 
     get "/",           to: "admins#index"
     get "/dashboard",  to: "admins#index"
-   end
+  end
+
+  namespace :seller, path: ':seller', as: :seller do
+    get '/', to: 'products#index'
+    resources :categories, param: :slug, only: [:show]
+    resources :products
+    get "/dashboard",  to: "sellers#index"
+  end
 
   resources :charges
 

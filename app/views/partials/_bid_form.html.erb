@@ -1,0 +1,7 @@
+<%= form_for @bid do |f| %>
+    <div><%= hidden_field_tag :auction_id, @auction.id %></div>
+    <div><%= hidden_field_tag :user_id, session[:user_id] %></div>
+    <%= f.label :amount %>
+    <%= f.text_field :amount%>
+    <%= f.submit %>
+<% end %>

@@ -7,6 +7,8 @@ class Seed
     seed.generate_addresses
     seed.generate_categories
     seed.generate_products
+    seed.generate_auctions
+    seed.generate_bids
   end
 
   def generate_roles
@@ -212,6 +214,100 @@ class Seed
         seller_id: Seller.all.sample.id)
       end
     end
+  end
+
+  def generate_auctions
+    Auction.create!(product_id: 1,
+                    starting_time: DateTime.civil(2015, 8, 20, 5, 0, 0, 0),
+                    ending_time: DateTime.civil(2015, 8, 25, 5, 0, 0, 0),
+                    starting_price: 100.00,
+                    category_id: 1)
+
+    Auction.create!(product_id: 2,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 200.00,
+                    category_id: 2)
+
+    Auction.create!(product_id: 3,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 2500.00,
+                    category_id: 3)
+    
+    Auction.create!(product_id: 4,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 2000.00,
+                    category_id: 4)
+
+    Auction.create!(product_id: 5,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 600.00,
+                    category_id: 5)
+
+    Auction.create!(product_id: 6,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 700.00,
+                    category_id: 6)
+
+    Auction.create!(product_id: 7,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 500.00,
+                    category_id: 7)
+
+    Auction.create!(product_id: 8,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 500.00,
+                    category_id: 8)
+
+    Auction.create!(product_id: 9,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 500.00,
+                    category_id: 9)
+
+    Auction.create!(product_id: 10,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 500.00,
+                    category_id: 10)
+
+    Auction.create!(product_id: 89,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 500.00,
+                    category_id: 1)
+  end
+
+  def generate_bids
+    Bid.create!(user_id: 101,
+                auction_id: 1,
+                amount: 150)
+
+    Bid.create!(user_id: 5,
+                auction_id: 1,
+                amount: 250)
+
+    Bid.create!(user_id: 101,
+                auction_id: 1,
+                amount: 350)
+
+    Bid.create!(user_id: 101,
+                auction_id: 2,
+                amount: 5000)
+
+    Bid.create!(user_id: 101,
+                auction_id: 3,
+                amount: 3050)
+
+    Bid.create!(user_id: 101,
+                auction_id: 4,
+                amount: 5050)
   end
 
 
