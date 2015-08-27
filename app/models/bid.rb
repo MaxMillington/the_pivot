@@ -5,7 +5,11 @@ class Bid < ActiveRecord::Base
   before_save :greater?
 
   def greater?
-    self.amount > auction.bids.last.amount
+    if auction.bids.count > 0
+      self.amount > auction.bids.last.amount
+    else
+      self.amount > auction.starting_price
+    end
   end
 
 end
