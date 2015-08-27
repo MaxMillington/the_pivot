@@ -3,7 +3,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse"
-        data-target="#bs-example-navbar-collapse-1">
+              data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -15,34 +15,26 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= "#{current_user.first_name} #{current_user.last_name}" %>
-            <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li>
-              <%= link_to 'Feed', my_bids_path %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= "#{current_user.first_name} #{current_user.last_name}" %>
+                <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to 'Feed', my_bids_path %>
+                </li>
+                <li>
+                  <%= link_to 'Profile', profile_path %>
+                </li>
+              </ul>
             </li>
-            <li>
-              <%= link_to 'Profile', profile_path %>
-            </li>
-          </ul>
-        </li>
         <% end %>
         <% if seller_admin? %>
-        <li>
-          <%= link_to "Seller Dashboard", seller_dashboard_path(current_user.seller.slug) %>
-        </li>
-        <% end %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sellers
-            <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <% Seller.all.each do |seller| %>
             <li>
-              <%= link_to seller.name, seller_path(seller) %>
+              <%= link_to "Seller Dashboard", seller_dashboard_path(current_user.seller.slug) %>
             </li>
-            <% end %>
-          </ul>
+        <% end %>
+        <li>
+          <%= link_to "Sellers", sellers_path%>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories
@@ -57,16 +49,16 @@
           </ul>
         </li>
         <% if current_user %>
-        <li>
-          <%= link_to "Logout", logout_path, method: :delete %>
-        </li>
+            <li>
+              <%= link_to "Logout", logout_path, method: :delete %>
+            </li>
         <% else %>
-        <li>
-          <%= link_to "Create Account", profile_new_path %>
-        </li>
-        <li>
-          <%= link_to "Login", login_path %>
-        </li>
+            <li>
+              <%= link_to "Create Account", profile_new_path %>
+            </li>
+            <li>
+              <%= link_to "Login", login_path %>
+            </li>
         <% end %>
       </ul>
     </div>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :addresses, only: [:new,:create,:edit,:update]
 
 
+  get "/sellers", to: "sellers#index"
 
   get "/profile",    to: "users#show"
   get "/my-bids",   to: "users#feed"
