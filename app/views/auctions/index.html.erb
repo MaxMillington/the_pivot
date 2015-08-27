@@ -13,7 +13,8 @@
     <div class="col-md-3"><br>
       <div class="list-group">
         <% @categories.each do |category| %>
-            <%= link_to category.name, '#',
+            <%= link_to category.name,
+                        {controller: 'auctions', action: 'index', :category_id => category.id },
                         class: 'list-group-item' %>
         <% end %>
       </div>
