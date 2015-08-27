@@ -24,20 +24,16 @@
       <h2>What We Do</h2>
       <p>We specialize in sweet awesome awesomeness at sweet awesome prices for sweet awesome people. We also have free shipping</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et molestiae similique eligendi reiciendis sunt distinctio odit? Quia, neque, ipsa, adipisci quisquam ullam deserunt accusantium illo iste exercitationem nemo voluptates asperiores.</p>
-      <p>
-        <a class="btn btn-default btn-lg" href="#">Call to Action &raquo;</a>
-      </p>
     </div>
     <div class="col-sm-4">
       <h2>Contact Us</h2>
       <address>
         <strong><%= @seller.name %></strong>
-        <br>3481 Melrose Place
-        <br>Beverly Hills, CA 90210
+        <br><%= @seller.addresses.first.address_1 %>
+        <br><%= @seller.addresses.first.city %>, <%=  @seller.addresses.first.state %> <%= @seller.addresses.first.zip_code %>
         <br>
       </address>
       <address>
-        <abbr title="Phone">P:</abbr>(123) 456-7890
         <br>
         <abbr title="Email">E:</abbr> <a href="mailto:#"><%= @seller.email %></a>
       </address>
