@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   post "/login",       to: "sessions#create"
   delete "/logout",    to: "sessions#destroy"
 
-
   namespace :super_admin do
     resources :products
     resources :users

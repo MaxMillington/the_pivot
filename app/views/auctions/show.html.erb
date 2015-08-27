@@ -51,8 +51,12 @@
           <h3>Bid Status</h3>
           <p>Time Remaining: <%= distance_of_time_in_words(Time.now, @auction.ending_time) %></p>
           <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
-          <p>Current Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
-          <p>Current High Bidder: <%= @auction.bids.last.user.full_name %></p>
+          <% if @auction.bids.count == 0 %>
+              <p>No bids yet</p>
+          <% else %>
+              <p>Current Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
+              <p>Current High Bidder: <%= @auction.bids.last.user.full_name %></p>
+        <% end %>
           <%= render 'partials/bid_form' %>
         </div>
 
