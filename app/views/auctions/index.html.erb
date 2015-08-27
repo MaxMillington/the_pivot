@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+
+
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-3"><br>
+      <div class="list-group">
+        <% @categories.each do |category| %>
+            <%= link_to category.name,
+                        {controller: 'products', action: 'index', :category_id => category.id },
+                        class: 'list-group-item' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+
+      <div class="row carousel-holder">
+
+        <div class="col-md-12">
+          <!--<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">-->
+            <!--<ol class="carousel-indicators">-->
+              <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
+              <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
+              <!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+            <!--</ol>-->
+            <!--<div class="carousel-inner">-->
+              <!--<%# number1 = rand(400) %>-->
+              <!--<%# number2 = rand(400) %>-->
+              <!--<%# number3 = rand(400) %>-->
+              <!--<div class="item active">-->
+                <!--<img class="slide-image" src="<%#= @auctions.find(number1).product.image_url %>" alt="">-->
+              <!--</div>-->
+              <!--<div class="item">-->
+                <!--<img class="slide-image" src="<%#= @auctions.find(number2).product.image_url %>" alt="">-->
+              <!--</div>-->
+              <!--<div class="item">-->
+                <!--<img class="slide-image" src="<%#= @auctions.find(number3).product.image_url %>" alt="">-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">-->
+              <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+            <!--</a>-->
+            <!--<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">-->
+              <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+            <!--</a>-->
+          <!--</div>-->
+        </div>
+
+      </div>
+
+      <div class="row"> <br>
+        <div class="col-sm-4 col-lg-4 col-md-4">
+          <% @auctions.each do |auction| %>
+        <div class="thumbnail">
+         <%=link_to image_tag(auction.product.image_url),
+                         auction_path(auction.id),
+                         class: 'img-responsive'%>
+            <div class="caption">
+              <h4><%= link_to auction.product.name, auction_path(auction.id) %>
+              </h4>
+              <p>Starting Price: <%= auction.starting_price %></p>
+              <p>Current Bid: <%= auction.bids.last.amount %></p>
+              <p>Time Remaining: <%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Pagination -->
+  <!--<div class="row text-center">-->
+    <!--<div class="col-lg-12">-->
+      <!--<ul class="pagination">-->
+        <!--<li>-->
+          <!--<a href="<%#= will_paginate @auctions %>"></a>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</div>-->
+
+
+</div>
+
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

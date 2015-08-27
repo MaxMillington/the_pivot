@@ -1,4 +1,7 @@
 class Auction < ActiveRecord::Base
+  attr_reader :starting_time
+  attr_reader :ending_time
+
   belongs_to :product
   has_many :bids
   has_many :users, through: :bids
@@ -7,4 +10,9 @@ class Auction < ActiveRecord::Base
     bid = bids.max_by { |bid| bid.amount }
     bid.amount
   end
+
+  def time_remaining
+    distance_of_time_in_words(Time.now, ending_time)
+  end
+
 end
