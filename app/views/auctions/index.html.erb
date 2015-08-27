@@ -12,6 +12,8 @@
 
     <div class="col-md-3"><br>
       <div class="list-group">
+        <%= link_to "View All", {controller: 'auctions', action: 'index'},
+                    class: 'list-group-item'  %>
         <% @categories.each do |category| %>
             <%= link_to category.name,
                         {controller: 'auctions', action: 'index', :category_id => category.id },
