@@ -220,37 +220,68 @@ class Seed
     Auction.create!(product_id: 1,
                     starting_time: DateTime.civil(2015, 8, 20, 5, 0, 0, 0),
                     ending_time: DateTime.civil(2015, 8, 25, 5, 0, 0, 0),
-                    starting_price: 100.00)
+                    starting_price: 100.00,
+                    category_id: 1)
 
-    Auction.create!(product_id: 200,
+    Auction.create!(product_id: 2,
                     starting_time: DateTime.now,
                     ending_time: DateTime.now + 10.days,
-                    starting_price: 200.00)
+                    starting_price: 200.00,
+                    category_id: 2)
 
-    Auction.create!(product_id: 250,
+    Auction.create!(product_id: 3,
                     starting_time: DateTime.now,
                     ending_time: DateTime.now + 10.days,
-                    starting_price: 2500.00)
+                    starting_price: 2500.00,
+                    category_id: 3)
     
-    Auction.create!(product_id: 300,
+    Auction.create!(product_id: 4,
                     starting_time: DateTime.now,
                     ending_time: DateTime.now + 10.days,
-                    starting_price: 2000.00)
+                    starting_price: 2000.00,
+                    category_id: 4)
 
-    Auction.create!(product_id: 350,
+    Auction.create!(product_id: 5,
                     starting_time: DateTime.now,
                     ending_time: DateTime.now + 10.days,
-                    starting_price: 600.00)
+                    starting_price: 600.00,
+                    category_id: 5)
 
-    Auction.create!(product_id: 400,
+    Auction.create!(product_id: 6,
                     starting_time: DateTime.now,
                     ending_time: DateTime.now + 10.days,
-                    starting_price: 700.00)
+                    starting_price: 700.00,
+                    category_id: 6)
 
-    Auction.create!(product_id: 450,
+    Auction.create!(product_id: 7,
                     starting_time: DateTime.now,
                     ending_time: DateTime.now + 10.days,
-                    starting_price: 500.00)
+                    starting_price: 500.00,
+                    category_id: 7)
+
+    Auction.create!(product_id: 8,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 500.00,
+                    category_id: 8)
+
+    Auction.create!(product_id: 9,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 500.00,
+                    category_id: 9)
+
+    Auction.create!(product_id: 10,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 500.00,
+                    category_id: 10)
+
+    Auction.create!(product_id: 89,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 500.00,
+                    category_id: 1)
   end
 
   def generate_bids
