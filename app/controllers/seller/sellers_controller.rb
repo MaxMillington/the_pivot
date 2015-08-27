@@ -1,3 +1,7 @@
-class Sellers::SellersController < ApplicationController
+class Seller::SellersController < ApplicationController
+
+  def index
+
+  end
 
 end

@@ -27,13 +27,11 @@ Rails.application.routes.draw do
     get '/', to: 'products#index'
     resources :categories, param: :slug, only: [:show]
 
-    namespace :admin do
       resources :products
 
-      get "/",           to: "admins#index"
-      get "/dashboard",  to: "admins#index"
+      get "/",           to: "sellers#index"
+      get "/dashboard",  to: "sellers#index"
 
-    end
   end
 
   namespace :super_admin do
