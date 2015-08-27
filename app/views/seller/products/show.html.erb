@@ -1,0 +1,49 @@
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-9"><br>
+
+      <div class="thumbnail">
+        <%= image_tag @product.image_url, class: "img-responsive" %>
+        <div class="caption-full">
+          <h4><a href="#"><%= @product.name %></a>
+          </h4>
+          <p><%= @product.description %></p><br>
+          <p>Condition: <%= @product.condition %></p>
+          <p>Category: <%= Category.find(@product.category_id).name %></p>
+          <p>Seller: <%= Seller.find(@product.seller_id).name %></p><br>
+        </div>
+      </div>
+
+      <div class="well">
+
+        <div class="text-right">
+          <a class="btn btn-success">Create Auction</a>
+        </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<!-- /.container -->
+
+<div class="container">
+
+  <hr>
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>

@@ -32,12 +32,8 @@ Rails.application.routes.draw do
   namespace :seller, path: ':seller', as: :seller do
     get '/', to: 'products#index'
     resources :categories, param: :slug, only: [:show]
-
-      resources :products
-
-      get "/",           to: "sellers#index"
-      get "/dashboard",  to: "sellers#index"
-
+    resources :products
+    get "/dashboard",  to: "sellers#index"
   end
 
   namespace :super_admin do
