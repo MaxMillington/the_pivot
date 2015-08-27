@@ -7,6 +7,8 @@ class Seed
     seed.generate_addresses
     seed.generate_categories
     seed.generate_products
+    seed.generate_auctions
+    seed.generate_bids
   end
 
   def generate_roles
@@ -212,6 +214,69 @@ class Seed
         seller_id: Seller.all.sample.id)
       end
     end
+  end
+
+  def generate_auctions
+    Auction.create!(product_id: 1,
+                    starting_time: DateTime.civil(2015, 8, 20, 5, 0, 0, 0),
+                    ending_time: DateTime.civil(2015, 8, 25, 5, 0, 0, 0),
+                    starting_price: 100.00)
+
+    Auction.create!(product_id: 200,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 200.00)
+
+    Auction.create!(product_id: 250,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 2500.00)
+    
+    Auction.create!(product_id: 300,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 2000.00)
+
+    Auction.create!(product_id: 350,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 600.00)
+
+    Auction.create!(product_id: 400,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 700.00)
+
+    Auction.create!(product_id: 450,
+                    starting_time: DateTime.now,
+                    ending_time: DateTime.now + 10.days,
+                    starting_price: 500.00)
+  end
+
+  def generate_bids
+    Bid.create!(user_id: 101,
+                auction_id: 1,
+                amount: 150)
+
+    Bid.create!(user_id: 5,
+                auction_id: 1,
+                amount: 250)
+
+    Bid.create!(user_id: 101,
+                auction_id: 1,
+                amount: 350)
+
+    Bid.create!(user_id: 101,
+                auction_id: 2,
+                amount: 5000)
+
+    Bid.create!(user_id: 101,
+                auction_id: 3,
+                amount: 3050)
+
+    Bid.create!(user_id: 101,
+                auction_id: 4,
+                amount: 5050)
   end
 
 
