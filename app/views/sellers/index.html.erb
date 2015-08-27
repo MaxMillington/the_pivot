@@ -1,0 +1,62 @@
+
+<body>
+
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Jumbotron Header -->
+  <header class="jumbotron hero-spacer">
+    <h1>Our Awesome Sellers</h1>
+    <p>Whether it is a new-in-box copy of the N64 classic video game Goldeneye or a perfectly restored 1957 Bugatti Type 252, our world renowned sellers will be able to fill your collection to your hearts content all with top notch customer service.</p>
+    </p>
+  </header>
+
+  <hr>
+
+  <!-- Title -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Sellers</h3>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Page Features -->
+  <div class="row text-center">
+
+    <% @sellers.each do |seller| %>
+
+    <div class="col-md-3 col-sm-6 hero-feature">
+      <div class="thumbnail">
+        <img src="http://placehold.it/800x500" alt="">
+        <div class="caption">
+          <h3><%= seller.name %></h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p>
+            <%= link_to "View Auctions", seller_path(seller), class: "btn btn-primary" %> <a href="#" class="btn btn-default">Contact</a>
+          </p>
+        </div>
+      </div>
+    </div>
+        <% end %>
+
+
+
+  </div>
+  <!-- /.row -->
+
+  <hr>
+
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
