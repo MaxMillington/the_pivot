@@ -29,12 +29,11 @@
       <h2>Contact Us</h2>
       <address>
         <strong><%= @seller.name %></strong>
-        <br>3481 Melrose Place
-        <br>Beverly Hills, CA 90210
+        <br><%= @seller.addresses.first.address_1 %>
+        <br><%= @seller.addresses.first.city %>, <%=  @seller.addresses.first.state %> <%= @seller.addresses.first.zip_code %>
         <br>
       </address>
       <address>
-        <abbr title="Phone">P:</abbr>(123) 456-7890
         <br>
         <abbr title="Email">E:</abbr> <a href="mailto:#"><%= @seller.email %></a>
       </address>
