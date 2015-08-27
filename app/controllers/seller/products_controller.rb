@@ -3,8 +3,19 @@ class Seller::ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update]
 
   def index
-    @products = Product.all
+    @seller = Seller.find_by(slug: params[:seller])
+    @categories = Category.all
+    @products = Product.where(seller_id: @seller.id).paginate(:page => params[:page], :per_page => 20)
+    filtering_params(params).each do |key, value|
+      @products = @products.public_send(key, value) if value.present?
+    end
   end
+
+  def show
+    load_featured_products
+    @product = Product.find(params[:id])
+  end
+
 
   def new
     @product = Product.new
@@ -42,5 +53,12 @@ class Seller::ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+
+  private
+
+  def filtering_params(params)
+    params.slice(:category_id)
   end
 end
