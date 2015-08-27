@@ -49,7 +49,7 @@
 
         <div class="text-left">
           <h3>Bid Status</h3>
-          <p>Time Remaining: </p>
+          <p>Time Remaining: <%= distance_of_time_in_words(Time.now, @auction.ending_time) %></p>
           <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
           <p>Current Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
           <p>Current High Bidder: <%= @auction.bids.last.user.full_name %></p>

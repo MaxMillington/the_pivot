@@ -1,7 +1,4 @@
 class Auction < ActiveRecord::Base
-  attr_reader :starting_time
-  attr_reader :ending_time
-
   belongs_to :product
   has_many :bids
   has_many :users, through: :bids
