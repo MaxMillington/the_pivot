@@ -47,6 +47,8 @@ gem 'twilio-ruby'
 gem 'figaro'
 gem 'will_paginate', '~> 3.0.6'
 
+gem 'rails_12factor'
+
 
 group :development, :test do
   gem 'rspec-rails'
