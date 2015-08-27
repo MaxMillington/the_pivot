@@ -41,18 +41,30 @@
           <h4><a href="#"><%= @auction.product.name %></a>
           </h4>
           <p><%= @auction.product.description %></p><br>
-          <p>Condition: <%= @auction.product.condition %></p>
-          <p>Seller: <%= Seller.find(@auction.product.seller_id).name %></p><br>
         </div>
       </div>
 
+
       <div class="well">
 
-        <div class="text-right">
+        <div class="text-left">
+          <h3>Bid Status</h3>
+          <p>Time Remaining: </p>
+          <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
+          <p>Current Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
+          <p>Current High Bidder: <%= @auction.bids.last.user.full_name %></p>
           <a class="btn btn-success">Bid on Auction</a>
         </div>
 
 
+      </div>
+
+      <div class="well">
+
+        <div class="text-left">
+        </div>
+        <p>Condition: <%= @auction.product.condition %></p>
+        <p>Seller: <%= Seller.find(@auction.product.seller_id).name %></p><br>
         </div>
 
       </div>
