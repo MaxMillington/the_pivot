@@ -56,7 +56,8 @@ class Seed
     20.times do |i|
       Seller.create!(
       name: Faker::Company.name,
-      email: Faker::Internet.email)
+      email: Faker::Internet.email,
+      image_url: Faker::Avatar.image)
     end
   end
 
