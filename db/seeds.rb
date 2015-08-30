@@ -191,7 +191,7 @@ class Seed
 
     Product.create(name: "Michael Jackson's Glove",
                    description: "Prove that Billy Jean is not your lover with Michael Jackson's one of a kind diamond studded glove.",
-                   image_url: "glove.jpg",
+                   image_url: "entertainment/glove.jpg",
                    category_id: 9,
                    condition: "mint",
                    seller_id: Seller.all.sample.id)
@@ -688,8 +688,44 @@ class Seed
                      category_id: 10,
                      condition: ["fair", "good", "poor", "mint", "excellent"].sample,
                      seller_id: Seller.all.sample.id)
+    end
 
+    5.times do |i|
 
+      Product.create(name: "Michael Jackson's Glove",
+                     description: "Prove that Billy Jean is not your lover with Michael Jackson's one of a kind diamond studded glove.",
+                     image_url: "entertainment/glove.jpg",
+                     category_id: 9,
+                     condition: "mint",
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Star Trek TOS Phaser",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "entertainment/phaser.jpg",
+                     category_id: 9,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Darth Vader Helmet",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "entertainment/vader.jpg",
+                     category_id: 9,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Marlon Brando's Godfather Hat",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "entertainment/godfather.jpg",
+                     category_id: 9,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Elvis Signature",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "entertainment/elvis.jpg",
+                     category_id: 9,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
     end
 
 
