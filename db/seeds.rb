@@ -544,49 +544,49 @@ class Seed
 
       Product.create(name: "Singed Lawrence Taylor Jersey",
                      description: "Own the jersey of the most dangerous linebacker every to set foot on the field.",
-                     image_url: "sports/lt.jpeg",
+                     image_url: "sports/lt.jpg",
                      category_id: 3,
                      condition: "mint",
                      seller_id: Seller.all.sample.id)
 
       Product.create(name: "Michael Jordan Signed Basketball",
                      description: Faker::Lorem.paragraph,
-                     image_url: "sports/mike.jpeg",
+                     image_url: "sports/mike.jpg",
                      category_id: 3,
                      condition: ["fair", "good", "poor", "mint", "excellent"].sample,
                      seller_id: Seller.all.sample.id)
 
       Product.create(name: "Babe Ruth Autographed Baseball",
                      description: Faker::Lorem.paragraph,
-                     image_url: "sports/babe_ruth.jpeg",
+                     image_url: "sports/babe_ruth.JPG",
                      category_id: 3,
                      condition: ["fair", "good", "poor", "mint", "excellent"].sample,
                      seller_id: Seller.all.sample.id)
 
       Product.create(name: "Jake LaMotta Signed Photograph",
                      description: Faker::Lorem.paragraph,
-                     image_url: "sports/jake.jpeg",
+                     image_url: "sports/jake.jpg",
                      category_id: 3,
                      condition: ["fair", "good", "poor", "mint", "excellent"].sample,
                      seller_id: Seller.all.sample.id)
 
       Product.create(name: "Emmit Smith Signed Football",
                      description: Faker::Lorem.paragraph,
-                     image_url: "sports/emmit.jpeg",
+                     image_url: "sports/emmit.jpg",
                      category_id: 3,
                      condition: ["fair", "good", "poor", "mint", "excellent"].sample,
                      seller_id: Seller.all.sample.id)
 
       Product.create(name: "Lary Bird and Magic Johnson Signed Photograph",
                      description: Faker::Lorem.paragraph,
-                     image_url: "sports/larry_magic.jpeg",
+                     image_url: "sports/larry_magic.jpg",
                      category_id: 3,
                      condition: ["fair", "good", "poor", "mint", "excellent"].sample,
                      seller_id: Seller.all.sample.id)
 
       Product.create(name: "Leon Spinks Signed Gloves",
                      description: Faker::Lorem.paragraph,
-                     image_url: "sports/leon_spinks.jpeg",
+                     image_url: "sports/leon_spinks.jpg",
                      category_id: 3,
                      condition: ["fair", "good", "poor", "mint", "excellent"].sample,
                      seller_id: Seller.all.sample.id)
