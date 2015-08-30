@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "anyone can view auctions by category" do
+feature "platform admin can see all products and filter by category" do
   before do
     @seller = Seller.create(name: "ACME",
                             email: "hello@acme.com")
