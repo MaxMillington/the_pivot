@@ -198,7 +198,7 @@ class Seed
 
     Product.create(name: "Original Walker Colt",
                    description: "Go ahead, make someone's day with this highly sought after Spanish American War classic.",
-                   image_url: "colt.jpg",
+                   image_url: "guns/colt.jpg",
                    category_id: 10,
                    condition: "good",
                    seller_id: Seller.all.sample.id)
@@ -641,6 +641,51 @@ class Seed
                      description: Faker::Lorem.paragraph,
                      image_url: "antiques/desk.jpg",
                      category_id: 8,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+    end
+
+    7.times do |i|
+
+      Product.create(name: "Original Walker Colt",
+                     description: "Go ahead, make someone's day with this highly sought after Spanish American War classic.",
+                     image_url: "guns/colt.jpg",
+                     category_id: 10,
+                     condition: "good",
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Antique Blunderbuss",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "guns/blunderbuss.jpg",
+                     category_id: 10,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Antique Charing Cross",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "guns/charing_cross_gun.jpg",
+                     category_id: 10,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Antique Italian Pistol",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "guns/italian_pistol.jpg",
+                     category_id: 10,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Antique Spanish Gun",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "guns/spanish_gun.jpg",
+                     category_id: 10,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Original Winchester Rifle",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "guns/winchester.jpg",
+                     category_id: 10,
                      condition: ["fair", "good", "poor", "mint", "excellent"].sample,
                      seller_id: Seller.all.sample.id)
 
