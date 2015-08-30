@@ -112,7 +112,7 @@ class Seed
     Category.create!(
         name: "Comics",
         description: Faker::Lorem.paragraph,
-        image_url: 'action_comics.jpg')
+        image_url: 'comics/action_comics.jpg')
     Category.create!(
         name: "Books",
         description: Faker::Lorem.paragraph,
