@@ -1,81 +1,77 @@
 require "rails_helper"
-require "factory_helper"
 
-feature "a visitor" do
+feature "anyone can view auctions by category" do
   before do
-    build_products
+    @seller = Seller.create(name: "ACME",
+                            email: "hello@acme.com")
+
+    category = Category.create(name: "Comics")
+    category2 = Category.create(name: "Instruments")
+
+    @product = @seller.products.create(name: "The Amazing Spider-Man",
+                                       category_id: category.id,
+                                       description: "The description goes here",
+                                       condition: "mint")
+
+    @product2 = @seller.products.create(name: "Gibson Les Paul",
+                                       category_id: category2.id,
+                                       description: "Guitar",
+                                       condition: "mint")
+
+    seller_admin = User.create(first_name: "John",
+                               last_name: "Doe",
+                               email: "email@example.com",
+                               password: "password",
+                               seller_id: @seller.id)
+
+    regular_user = User.create(first_name: "Miles",
+                               last_name: "Davis",
+                               password: "password")
+
+    auction_1 = Auction.create(product_id: @product.id,
+                               starting_time: DateTime.now,
+                               ending_time: DateTime.now + 2.days,
+                               starting_price: 500,
+                               category_id: category.id)
+
+    auction_2 = Auction.create(product_id: @product2.id,
+                               starting_time: DateTime.now,
+                               ending_time: DateTime.now + 2.days,
+                               starting_price: 600,
+                               category_id: category2.id)
+
+    Role.create(name: "platform_admin")
+    Role.create(name: "seller_admin")
+    Role.create(name: "registered_user")
+
+    seller_admin.roles << Role.find_by(name: "seller_admin")
+
+    allow_any_instance_of(ApplicationController)
+        .to receive(:current_user).and_return(regular_user)
   end
 
-  context "visits /categories/food" do
-    scenario "and sees all food products" do
-      visit root_path
-      within("#food-panel") do
-        click_link("Shop Now")
+  context "visits /categories" do
+    scenario "sees list of categories and get see auctions by category" do
+      visit categories_path
+
+      expect(current_path).to eq(categories_path)
+
+      expect(page).to have_content("Comics")
+
+      expect(page).to have_content("Instruments")
+
+      within("h3", text: "Comics") do
+        click_link("Comics")
       end
 
-      expect(current_path).to eq(category_path(@food.slug))
+      expect(page).to have_content("The Amazing Spider-Man")
 
-      within("h1") do
-        expect(page).to have_content("Food")
+      within(".list-group", text: "Instruments") do
+        click_link_or_button("Instruments")
       end
 
-      within("#category-description") do
-        expect(page).to have_content("Your carnivorous plants, big or small," \
-          " are guaranteed to love our wide variety of meaty treats.")
-      end
-
-      expect(page).to have_selector(".thumbnail", count: 3)
-      expect(page).to have_content("Food 3")
-      expect(page).to have_content("19.99")
-      expect(page).to have_xpath("//img[@src=\"/assets/food/beetles.jpg\"]")
+      expect(page).to have_content("Gibson Les Paul")
     end
   end
 
-  context "visits /categories/plants" do
-    scenario "and sees all plants products" do
-      visit root_path
-      within("#plants-panel") do
-        click_link("Shop Now")
-      end
-
-      expect(current_path).to eq(category_path(@plants.slug))
-
-      within("h1") do
-        expect(page).to have_content("Plants")
-      end
-
-      within("#category-description") do
-        expect(page).to have_content("The largest selection of carnivorous")
-      end
-
-      expect(page).to have_selector(".thumbnail", count: 3)
-      expect(page).to have_content("Plant 3")
-      expect(page).to have_content("29.99")
-      expect(page).to have_xpath("//img[@src=\"/assets/plants/plant-2.jpg\"]")
-    end
-  end
-
-  context "visits /categories/accessories" do
-    scenario "and sees all accessories" do
-      visit root_path
-      within("#accessories-panel") do
-        click_link("Shop Now")
-      end
-
-      expect(current_path).to eq(category_path(@accessories.slug))
-
-      within("h1") do
-        expect(page).to have_content("Accessories")
-      end
-
-      within("#category-description") do
-        expect(page).to have_content("From gardening tools to the latest in")
-      end
-
-      expect(page).to have_selector(".thumbnail", count: 3)
-      expect(page).to have_content("Accessory 3")
-      expect(page).to have_content("19.99")
-      expect(page).to have_xpath("//img[@src=\"/assets/accessories/soil.jpg\"]")
-    end
-  end
 end

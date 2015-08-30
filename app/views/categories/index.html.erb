@@ -25,7 +25,7 @@
                         class: 'img-responsive'%>
             <div class="caption">
               <h3>
-                <%= category.name %>
+                <%= link_to category.name, {controller: 'auctions', action: 'index', :category_id => category.id } %>
               </h3>
               <p><%= category.description %></p>
             </div>
