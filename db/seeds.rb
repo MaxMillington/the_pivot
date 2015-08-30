@@ -149,14 +149,14 @@ class Seed
 
     Product.create(name: "Singed Lawrence Taylor Jersey",
                    description: "Own the jersey of the most dangerous linebacker every to set foot on the field.",
-                   image_url: "lt.jpeg",
+                   image_url: "sports/lt.jpeg",
                    category_id: 3,
                    condition: "mint",
                    seller_id: Seller.all.sample.id)
 
     Product.create(name: "AT-AT Set",
                    description: "Take down the rebellion on the icy planet of Hoth with this unique set of AT-AT walkers.",
-                   image_url: "atat.jpg",
+                   image_url: "toys/atat.jpg",
                    category_id: 4,
                    condition: "good",
                    seller_id: Seller.all.sample.id)
@@ -478,6 +478,120 @@ class Seed
                      category_id: 2,
                      condition: ["fair", "good", "poor", "mint", "excellent"].sample,
                      seller_id: Seller.all.sample.id)
+    end
+
+
+    7.times do |i|
+
+      Product.create(name: "AT-AT Set",
+                     description: "Take down the rebellion on the icy planet of Hoth with this unique set of AT-AT walkers.",
+                     image_url: "toys/atat.jpg",
+                     category_id: 4,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Rock-Em Sock-Em Robots",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "toys/robots.jpg",
+                     category_id: 4,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Han Solo",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "toys/han_solo.jpg",
+                     category_id: 4,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Vintage Linemar",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "toys/linemar.jpg",
+                     category_id: 4,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Pinochio",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "toys/pinochio.jpg",
+                     category_id: 4,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Rockinghorse",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "toys/rockinghorse.jpg",
+                     category_id: 4,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Spaceship",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "toys/spaceship.jpg",
+                     category_id: 4,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "X-Wing",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "toys/x_wing.jpg",
+                     category_id: 4,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+    end
+
+    7.times do |i|
+
+      Product.create(name: "Singed Lawrence Taylor Jersey",
+                     description: "Own the jersey of the most dangerous linebacker every to set foot on the field.",
+                     image_url: "sports/lt.jpeg",
+                     category_id: 3,
+                     condition: "mint",
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Michael Jordan Signed Basketball",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "sports/mike.jpeg",
+                     category_id: 3,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Babe Ruth Autographed Baseball",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "sports/babe_ruth.jpeg",
+                     category_id: 3,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Jake LaMotta Signed Photograph",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "sports/jake.jpeg",
+                     category_id: 3,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Emmit Smith Signed Football",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "sports/emmit.jpeg",
+                     category_id: 3,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Lary Bird and Magic Johnson Signed Photograph",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "sports/larry_magic.jpeg",
+                     category_id: 3,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Leon Spinks Signed Gloves",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "sports/leon_spinks.jpeg",
+                     category_id: 3,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+
     end
 
 
