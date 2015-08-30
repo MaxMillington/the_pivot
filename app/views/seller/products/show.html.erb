@@ -20,8 +20,12 @@
       <div class="well">
 
         <div class="text-right">
-          <a class="btn btn-success">Create Auction</a>
-        </div>
+          <%= link_to "Create Auction",
+              new_seller_auction_path(params[:seller],
+                                      product_id: @product.id,
+                                      category_id: @product.category.id),
+              class: "btn btn-success" %>
+      </div>
 
 
         </div>
