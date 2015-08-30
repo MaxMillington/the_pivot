@@ -1,0 +1,37 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="<%= seller_dashboard_path(@seller.slug) %>">Admin Dashboard</a></li>
+    <li><a href="<%= seller_products_path(@seller.slug) %>">All Products</a></li>
+    <li class="active">Add New Product</li>
+  </ol>
+</div>
+
+<div class="container">
+  <h1 class="text-center">Add a New Product</h1>
+  <div class="well col-sm-6 col-sm-offset-3">
+    <%= form_for @product, :url => seller_products_path do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :condition %>
+      <%= f.text_field :condition, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :category %>
+      <%= collection_select :product, :category_id, Category.all, :id, :name,
+                            {}, { class: "form-control" } %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image_url, "Image Url" %>
+      <%= f.text_field :image_url, class: "form-control" %>
+    </div>
+      <%= f.submit "Add Product", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

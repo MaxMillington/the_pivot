@@ -18,14 +18,17 @@ class Seller::ProductsController < ApplicationController
 
 
   def new
+    @seller = Seller.find_by(slug: params[:seller])
     @product = Product.new
   end
 
   def create
+    seller = Seller.find_by(slug: params[:seller])
     @product = Product.new(product_params)
+    @product.update(seller_id: seller.id)
     if @product.save
       flash[:success] = "#{@product.name} has been added."
-      redirect_to admin_dashboard_path
+      redirect_to seller_dashboard_path
     else
       render :new
     end
