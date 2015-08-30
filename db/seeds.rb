@@ -591,7 +591,6 @@ class Seed
                      condition: ["fair", "good", "poor", "mint", "excellent"].sample,
                      seller_id: Seller.all.sample.id)
 
-
     end
 
 
