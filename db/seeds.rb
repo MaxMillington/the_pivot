@@ -184,7 +184,7 @@ class Seed
 
     Product.create(name: "1920's Tiffany Lamp",
                    description: "Own this gorgeous Tiffany lamp from the golden era of luxury.",
-                   image_url: "tiffany.jpg",
+                   image_url: "antiques/tiffany.jpg",
                    category_id: 8,
                    condition: "mint",
                    seller_id: Seller.all.sample.id)
@@ -590,6 +590,60 @@ class Seed
                      category_id: 3,
                      condition: ["fair", "good", "poor", "mint", "excellent"].sample,
                      seller_id: Seller.all.sample.id)
+
+    end
+
+    7.times do |i|
+
+      Product.create(name: "1920's Tiffany Lamp",
+                     description: "Own this gorgeous Tiffany lamp from the golden era of luxury.",
+                     image_url: "antiques/tiffany.jpg",
+                     category_id: 8,
+                     condition: "mint",
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Antique Chairs",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "antiques/chairs.jpg",
+                     category_id: 8,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Antique Chest",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "antiques/chest.jpg",
+                     category_id: 8,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Old Teapot",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "antiques/teapot.jpg",
+                     category_id: 8,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Chinese Vase",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "antiques/vase.jpg",
+                     category_id: 8,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Antique Persian Rug",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "antiques/persian_rug.jpg",
+                     category_id: 8,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
+      Product.create(name: "Antique Desk",
+                     description: Faker::Lorem.paragraph,
+                     image_url: "antiques/desk.jpg",
+                     category_id: 8,
+                     condition: ["fair", "good", "poor", "mint", "excellent"].sample,
+                     seller_id: Seller.all.sample.id)
+
 
     end
 
