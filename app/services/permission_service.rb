@@ -1,4 +1,4 @@
-class PermissionService
+  class PermissionService
   attr_reader :user
   attr_reader :controller
   attr_reader :action
