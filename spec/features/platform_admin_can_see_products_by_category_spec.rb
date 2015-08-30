@@ -59,7 +59,7 @@ feature "platform admin can see all products and filter by category" do
 
   context "visits /categories" do
 
-    scenario "sees list of categories and get see auctions by category" do
+    scenario "sees list of categories and get see products by category" do
       allow_any_instance_of(ApplicationController)
           .to receive(:current_user).and_return(@platform_admin)
 
