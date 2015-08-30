@@ -49,7 +49,7 @@
             <% Category.all.each do |category| %>
                 <li>
                   <%= link_to category.name,
-                              {controller: 'auctions', action: 'index', :category_id => category.id }%>
+                              {controller: '/auctions', action: 'index', :category_id => category.id }%>
                 </li>
             <% end %>
           </ul>
