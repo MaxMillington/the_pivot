@@ -18,13 +18,13 @@ feature "anyone can view auctions by category" do
                                        description: "Guitar",
                                        condition: "mint")
 
-    seller_admin = User.create(first_name: "John",
+    @seller_admin = User.create(first_name: "John",
                                last_name: "Doe",
                                email: "email@example.com",
                                password: "password",
                                seller_id: @seller.id)
 
-    regular_user = User.create(first_name: "Miles",
+    @regular_user = User.create(first_name: "Miles",
                                last_name: "Davis",
                                password: "password")
 
@@ -44,14 +44,25 @@ feature "anyone can view auctions by category" do
     Role.create(name: "seller_admin")
     Role.create(name: "registered_user")
 
-    seller_admin.roles << Role.find_by(name: "seller_admin")
+    @platform_admin = User.create!(
+        first_name: "platform",
+        last_name: "admin",
+        email: "super@turing.io",
+        password: "password")
 
-    allow_any_instance_of(ApplicationController)
-        .to receive(:current_user).and_return(regular_user)
+    @platform_admin.roles << Role.find_by(name: "platform_admin")
+
+    @seller_admin.roles << Role.find_by(name: "seller_admin")
+
+
   end
 
   context "visits /categories" do
+
     scenario "sees list of categories and get see auctions by category" do
+      allow_any_instance_of(ApplicationController)
+          .to receive(:current_user).and_return(@regular_user)
+
       visit categories_path
 
       expect(current_path).to eq(categories_path)
