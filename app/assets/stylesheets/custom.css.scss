@@ -296,6 +296,10 @@ footer {
   .feature-card.thumbnail {
     height: 340px;
   }
+
+  .thumbnail {
+    height: 450px; 
+  }
 }
 
 @media(min-width:1190px) {
@@ -306,8 +310,4 @@ footer {
   .feature-card.thumbnail {
     height: 375px;
   }
-}
-
-#category-row {
-
 }
