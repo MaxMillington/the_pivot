@@ -15,9 +15,7 @@ feature "a seller/store admin can create products" do
                                password: "password",
                                seller_id: @seller.id)
 
-    Role.create(name: "platform_admin")
     Role.create(name: "seller_admin")
-    Role.create(name: "registered_user")
 
     seller_admin.roles << Role.find_by(name: "seller_admin")
 
