@@ -9,33 +9,15 @@
           </h1>
         </div>
       </div>
-      <div id="search" class="well">
-        <div class="row">
-          <div class="col-md-8">
-            <form>
-              <br>
-              <input type="text" name="search">
-              <br>
-            </form>
-          </div>
-          <div class="col-md-4">
-            <%= link_to "Search", products_path, class: "btn btn-lg btn-success btn-block"%>
-          </div>
-        </div>
-      </div>
+    </div>
     </div>
   </div>
 </header>
 <!-- Page Content -->
+<div class="secondary-image">
 <div class="container">
-  <br>
-  <hr>
-  <div class="row">
-    <%= render "partials/categories_carousel" %>
-  </div><!-- /.row -->
-  <!-- Featured Products Section -->
   <div class="row">
     <%= render "partials/product_carousel" %>
   </div>
-  <hr>
 </div><!-- /.container -->
+</div>
