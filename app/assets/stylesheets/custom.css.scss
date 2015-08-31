@@ -356,3 +356,51 @@ footer {
   border-radius: 15px;
 }
 
+
+// Auction Show Page Styles
+.auction-index-card {
+  max-height: 300px;
+  box-shadow: black 2px 10px 20px;
+}
+
+.auction-index-card img{
+  padding-top: 15px;
+  min-height: 150px;
+  max-height: 150px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.auction-index-card p{
+  font-size: 12px;
+}
+
+.auction-show-picture {
+  display: block;
+  width: 500px;
+  padding: 4px;
+  margin-bottom: 21px;
+  line-height: 1.4;
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  border-radius: 0px;
+  transition: border 0.2s ease-in-out 0s;
+  box-shadow: black 2px 10px 20px;
+}
+
+.pic-col {
+  margin-right: 20%;
+}
+.auction-show-picture img {
+  width: 100%;
+  min-height: 400px;
+  max-height: 400px;
+
+}
+
+
+.caption-full {
+  height:300px;
+}

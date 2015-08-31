@@ -33,20 +33,20 @@
       <div class="row">
         <% @auctions.each do |auction| %>
             <div class="col-sm-4">
-              <div class="thumbnail">
+              <div class="thumbnail auction-index-card">
                 <%=link_to image_tag(auction.product.image_url),
                            auction_path(auction.id),
                            class: 'img-circle img-responsive img-center'%>
                 <div class="caption">
-                  <h4><%= link_to auction.product.name, auction_path(auction.id) %>
-                  </h4>
-                  <p>Starting Price: <%= number_to_currency(auction.starting_price) %></p>
+                  <h5><%= link_to auction.product.name, auction_path(auction.id) %>
+                  </h5>
+                  <p>Starting Price: <span class="bold"><%= number_to_currency(auction.starting_price) %></span></p>
                   <% if auction.bids.count == 0 %>
-                      <p>No bids yet</p>
+                      <p<span class="bold">No bids yet</span></p>
                   <% else %>
-                      <p>Current Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
+                      <p>Current Bid: <span class="bold"><%= number_to_currency(auction.bids.last.amount) %></span></p>
                 <% end %>
-                  <p>Time Remaining: <%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
+                  <p>Time Remaining: <span class="bold"><%= distance_of_time_in_words(Time.now, auction.ending_time) %></span></p>
                 </div>
               </div>
             </div>
