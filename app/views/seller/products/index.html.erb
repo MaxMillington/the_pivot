@@ -33,6 +33,7 @@
                 <h4><%= link_to product.name, seller_product_path(@seller.slug, product.id) %>
               </h4>
               <p><%= truncate(product.description, length: 80) %></p>
+              <%= link_to "edit", edit_seller_product_path(@seller.slug, product.id) %>
               </div>
             </div>
           </div>
