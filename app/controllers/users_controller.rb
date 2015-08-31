@@ -24,6 +24,8 @@ class UsersController < ApplicationController
   end
 
   def feed
+    @bid = Bid.new
+    @auctions = current_user.auctions.uniq
   end
 
   def edit
