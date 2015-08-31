@@ -1,12 +1,12 @@
 <h1 id="feed-title">My Active Bids</h1>
 
-<div class="row">
+<div class="row feed-row">
 <% @auctions.each do |auction| %>
     <div class="feed-card col-md-4">
     <% if auction.bids.last.user.full_name == current_user.full_name %>
         <div class="jumbotron auction-jumbo auction-jumbo-winning">
           <%= image_tag auction.product.image_url, class: "img-responsive auction-jumbo-picture" %>
-          <h3><%= link_to auction.product.name, auction_path(auction) %></h3>
+          <h4><%= link_to auction.product.name, auction_path(auction) %></h4>
           <section class="feed-info">
             <p>You are the current High Bidder!</p>
             <p>Your Current High Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
@@ -16,7 +16,7 @@
         <% else %>
         <div class="jumbotron auction-jumbo auction-jumbo-losing">
             <%= image_tag auction.product.image_url, class: "img-responsive auction-jumbo-picture" %>
-            <h3><%= link_to auction.product.name, auction_path(auction) %></h3>
+            <h4><%= link_to auction.product.name, auction_path(auction) %></h4>
           <section class="feed-info">
             <p>Current High Bidder: <%= auction.bids.last.user.full_name %></p>
             <p>Current Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
