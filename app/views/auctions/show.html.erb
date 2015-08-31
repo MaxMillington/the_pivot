@@ -33,21 +33,23 @@
 
   <div class="row">
 
-    <div class="col-md-9"><br>
-
-      <div class="thumbnail">
-        <%= image_tag @auction.product.image_url, class: "img-responsive" %>
+    <div class="col-md-3 pic-col"><br>
+      <div class="auction-show-picture">
+        <%= image_tag @auction.product.image_url, class: "img-responsive"  %>
+      </div>
+    </div>
+    <div class="col-md-3"><br>
+      <div class="well">
         <div class="caption-full">
-          <h4><a href="#"><%= @auction.product.name %></a>
-          </h4>
-          <p><%= @auction.product.description %></p><br>
+        <h4><a href="#"><%= @auction.product.name %></a>
+        </h4>
+        <p><%= @auction.product.description %></p><br>
         </div>
       </div>
-
-
+    </div>
+    <div class="col-md-3"><br>
       <div class="well">
-
-        <div class="text-left">
+        <div class="caption-full">
           <h3>Bid Status</h3>
           <p>Time Remaining: <%= distance_of_time_in_words(Time.now, @auction.ending_time) %></p>
           <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
@@ -62,7 +64,11 @@
 
 
       </div>
+    </div>
+    </div>
+  <div class="row">
 
+    <div class="col-md-12"><br>
       <div class="well">
 
         <div class="text-left">
@@ -73,7 +79,6 @@
 
       </div>
 
-    </div>
 
   </div>
 
