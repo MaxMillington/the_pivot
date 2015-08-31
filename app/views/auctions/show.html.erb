@@ -44,6 +44,9 @@
         <h4><a href="#"><%= @auction.product.name %></a>
         </h4>
         <p><%= @auction.product.description %></p><br>
+          <p>Condition: <%= @auction.product.condition %></p><br>
+          <p>Seller: <%= link_to Seller.find(@auction.product.seller_id).name, seller_path(Seller.find(@auction.product.seller_id)) %></p><br>
+
         </div>
       </div>
     </div>
@@ -66,21 +69,6 @@
       </div>
     </div>
     </div>
-  <div class="row">
-
-    <div class="col-md-12"><br>
-      <div class="well">
-
-        <div class="text-left">
-        </div>
-        <p>Condition: <%= @auction.product.condition %></p>
-        <p>Seller: <%= Seller.find(@auction.product.seller_id).name %></p><br>
-        </div>
-
-      </div>
-
-
-  </div>
 
 </div>
 <!-- /.container -->
