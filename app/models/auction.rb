@@ -10,8 +10,4 @@ class Auction < ActiveRecord::Base
     bid.amount
   end
 
-  def time_remaining
-    distance_of_time_in_words(Time.now, ending_time)
-  end
-
 end

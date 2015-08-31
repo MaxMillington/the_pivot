@@ -311,3 +311,21 @@ footer {
     height: 375px;
   }
 }
+
+// Feed Page Styles
+.auction-jumbo {
+  width: 30%;
+}
+
+.auction-jumbo-picture {
+  width: 100px;
+  float:left;
+  background: rgba(0, 0, 0, 0);
+}
+.auction-jumbo-winning {
+  background: rgba(0, 102, 40, 0.6);
+}
+
+.auction-jumbo-losing {
+  background: rgba(102, 35, 30, 0.6);
+}

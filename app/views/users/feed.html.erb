@@ -1,1 +1,29 @@
 <h1>My Active Bids</h1>
+
+<% @auctions.each do |auction| %>
+    <% if auction.bids.last.user.full_name == current_user.full_name %>
+        <div class="jumbotron auction-jumbo auction-jumbo-winning">
+          <div class="jumbotron auction-jumbo-picture">
+            <%= image_tag auction.product.image_url, class: "img-responsive" %>
+          </div>
+          <h3><%= auction.product.name %></h3>
+          <p>Current Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
+          <p>Current High Bidder: <%= auction.bids.last.user.full_name %></p>
+          <p>Time Remaining: <%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
+
+          <p><%= link_to 'View Auction', auction_path(auction) %></p>
+        </div>
+        <% else %>
+        <div class="jumbotron auction-jumbo auction-jumbo-losing">
+          <div class="jumbotron auction-jumbo-picture">
+            <%= image_tag auction.product.image_url, class: "img-responsive" %>
+          </div>
+          <h3><%= auction.product.name %></h3>
+          <p>Current Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
+          <p>Current High Bidder: <%= auction.bids.last.user.full_name %></p>
+          <p>Time Remaining: <%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
+
+          <p><%= link_to 'View Auction', auction_path(auction) %></p>
+        </div>
+    <% end %>
+<% end %>
