@@ -314,13 +314,29 @@ footer {
 
 // Feed Page Styles
 .auction-jumbo {
-  width: 30%;
+  width: 90%;
+  border-radius: 25px;
 }
+
+.auction-jumbo h3 {
+  margin-top: -25px;
+  color: white;
+
+}
+
+.feed-header {
+  padding-bottom: 25px;
+}
+
+
 
 .auction-jumbo-picture {
   width: 100px;
-  float:left;
+  float:right;
+  border-radius: 25px;
+  padding: 10px;
   background: rgba(0, 0, 0, 0);
+  margin-top: -40px;
 }
 .auction-jumbo-winning {
   background: rgba(0, 102, 40, 0.6);
@@ -329,3 +345,9 @@ footer {
 .auction-jumbo-losing {
   background: rgba(102, 35, 30, 0.6);
 }
+
+.feed-info {
+  margin-top: 75px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
