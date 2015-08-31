@@ -1,5 +1,4 @@
 require "rails_helper"
-require "factory_helper"
 
 feature "Admin can view all Products from Admin Dashboard" do
   before do
