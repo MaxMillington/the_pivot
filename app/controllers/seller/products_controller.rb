@@ -1,9 +1,8 @@
 class Seller::ProductsController < ApplicationController
-
   before_action :set_product, only: [:edit, :update]
+  before_action :set_seller, only: [:index, :new, :create, :edit, :update]
 
   def index
-    @seller = Seller.find_by(slug: params[:seller])
     @categories = Category.all
     @products = Product.where(seller_id: @seller.id).paginate(:page => params[:page], :per_page => 20)
     filtering_params(params).each do |key, value|
@@ -18,14 +17,12 @@ class Seller::ProductsController < ApplicationController
 
 
   def new
-    @seller = Seller.find_by(slug: params[:seller])
     @product = Product.new
   end
 
   def create
-    seller = Seller.find_by(slug: params[:seller])
     @product = Product.new(product_params)
-    @product.update(seller_id: seller.id)
+    @product.update(seller_id: @seller.id)
     if @product.save
       flash[:success] = "#{@product.name} has been added."
       redirect_to seller_dashboard_path
@@ -36,11 +33,11 @@ class Seller::ProductsController < ApplicationController
 
   def edit
   end
-
+  
   def update
     @product.update(product_params)
-    flash[:success] = "#{@product.name} has been updated."
-    redirect_to admin_products_path
+    flash[:success] = "You successfully edited #{@product.name}."
+    redirect_to seller_product_path(@seller.slug, @product.id)
   end
 
   private
@@ -48,16 +45,18 @@ class Seller::ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name,
                                     :description,
-                                    :price,
+                                    :condition,
                                     :image_url,
-                                    :category_id,
-                                    :status)
+                                    :category_id)
   end
 
   def set_product
     @product = Product.find(params[:id])
   end
 
+  def set_seller
+    @seller = Seller.find_by(slug: params[:seller])
+  end
 
   private
 

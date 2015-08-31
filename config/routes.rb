@@ -45,7 +45,6 @@ Rails.application.routes.draw do
     resources :products
     get '/', to: 'sellers#index'
     get "/dashboard",  to: "sellers#index"
-    resources :products
     resources :auctions, only: [:new, :create]
   end
 
