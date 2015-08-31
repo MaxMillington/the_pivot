@@ -1,4 +1,16 @@
 class Seller::AuctionsController < ApplicationController
+
+  def index
+    @categories = Category.all
+    seller = Seller.find_by(slug: params[:seller])
+    @auctions = seller.auctions
+                      .paginate(:page => params[:page], :per_page => 20)
+
+    filtering_params(params).each do |key, value|
+      @auctions = @auctions.public_send(key, value) if value.present?
+    end
+  end
+
   def new
     @auction = Auction.new(product_id: params[:product_id],
                            category_id: params[:category_id])
@@ -38,5 +50,9 @@ class Seller::AuctionsController < ApplicationController
   def auction_params
     params.require(:auction).permit(:product_id,
                                     :starting_price)
+  end
+
+  def filtering_params(params)
+    params.slice(:category_id)
   end
 end

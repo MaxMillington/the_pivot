@@ -2,21 +2,13 @@
   <h3 class="text-center">Admin Dashboard</h3>
   <div class="row">
     <div class="col-sm-6 ">
-      <a href="<%= seller_products_path(current_user.seller.slug) %>">
-        <div class="thumbnail">
-          <%= image_tag 'plants/3-plants.jpg', class: "img-responsive",
-                        alt: "3-plants image" %>
-          <p class="btn btn-block btn-primary">View All Products</p>
-        </div>
+      <a class="btn btn-block btn-primary" href="<%= seller_products_path(current_user.seller.slug) %>">
+        View All Products <span class="glyphicon glyphicon-folder-open" aria-hidden="true">
       </a>
     </div>
     <div class="col-sm-6 ">
-      <a href="#">
-        <div class="thumbnail">
-          <%= image_tag 'plants/plant-4.jpg', class: "img-responsive",
-                        alt: "3-plants image" %>
-          <p class="btn btn-block btn-primary">View All Orders</p>
-        </div>
+      <a class="btn btn-block btn-primary "href="<%= seller_auctions_path(current_user.seller.slug) %>">
+        View All Auctions <span class="glyphicon glyphicon-tags" aria-hidden="true">
       </a>
     </div>
   </div>

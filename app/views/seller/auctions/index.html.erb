@@ -1,0 +1,52 @@
+<!-- Page Content -->
+<div class="container">
+  <h1 class="text-center">Auctions</h1>
+  <div class="row">
+    <div class="col-md-3"><br>
+      <div class="list-group">
+        <%= link_to "View All", {controller: 'auctions', action: 'index'},
+          class: 'list-group-item'  %>
+        <% @categories.each do |category| %>
+          <%= link_to category.name,
+            {controller: 'auctions', action: 'index', :category_id => category.id },
+            class: 'list-group-item' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <% @auctions.each do |auction| %>
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <%=link_to image_tag(auction.product.image_url),
+                auction_path(auction.id),
+                class: 'img-circle img-responsive img-center'%>
+              <div class="caption">
+                <h4><%= link_to auction.product.name, auction_path(auction.id) %>
+              </h4>
+              <p>Starting Price: <%= number_to_currency(auction.starting_price) %></p>
+              <% if auction.bids.count == 0 %>
+                <p>No bids yet</p>
+              <% else %>
+                <p>Current Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
+              <% end %>
+              <p>Time Remaining: <%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  <!--Pagination-->
+  <div class="row text-center">
+    <div class="col-lg-12">
+      <ul class="pagination">
+        <li>
+          <%= will_paginate @auctions %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

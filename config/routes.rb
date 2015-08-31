@@ -40,12 +40,11 @@ Rails.application.routes.draw do
   end
 
   namespace :seller, path: ':seller', as: :seller do
-    # get '/', to: 'products#index'
     resources :categories, param: :slug, only: [:show]
     resources :products
     get '/', to: 'sellers#index'
     get "/dashboard",  to: "sellers#index"
-    resources :auctions, only: [:new, :create]
+    resources :auctions, only: [:index, :new, :create]
   end
 
   resources :charges
