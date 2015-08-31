@@ -33,21 +33,26 @@
 
   <div class="row">
 
-    <div class="col-md-9"><br>
-
-      <div class="thumbnail">
-        <%= image_tag @auction.product.image_url, class: "img-responsive" %>
+    <div class="col-md-3 pic-col"><br>
+      <div class="auction-show-picture">
+        <%= image_tag @auction.product.image_url, class: "img-responsive"  %>
+      </div>
+    </div>
+    <div class="col-md-3"><br>
+      <div class="well">
         <div class="caption-full">
-          <h4><a href="#"><%= @auction.product.name %></a>
-          </h4>
-          <p><%= @auction.product.description %></p><br>
+        <h4><a href="#"><%= @auction.product.name %></a>
+        </h4>
+        <p><%= @auction.product.description %></p><br>
+          <p>Condition: <%= @auction.product.condition %></p><br>
+          <p>Seller: <%= link_to Seller.find(@auction.product.seller_id).name, seller_path(Seller.find(@auction.product.seller_id)) %></p><br>
+
         </div>
       </div>
-
-
+    </div>
+    <div class="col-md-3"><br>
       <div class="well">
-
-        <div class="text-left">
+        <div class="caption-full">
           <h3>Bid Status</h3>
           <p>Time Remaining: <%= distance_of_time_in_words(Time.now, @auction.ending_time) %></p>
           <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
@@ -62,20 +67,8 @@
 
 
       </div>
-
-      <div class="well">
-
-        <div class="text-left">
-        </div>
-        <p>Condition: <%= @auction.product.condition %></p>
-        <p>Seller: <%= Seller.find(@auction.product.seller_id).name %></p><br>
-        </div>
-
-      </div>
-
     </div>
-
-  </div>
+    </div>
 
 </div>
 <!-- /.container -->
