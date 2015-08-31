@@ -26,7 +26,8 @@ feature "permissions_test" do
 
     @regular_user = User.create(first_name: "Miles",
                                 last_name: "Davis",
-                                password: "password")
+                                password: "password",
+                                email: "miles@turing.io" )
 
     @auction_1 = Auction.create(product_id: @product.id,
                                 starting_time: DateTime.now,
@@ -96,11 +97,11 @@ feature "permissions_test" do
 
       expect(page).to have_content("Miles Davis")
 
-      # click_link_or_button("Profile")
-      # expect(current_path).to eq(profile_path)
+      click_link_or_button("Profile")
+      expect(current_path).to eq(profile_path)
 
-      # visit my_bids_path
-      # expect(current_path).to eq(my_bids_path)
+      visit my_bids_path
+      expect(current_path).to eq(my_bids_path)
 
       click_link_or_button("Auctions")
       expect(current_path).to eq(auctions_path)
@@ -165,32 +166,23 @@ feature "permissions_test" do
 
     end
   end
-  #
-  # context "platform admin can see all" do
-  #
-  #   scenario "registered user can view his permissions" do
-  #     allow_any_instance_of(ApplicationController)
-  #         .to receive(:current_user).and_return(@platform_admin)
-  #     visit products_path
-  #
-  #     expect(current_path).to eq(products_path)
-  #
-  #     expect(page).to have_content("Gibson Les Paul")
-  #
-  #     expect(page).to have_content("Instruments")
-  #
-  #     within(".list-group", text: "Instruments") do
-  #       click_link_or_button("Instruments")
-  #     end
-  #
-  #     expect(page).to have_content("Gibson Les Paul")
-  #
-  #     within(".list-group", text: "Comics") do
-  #       click_link_or_button("Comics")
-  #     end
-  #
-  #     expect(page).to have_content("The Amazing Spider-Man")
-  #   end
-  # end
+
+  context "platform admin can see all" do
+
+    scenario "platform admin can see all his permissions" do
+      allow_any_instance_of(ApplicationController)
+          .to receive(:current_user).and_return(@platform_admin)
+
+      visit products_path
+      expect(current_path).to eq(products_path)
+
+      visit "ACME/dashboard"
+      expect(page).to have_content("View All Products")
+
+      visit auctions_path
+      expect(current_path).to eq(auctions_path)
+
+    end
+  end
 
 end
