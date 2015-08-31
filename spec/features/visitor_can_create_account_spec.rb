@@ -38,7 +38,15 @@ feature "a visitor can create an account" do
     expect(page).to have_button("Create Account")
   end
 
-  scenario "a vistor fills out and submits a valid create account form and can then logout and log back in" do
+  scenario "a vistor fills out and submits a valid create account form and can then logout and log back in and see his profile and bids and stuff" do
+    fill_in "First Name", with: nil
+    fill_in "Last Name", with: nil
+    fill_in "Email", with: "milesgo"
+    fill_in "Password", with: "p"
+    click_button "Create Account"
+
+    expect(page).to have_content("Email is invalid")
+
     fill_in "First Name", with: "Miles"
     fill_in "Last Name", with: "Davis"
     fill_in "Email", with: "miles@turing.io"
@@ -62,6 +70,37 @@ feature "a visitor can create an account" do
     click_button("Login")
 
     expect(current_path).to eq(profile_path)
+
+    visit my_bids_path
+    expect(current_path).to eq(my_bids_path)
+
+    visit profile_path
+    expect(current_path).to eq(profile_path)
+
+    click_link_or_button("Edit Account")
+    fill_in "First Name", with: "Monkey"
+    fill_in "Last Name", with: "Sees"
+    fill_in "Email", with: "monkey@turing.io"
+    fill_in "Password", with: nil
+    click_button "Update Login Info"
+
+    expect(page).to have_content("Invalid password")
+
+    fill_in "First Name", with: nil
+    fill_in "Last Name", with: nil
+    fill_in "Email", with: nil
+    fill_in "Password", with: "password"
+    click_button "Update Login Info"
+
+    expect(page).to have_content("Email is invalid")
+
+    fill_in "First Name", with: "Monkey"
+    fill_in "Last Name", with: "Sees"
+    fill_in "Email", with: "monkey@turing.io"
+    fill_in "Password", with: "password"
+    click_button "Update Login Info"
+
+    expect(page).to have_content("Your account has been updated.")
 
     click_link_or_button("Logout")
     click_link_or_button("Login")
