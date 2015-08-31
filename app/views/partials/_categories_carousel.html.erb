@@ -1,46 +1,163 @@
-
-<!-- /.row -->
-<div class="container hidden-xs">
-  <div class="col-lg-12">
-    <h2 class="page-header featured">Browse by Category</h2>
-  </div>
-  <div class="col-md-12">
-    <div id="product-carousel" class="carousel slide">
-
-      <!-- Carousel items -->
-      <div class="carousel-inner">
-
-        <div class="item active">
-          <div class="row">
-            <%= render partial: "partials/carousel_item",
-                       collection: @featured_products[0..2],
-                       as: :featured_product %>
-          </div><!--.row-->
-        </div><!--.item-->
-
-        <div class="item">
-          <div class="row">
-            <%= render partial: "partials/carousel_item",
-                       collection: @featured_products[3..5],
-                       as: :featured_product %>
-          </div><!--.row-->
-        </div><!--.item-->
-
-      </div><!--.carousel-inner-->
-
-      <a data-slide="prev" href="#product-carousel"
-         class="left carousel-control">‹</a>
-      <a data-slide="next" href="#product-carousel"
-         class="right carousel-control">›</a>
-    </div><!--.Carousel-->
-
-  </div>
+<div id="cat-row" class="row">
+  <div class="col-md-4"><div id="games-category"></div></div>
+  <div class="col-md-4"><div id="instruments-category"></div></div>
+  <div class="col-md-4"><div id="sports-category"></div></div>
+</div>
+<div id="cat-row" class="row">
+  <div class="col-md-4"><div id="toys-category"></div></div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4"><div id="cars-category"></div></div>
+</div>
+<div id="cat-row" class="row">
+  <div class="col-md-4"><div id="animals-category"></div></div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4"><div id="books-category"></div></div>
+</div>
+<div id="cat-row" class="row">
+  <div class="col-md-4"><div id="antiques-category"></div></div>
+  <div class="col-md-4"><div id="entertainment-category"></div></div>
+  <div class="col-md-4"><div id="guns-category"></div></div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $('#product-carousel').carousel({
-            interval: 5000
-        })
-    });
+<script type="text/javascript">
+
+    var sampleSVG = d3.select("#games-category")
+            .append("svg")
+            .attr("width", 250)
+            .attr("height", 250);
+
+    sampleSVG.append("circle")
+            .style("stroke", "gray")
+            .style("fill", "black")
+            .attr("r", 90)
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+            .on("mouseout", function(){d3.select(this).style("fill", "black");});
+
+    var sampleSVG = d3.select("#instruments-category")
+            .append("svg")
+            .attr("width", 250)
+            .attr("height", 250);
+
+    sampleSVG.append("circle")
+            .style("stroke", "gray")
+            .style("fill", "black")
+            .attr("r", 90)
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+            .on("mouseout", function(){d3.select(this).style("fill", "black");});
+
+    var sampleSVG = d3.select("#sports-category")
+            .append("svg")
+            .attr("width", 250)
+            .attr("height", 250);
+
+    sampleSVG.append("circle")
+            .style("stroke", "gray")
+            .style("fill", "black")
+            .attr("r", 90)
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+            .on("mouseout", function(){d3.select(this).style("fill", "black");});
+
+    var sampleSVG = d3.select("#toys-category")
+            .append("svg")
+            .attr("width", 250)
+            .attr("height", 250);
+
+    sampleSVG.append("circle")
+            .style("stroke", "gray")
+            .style("fill", "black")
+            .attr("r", 90)
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+            .on("mouseout", function(){d3.select(this).style("fill", "black");});
+
+    var sampleSVG = d3.select("#cars-category")
+            .append("svg")
+            .attr("width", 250)
+            .attr("height", 250);
+
+    sampleSVG.append("circle")
+            .style("stroke", "gray")
+            .style("fill", "black")
+            .attr("r", 90)
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+            .on("mouseout", function(){d3.select(this).style("fill", "black");});
+
+    var sampleSVG = d3.select("#animals-category")
+            .append("svg")
+            .attr("width", 250)
+            .attr("height", 250);
+
+    sampleSVG.append("circle")
+            .style("stroke", "gray")
+            .style("fill", "black")
+            .attr("r", 90)
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+            .on("mouseout", function(){d3.select(this).style("fill", "black");});
+
+    var sampleSVG = d3.select("#books-category")
+            .append("svg")
+            .attr("width", 250)
+            .attr("height", 250);
+
+    sampleSVG.append("circle")
+            .style("stroke", "gray")
+            .style("fill", "black")
+            .attr("r", 90)
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+            .on("mouseout", function(){d3.select(this).style("fill", "black");});
+
+    var sampleSVG = d3.select("#antiques-category")
+            .append("svg")
+            .attr("width", 250)
+            .attr("height", 250);
+
+    sampleSVG.append("circle")
+            .style("stroke", "gray")
+            .style("fill", "black")
+            .attr("r", 90)
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+            .on("mouseout", function(){d3.select(this).style("fill", "black");});
+
+    var sampleSVG = d3.select("#entertainment-category")
+            .append("svg")
+            .attr("width", 250)
+            .attr("height", 250);
+
+    sampleSVG.append("circle")
+            .style("stroke", "gray")
+            .style("fill", "black")
+            .attr("r", 90)
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+            .on("mouseout", function(){d3.select(this).style("fill", "black");});
+
+    var sampleSVG = d3.select("#guns-category")
+            .append("svg")
+            .attr("width", 250)
+            .attr("height", 250);
+
+    sampleSVG.append("circle")
+            .style("stroke", "gray")
+            .style("fill", "black")
+            .attr("r", 90)
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+            .on("mouseout", function(){d3.select(this).style("fill", "black");});
 </script>
