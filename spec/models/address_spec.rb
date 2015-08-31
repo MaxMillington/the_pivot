@@ -1,30 +1,31 @@
 require "rails_helper"
 
 RSpec.describe Address, type: :model do
-  let(:user) do
-    User.create(first_name: "Jane",
+
+    let(:user) do
+    user = User.create!(first_name: "Jane",
                 last_name:  "Doe",
                 email:      "jane@doe.com",
                 password:   "password")
-  end
+    end
 
   let(:billing_address) do
-    user.addresses.new(type_of:   "billing",
-                       address_1: "1313 Mockingbird Ln",
-                       address_2: "Ste 13",
-                       city:      "Walla Walla",
-                       state:     "PA",
-                       zip_code:  "13131")
+    user.addresses.create!(type_of:   "billing",
+                           address_1: "1313 Mockingbird Ln",
+                           address_2: "Ste 13",
+                           city:      "Walla Walla",
+                           state:     "PA",
+                           zip_code:  "13131")
   end
 
   let(:shipping_address) do
-    user.addresses.new(type_of:   "shipping",
-                       address_1: "123 Sesame St",
-                       address_2: "Apt 123",
-                       city:      "New York",
-                       state:     "NY",
-                       zip_code:  "12345")
-  end
+    user.addresses.create!(type_of:   "shipping",
+                          address_1: "123 Sesame St",
+                          address_2: "Apt 123",
+                          city:      "New York",
+                          state:     "NY",
+                          zip_code:  "12345")
+    end
 
   it "creates a billing address" do
     expect(billing_address.type_of).to eq("billing")
@@ -45,8 +46,8 @@ RSpec.describe Address, type: :model do
   end
 
   it "belongs to a user" do
-    expect(billing_address.user_id).to eq(user.id)
-    expect(shipping_address.user_id).to eq(user.id)
+    expect(user.addresses.first.id).to eq(billing_address.id)
+    expect(user.addresses.last.id).to eq(shipping_address.id)
   end
 
   it "has an address_1" do
