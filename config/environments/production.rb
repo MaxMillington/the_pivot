@@ -7,9 +7,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address:              'smtp.mandrillapp.com',
       port:                 '587',
-      domain:               'emailery.com',
-      user_name:            'novohispano@gmail.com',
-      password:             'ZNrasQmPJPybqX_gsihNdQ',
+      domain:               'collectorsworld.com',
+      user_name:            'maxmillington89@gmail.com',
+      password:             'm95ZFibYtMIY_30z5Ot7IA',
       authentication:       'plain',
       enable_starttls_auto: true
   }
