@@ -10,39 +10,41 @@ RSpec.describe Address, type: :model do
     end
 
   let(:billing_address) do
-    user.addresses.create!(type_of:   "billing",
-                           address_1: "1313 Mockingbird Ln",
-                           address_2: "Ste 13",
-                           city:      "Walla Walla",
-                           state:     "PA",
-                           zip_code:  "13131")
+    user.addresses.create!(
+        type_of: 0,
+        address_1: Faker::Address.street_address,
+        city: Faker::Address.city,
+        state: Faker::Address.state_abbr,
+        zip_code: Faker::Address.zip_code.to_i,
+        addressable_type: "User"
+    )
   end
 
   let(:shipping_address) do
-    user.addresses.create!(type_of:   "shipping",
-                          address_1: "123 Sesame St",
-                          address_2: "Apt 123",
-                          city:      "New York",
-                          state:     "NY",
-                          zip_code:  "12345")
+    user.addresses.create!(
+        type_of: 1,
+        address_1: Faker::Address.street_address,
+        city: Faker::Address.city,
+        state: Faker::Address.state_abbr,
+        zip_code: Faker::Address.zip_code.to_i,
+        addressable_type: "User"
+    )
     end
 
   it "creates a billing address" do
     expect(billing_address.type_of).to eq("billing")
-    expect(billing_address.address_1).to eq("1313 Mockingbird Ln")
-    expect(billing_address.address_2).to eq("Ste 13")
-    expect(billing_address.city).to eq("Walla Walla")
-    expect(billing_address.state).to eq("PA")
-    expect(billing_address.zip_code).to eq("13131")
+    expect(billing_address.address_1).to eq(billing_address.address_1)
+    expect(billing_address.city).to eq(billing_address.city)
+    expect(billing_address.state).to eq(billing_address.state)
+    expect(billing_address.zip_code).to eq(billing_address.zip_code)
   end
 
   it "creates a shipping address" do
     expect(shipping_address.type_of).to eq("shipping")
-    expect(shipping_address.address_1).to eq("123 Sesame St")
-    expect(shipping_address.address_2).to eq("Apt 123")
-    expect(shipping_address.city).to eq("New York")
-    expect(shipping_address.state).to eq("NY")
-    expect(shipping_address.zip_code).to eq("12345")
+    expect(shipping_address.address_1).to eq(shipping_address.address_1)
+    expect(shipping_address.city).to eq(shipping_address.city)
+    expect(shipping_address.state).to eq(shipping_address.state)
+    expect(shipping_address.zip_code).to eq(shipping_address.zip_code)
   end
 
   it "belongs to a user" do
