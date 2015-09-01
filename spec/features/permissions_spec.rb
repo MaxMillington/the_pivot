@@ -38,7 +38,7 @@ feature "permissions_test" do
                                 starting_time: DateTime.now,
                                 ending_time: DateTime.now + 2.days,
                                 starting_price: 600)
-    
+
     Role.create(name: "platform_admin")
     Role.create(name: "seller_admin")
     Role.create(name: "registered_user")
