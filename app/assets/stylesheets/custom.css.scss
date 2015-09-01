@@ -43,9 +43,16 @@ h6 {
   color: #ffffff;
   float: none;
   text-align: center;
-  margin-top: 10px;
   font-weight: 800;
   text-shadow: white 2px 3px 10px;
+}
+
+#featured-name a{
+  color: white;
+  font-weight: 700;
+  float:left;
+  position: absolute;
+  background: rgba(0,0,0,.7)
 }
 
 .main-image {
@@ -359,7 +366,7 @@ footer {
   background: rgba(0, 0, 0, 0);
 }
 .auction-jumbo-winning {
-  background: rgba(0, 102, 40, 0.6);
+  background: #0b7c7c;
 }
 
 .auction-jumbo-losing {
