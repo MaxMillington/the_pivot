@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "static_pages#index"
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show, :edit, :update]
   resources :categories, param: :slug, only: [:index, :show]
   resources :orders, only: [:index, :show]
   resources :addresses, only: [:new, :update, :create]

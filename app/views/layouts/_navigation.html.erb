@@ -32,6 +32,10 @@
             <li>
               <%= link_to "Seller Dashboard", seller_dashboard_path(current_user.seller.slug) %>
             </li>
+        <% elsif platform_admin? %>
+            <li>
+              <%= link_to "Platform Admin Dashboard", platform_admin_dashboard_path %>
+            </li>
         <% end %>
         <li>
           <%= link_to "Auctions", auctions_path  %>

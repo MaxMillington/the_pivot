@@ -34,5 +34,10 @@ feature "Platform Admin can view Platform Admin Dashboard" do
     expect(page).to have_content("View All Auctions")
     expect(page).to have_content("View All Users")
     expect(page).to have_content("Create A Seller")
+
+    click_link("View All Products")
+    expect(current_path).to eq(products_path)
+
+
   end
 end
