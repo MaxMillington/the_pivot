@@ -48,6 +48,7 @@ feature "User can view feed page with active bids" do
   end
 
   scenario "bid on auction and see in feed" do
+
     click_link "Computer"
     fill_in "Amount", with: "600.00"
     click_button 'Create Bid'
