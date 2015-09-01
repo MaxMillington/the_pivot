@@ -27,7 +27,9 @@ class UsersController < ApplicationController
 
   def feed
     @bid = Bid.new
-    @auctions = current_user.auctions.uniq
+    @auctions = current_user.auctions.uniq.find_all do |auction|
+      auction.ending_time > DateTime.now
+    end
   end
 
   def edit
