@@ -17,16 +17,14 @@ feature "User can view feed page with active bids" do
         category_id: 1,
         name: "Computer",
         description: "This computer is really fast!",
-        condition: "good",
-        seller_id:  1,
+        condition: "good"
     )
 
     auction = Auction.create(
         product_id: 1,
         starting_time:  DateTime.now,
         ending_time:    DateTime.now + 5.days,
-        starting_price: 500.00,
-        category_id:1
+        starting_price: 500.00
     )
 
     user1 = User.create(
