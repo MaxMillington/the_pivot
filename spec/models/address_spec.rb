@@ -2,34 +2,34 @@ require "rails_helper"
 
 RSpec.describe Address, type: :model do
 
-    let(:user) do
+  let(:user) do
     user = User.create!(first_name: "Jane",
-                last_name:  "Doe",
-                email:      "jane@doe.com",
-                password:   "password")
-    end
+                        last_name:  "Doe",
+                        email:      "jane@doe.com",
+                        password:   "password")
+  end
 
   let(:billing_address) do
-    user.addresses.create!(
-        type_of: 0,
-        address_1: Faker::Address.street_address,
-        city: Faker::Address.city,
-        state: Faker::Address.state_abbr,
-        zip_code: Faker::Address.zip_code.to_i,
-        addressable_type: "User"
+    user.addresses.create(
+      type_of: 0,
+      address_1: Faker::Address.street_address,
+      city: Faker::Address.city,
+      state: Faker::Address.state_abbr,
+      zip_code: Faker::Address.zip_code.to_i,
+      addressable_type: "User"
     )
   end
 
   let(:shipping_address) do
-    user.addresses.create!(
-        type_of: 1,
-        address_1: Faker::Address.street_address,
-        city: Faker::Address.city,
-        state: Faker::Address.state_abbr,
-        zip_code: Faker::Address.zip_code.to_i,
-        addressable_type: "User"
+    user.addresses.create(
+      type_of: 1,
+      address_1: Faker::Address.street_address,
+      city: Faker::Address.city,
+      state: Faker::Address.state_abbr,
+      zip_code: Faker::Address.zip_code.to_i,
+      addressable_type: "User"
     )
-    end
+  end
 
   it "creates a billing address" do
     expect(billing_address.type_of).to eq("billing")
@@ -48,8 +48,26 @@ RSpec.describe Address, type: :model do
   end
 
   it "belongs to a user" do
-    expect(user.addresses.first.id).to eq(billing_address.id)
-    expect(user.addresses.last.id).to eq(shipping_address.id)
+    address1 = user.addresses.create(
+      type_of: 0,
+      address_1: Faker::Address.street_address,
+      city: Faker::Address.city,
+      state: Faker::Address.state_abbr,
+      zip_code: Faker::Address.zip_code.to_i,
+      addressable_type: "User"
+    )
+
+    address2 = user.addresses.create(
+      type_of: 1,
+      address_1: Faker::Address.street_address,
+      city: Faker::Address.city,
+      state: Faker::Address.state_abbr,
+      zip_code: Faker::Address.zip_code.to_i,
+      addressable_type: "User"
+    )
+
+    expect(user.addresses.first.id).to eq(address1.id)
+    expect(user.addresses.last.id).to eq(address2.id)
   end
 
   it "has an address_1" do
