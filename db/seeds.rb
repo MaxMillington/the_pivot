@@ -793,7 +793,7 @@ class Seed
                     ending_time: DateTime.now + 10.days,
                     starting_price: 500.00)
 
-    Auction.create!(product_id: 89,
+    Auction.create!(product_id: 90,
                     starting_time: DateTime.now,
                     ending_time: DateTime.now + 10.days,
                     starting_price: 500.00)

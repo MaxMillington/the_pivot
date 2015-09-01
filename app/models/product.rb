@@ -5,7 +5,6 @@ class Product < ActiveRecord::Base
 
   before_validation :set_default_image
   validates :name, :description, :category_id, presence: true
-  validates :name, uniqueness: true
 
   scope :category_id, -> (category_id) { where category_id: category_id }
 
