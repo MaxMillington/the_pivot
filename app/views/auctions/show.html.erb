@@ -54,22 +54,24 @@
       <div class="well">
         <div class="caption-full">
           <h3>Bid Status</h3>
-          <p>Time Remaining: <%= distance_of_time_in_words(Time.now, @auction.ending_time) %></p>
-          <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
-          <% if @auction.bids.count == 0 %>
+          <% if DateTime.now < @auction.ending_time %>
+            <p>Time Remaining: <%= distance_of_time_in_words(Time.now, @auction.ending_time) %></p>
+            <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
+            <% if @auction.bids.count == 0 %>
               <p>No bids yet</p>
-        <% else %>
+            <% else %>
               <p>Current Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
               <p>Current High Bidder: <%= @auction.bids.last.user.full_name %></p>
-        <% end %>
-          <% if DateTime.now > @auction.ending_time %>
-          <p>Auction is over.</p>
-          <% else %>
+            <% end %>
           <%= render 'partials/bid_form' %>
-          <% end %>
+          <% else %>
+              <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
+              <p>Winning Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
+              <p>Winning Bidder: <%= @auction.bids.last.user.full_name %></p>
+                <br>
+              <h3>Auction is over.</h3>
+        <% end %>
         </div>
-
-
       </div>
     </div>
     </div>

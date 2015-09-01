@@ -60,7 +60,7 @@
               <td># <%= auction.id %></td>
               <td><%= auction.product.name %></td>
               <td><%= auction.ending_time.strftime("%B %e, %Y at %l:%M %p") %></td>
-              <td>$ <%= auction.winning_bid_amount %></td>
+              <td><%= number_to_currency(auction.winning_bid_amount) %></td>
               <td class="order-details-link">
                 <a href="<%= auction_path(auction) %>">
                   <span class="glyphicon glyphicon-list-alt" aria-hidden="true">
