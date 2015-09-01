@@ -17,7 +17,7 @@
       <div class="row">
         <% @auctions.each do |auction| %>
           <div class="col-sm-4">
-            <div class="thumbnail">
+            <div class="thumbnail auction-index-card">
               <%=link_to image_tag(auction.product.image_url),
                 auction_path(auction.id),
                 class: 'img-circle img-responsive img-center'%>
