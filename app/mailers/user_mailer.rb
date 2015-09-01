@@ -16,13 +16,6 @@ class UserMailer < ApplicationMailer
     )
   end
 
-  def send_seller_bid_email(seller)
-    @seller = seller
-    mail(
-        to: @seller.email,
-        subject: "Your auction has a new bid!",
-    )
-  end
 
   def win_bid(winner)
     @winner = winner
@@ -32,11 +25,4 @@ class UserMailer < ApplicationMailer
     )
   end
 
-  def send_auction_over_email(seller)
-    @seller = seller
-    mail(
-        to: @seller.email,
-        subject: "Your auction is over!",
-    )
-  end
 end

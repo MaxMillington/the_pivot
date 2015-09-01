@@ -6,7 +6,7 @@ class AuctionMailerJob < ActiveJob::Base
   end
 
   def perform_auction_notification(seller)
-    UserMailer.send_auction_over_email(seller.email).deliver_now
+    SellerMailer.send_auction_over_email(seller.email).deliver_now
   end
 
 end
