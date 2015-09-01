@@ -12,8 +12,7 @@ class Seller::AuctionsController < ApplicationController
   end
 
   def new
-    @auction = Auction.new(product_id: params[:product_id],
-                           category_id: params[:category_id])
+    @auction = Auction.new(product_id: params[:product_id])
     @seller = Seller.find_by(slug: params[:seller])
   end
 

@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     resources :sellers
     resources :auctions
 
-    get "/platform-dashboard",  to: "admins#index"
+    get "/dashboard",  to: "admins#index"
   end
 
 
