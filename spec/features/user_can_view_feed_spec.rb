@@ -4,44 +4,44 @@ feature "User can view feed page with active bids" do
   before do
 
     seller = Seller.create(
-       name: "IBM Inc.",
-       email: "home@ibm.com"
+      name: "IBM Inc.",
+      email: "home@ibm.com"
     )
 
     category = Category.create(
-          name: "Toys",
-          description: "Toys are fun!"
+      name: "Toys",
+      description: "Toys are fun!"
     )
 
-    product = Product.create(
-        category_id: 1,
-        name: "Computer",
-        description: "This computer is really fast!",
-        condition: "good"
+    product = seller.products.create(
+      category_id: category.id,
+      name: "Computer",
+      description: "This computer is really fast!",
+      condition: "good"
     )
 
     auction = Auction.create(
-        product_id: 1,
-        starting_time:  DateTime.now,
-        ending_time:    DateTime.now + 5.days,
-        starting_price: 500.00
+      product_id: product.id,
+      starting_time:  DateTime.now,
+      ending_time:    DateTime.now + 5.days,
+      starting_price: 500.00
     )
 
     user1 = User.create(
-        first_name: "Jane",
-        last_name:  "Doe",
-        email:      "jane@doe.com",
-        password:   "password")
+      first_name: "Jane",
+      last_name:  "Doe",
+      email:      "jane@doe.com",
+      password:   "password")
 
     user2 = User.create(
-        first_name: "Johnny",
-        last_name:  "Appleseed",
-        email:      "john@doe.com",
-        password:   "password")
+      first_name: "Johnny",
+      last_name:  "Appleseed",
+      email:      "john@doe.com",
+      password:   "password")
 
     allow_any_instance_of(ApplicationController)
-        .to receive(:current_user)
-                .and_return(user2)
+      .to receive(:current_user)
+      .and_return(user2)
 
     visit root_path
     click_link "Auctions"
@@ -68,9 +68,9 @@ feature "User can view feed page with active bids" do
     expect(page).to have_content("Your Current High Bid: $600.00")
 
     Bid.create(
-        user_id: 1,
-        auction_id: 1,
-        amount: 700.00)
+      user_id: 1,
+      auction_id: 1,
+      amount: 700.00)
 
     click_link_or_button("Feed")
     expect(page).to have_content("Computer")
@@ -98,9 +98,9 @@ feature "User can view feed page with active bids" do
     expect(page).to have_content("Your Current High Bid: $600.00")
 
     Bid.create(
-        user_id: 1,
-        auction_id: 1,
-        amount: 700.00)
+      user_id: 1,
+      auction_id: 1,
+      amount: 700.00)
 
     click_link_or_button("Feed")
     expect(page).to have_content("Computer")

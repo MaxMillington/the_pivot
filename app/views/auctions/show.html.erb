@@ -1,33 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Auction Item</title>
-
-  <!-- Bootstrap Core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link href="css/shop-item.css" rel="stylesheet">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-</head>
-
-<body>
-
 <!-- Page Content -->
 <div class="container">
 
@@ -41,9 +11,9 @@
     <div class="col-md-3"><br>
       <div class="well">
         <div class="caption-full">
-        <h4><a href="#"><%= @auction.product.name %></a>
-        </h4>
-        <p><%= @auction.product.description %></p><br>
+          <h4><a href="#"><%= @auction.product.name %></a>
+          </h4>
+          <p><%= @auction.product.description %></p><br>
           <p>Condition: <%= @auction.product.condition %></p><br>
           <p>Seller: <%= link_to Seller.find(@auction.product.seller_id).name, seller_path(Seller.find(@auction.product.seller_id)) %></p><br>
 
@@ -63,19 +33,19 @@
               <p>Current Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
               <p>Current High Bidder: <%= @auction.bids.last.user.full_name %></p>
             <% end %>
-          <%= render 'partials/bid_form' %>
+            <%= render 'partials/bid_form' %>
           <% else %>
-              <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
-              <p>Total Bids: <%= @auction.bids.count %></p>
-              <p>Winning Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
-              <p>Winning Bidder: <%= @auction.bids.last.user.full_name %></p>
-                <br>
-              <h3>Auction is over.</h3>
-        <% end %>
+            <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
+            <p>Total Bids: <%= @auction.bids.count %></p>
+            <p>Winning Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
+            <p>Winning Bidder: <%= @auction.bids.last.user.full_name %></p>
+            <br>
+            <h3>Auction is over.</h3>
+          <% end %>
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
 </div>
 <!-- /.container -->
@@ -86,13 +56,3 @@
 
 </div>
 <!-- /.container -->
-
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
