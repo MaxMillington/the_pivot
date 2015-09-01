@@ -28,7 +28,7 @@
     return true if controller == 'sessions' && action.in?(%w(new create destroy))
     return true if controller == 'users' && action.in?(%w(show feed edit update destroy))
     return true if controller == 'categories' && action.in?(%w(index show))
-    return true if controller == 'sellers' && action.in?(%w(index show))
+    return true if controller == 'sellers' && action.in?(%w(index show new create))
     return true if controller == 'products' && action.in?(%w(index show new create edit update destroy))
     return true if controller == 'seller/sellers' && action.in?(%w(index show new create edit update))
     return true if controller == 'auctions' && action.in?(%w(index show))

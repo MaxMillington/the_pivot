@@ -30,9 +30,9 @@ feature "Platform Admin can view Platform Admin Dashboard" do
 
     expect(current_path).to eq(platform_admin_dashboard_path)
 
-    expect(page).to have_content("See All Products")
-    expect(page).to have_content("See All Auctions")
-    expect(page).to have_content("See All Users")
-    expect(page).to have_content("See All Sellers")
+    expect(page).to have_content("View All Products")
+    expect(page).to have_content("View All Auctions")
+    expect(page).to have_content("View All Users")
+    expect(page).to have_content("Create A Seller")
   end
 end
