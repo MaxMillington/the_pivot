@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :update]
+  before_action :logged_in_user, only: [:show, :edit, :update, :feed]
 
   def new
     @user = User.new
@@ -20,12 +20,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @auctions = current_user.auctions.uniq
+    @auctions = current_user.auctions.uniq.find_all do |auction|
+      auction.bids.last.user == current_user && auction.ending_time < DateTime.now
+    end
   end
 
   def feed
     @bid = Bid.new
-    @auctions = current_user.auctions.uniq
+    @auctions = current_user.auctions.uniq.find_all do |auction|
+      auction.ending_time > DateTime.now
+    end
   end
 
   def edit
