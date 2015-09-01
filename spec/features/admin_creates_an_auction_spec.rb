@@ -65,6 +65,7 @@ feature "seller admin creates an auction" do
     select "15",     from: "ending_time[minute]"
     click_button "Add Auction"
 
+
     within(".alert-success") do
       expect(page).to have_content("Your new auction has been scheduled.")
     end 
