@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      @user.send_creation_email
       flash[:success] = "Welcome to Collector's World," \
         " #{@user.first_name} #{@user.last_name}!"
       redirect_to profile_path

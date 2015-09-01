@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
   has_many :products
+  has_many :auctions, through: :products
 
   before_validation :add_slug
   validates :name, presence: true
