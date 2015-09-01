@@ -37,6 +37,21 @@ feature "seller admin creates an auction" do
 
     expect(current_path).to eq(new_seller_auction_path(@seller.slug))
 
+    fill_in "Starting price", with: nil
+    select "2015",   from: "starting_time[year]"
+    select "August", from: "starting_time[month]"
+    select "29",     from: "starting_time[day]"
+    select "06 PM",  from: "starting_time[hour]"
+    select "15",     from: "starting_time[minute]"
+    select "2015",   from: "ending_time[year]"
+    select "August", from: "ending_time[month]"
+    select "29",     from: "ending_time[day]"
+    select "06 PM",  from: "ending_time[hour]"
+    select "15",     from: "ending_time[minute]"
+    click_button "Add Auction"
+
+    expect(current_path).to eq("/acme/auctions")
+
     fill_in "Starting price", with: "10.00"
     select "2015",   from: "starting_time[year]"
     select "August", from: "starting_time[month]"
