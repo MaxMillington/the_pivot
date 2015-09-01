@@ -33,12 +33,12 @@ Rails.application.routes.draw do
   namespace :platform_admin do
     resources :products
     resources :users
-    resources :seller
-    resources :orders, only: [:index, :show, :update]
+    resources :sellers
+    resources :auctions
 
-    get "/",           to: "admins#index"
-    get "/dashboard",  to: "admins#index"
+    get "/platform-dashboard",  to: "admins#index"
   end
+
 
   namespace :seller, path: ':seller', as: :seller do
     resources :categories, param: :slug, only: [:show]

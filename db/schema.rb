@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150827233614) do
+ActiveRecord::Schema.define(version: 20150901193424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,10 +38,8 @@ ActiveRecord::Schema.define(version: 20150827233614) do
     t.decimal  "starting_price"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "category_id"
   end
 
-  add_index "auctions", ["category_id"], name: "index_auctions_on_category_id", using: :btree
   add_index "auctions", ["product_id"], name: "index_auctions_on_product_id", using: :btree
 
   create_table "bids", force: :cascade do |t|
@@ -118,7 +116,6 @@ ActiveRecord::Schema.define(version: 20150827233614) do
   add_index "users", ["seller_id"], name: "index_users_on_seller_id", using: :btree
 
   add_foreign_key "addresses", "users", column: "addressable_id"
-  add_foreign_key "auctions", "categories"
   add_foreign_key "auctions", "products"
   add_foreign_key "bids", "auctions"
   add_foreign_key "bids", "users"
