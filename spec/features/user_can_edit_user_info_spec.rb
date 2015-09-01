@@ -25,7 +25,7 @@ feature "User can edit User info" do
       .to receive(:current_user)
       .and_return(user)
 
-    visit dashboard_path
+    visit profile_path
     click_link "Edit Account"
   end
 

@@ -176,7 +176,7 @@ feature "permissions_test" do
       visit products_path
       expect(current_path).to eq(products_path)
 
-      visit "ACME/dashboard"
+      visit seller_dashboard_path(@seller.slug)
       expect(page).to have_content("View All Products")
 
       visit auctions_path
