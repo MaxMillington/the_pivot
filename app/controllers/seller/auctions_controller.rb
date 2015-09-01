@@ -1,4 +1,5 @@
 class Seller::AuctionsController < ApplicationController
+  before_action :authorize_seller_admin, only: [:index, :new, :create]
 
   def index
     @categories = Category.all
@@ -55,5 +56,12 @@ class Seller::AuctionsController < ApplicationController
 
   def filtering_params(params)
     params.slice(:category_id)
+  end
+
+  def authorize_seller_admin
+    unless current_user.platform_admin? || (current_user.seller.id == current_seller.id) 
+      flash[:warning] = "This page doesn't exist."
+      redirect_to root_path
+    end    
   end
 end
