@@ -37,14 +37,6 @@ RSpec.describe Product, type: :model do
     expect(@product).to_not be_valid
   end
 
-  it "requires a unique name" do
-    product2 = @category.products.create(
-      name: "Computer",
-      description: "Another Computer!",)
-
-    expect(product2).to_not be_valid
-  end
-
   it "requires a description" do
     @product.description = nil
 
