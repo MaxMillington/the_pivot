@@ -25,7 +25,7 @@ class Seller::SellersController < ApplicationController
   end
 
   def authorize_seller_admin
-    unless current_user.seller.id == current_seller.id
+    unless current_user.platform_admin? || (current_user.seller.id == current_seller.id) 
       flash[:warning] = "This page doesn't exist."
       redirect_to root_path
     end    
