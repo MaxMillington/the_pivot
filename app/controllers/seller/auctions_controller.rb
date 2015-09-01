@@ -19,7 +19,6 @@ class Seller::AuctionsController < ApplicationController
 
   def create
     @auction = Auction.new(auction_params)
-    # starting_time: DateTime.civil(2015, 07, 05, 21, 33, 0),
     starting_time = DateTime.civil(params[:starting_time][:year].to_i,
                                    params[:starting_time][:month].to_i,
                                    params[:starting_time][:day].to_i,
@@ -43,6 +42,8 @@ class Seller::AuctionsController < ApplicationController
       AuctionMailerJob.set(wait_until: ending_time).perform_later(@auction.bids.last.user)
       redirect_to seller_dashboard_path(params[:seller])
     else
+      @seller = Seller.find_by(slug: params[:seller])
+      flash[:warning] = "You must enter valid information"
       render :new
     end
   end
