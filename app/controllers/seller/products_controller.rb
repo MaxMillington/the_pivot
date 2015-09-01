@@ -1,6 +1,7 @@
 class Seller::ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update]
   before_action :set_seller, only: [:index, :new, :create, :edit, :update]
+  before_action :authorize_seller_admin, only: [:index, :show, :new, :create, :update]
 
   def index
     @categories = Category.all
@@ -62,5 +63,12 @@ class Seller::ProductsController < ApplicationController
 
   def filtering_params(params)
     params.slice(:category_id)
+  end
+
+  def authorize_seller_admin
+    unless current_user.seller.id == current_seller.id
+      flash[:warning] = "This page doesn't exist."
+      redirect_to root_path
+    end    
   end
 end
