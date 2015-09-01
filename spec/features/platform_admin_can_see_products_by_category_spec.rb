@@ -31,14 +31,12 @@ feature "platform admin can see all products and filter by category" do
     auction_1 = Auction.create(product_id: @product.id,
                                starting_time: DateTime.now,
                                ending_time: DateTime.now + 2.days,
-                               starting_price: 500,
-                               category_id: category.id)
+                               starting_price: 500)
 
     auction_2 = Auction.create(product_id: @product2.id,
                                starting_time: DateTime.now,
                                ending_time: DateTime.now + 2.days,
-                               starting_price: 600,
-                               category_id: category2.id)
+                               starting_price: 600)
 
     Role.create(name: "platform_admin")
     Role.create(name: "seller_admin")
