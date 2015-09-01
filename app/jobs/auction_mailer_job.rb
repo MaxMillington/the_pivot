@@ -3,7 +3,7 @@ class AuctionMailerJob < ActiveJob::Base
 
 
   def perform(auction)
-    NotificationsMailer.contact(auction.winner).deliver_now
+    UserMailer.contact(auction.winner).deliver_now
   end
 
 end

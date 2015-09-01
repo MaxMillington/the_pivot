@@ -8,13 +8,12 @@ class UserMailer < ApplicationMailer
     )
   end
 
-
   def contact(winner)
     @winner = winner
 
     mail(
-        to: winner.email,
-        subject: "Message from #{winner.name}",
+        to: @winner.email,
+        subject: "You won an auction #{@winner.name}!",
     )
   end
 end
