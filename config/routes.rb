@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
 
   get :sellers, to: "sellers#index"
+  patch "/sellers/:id", to: "sellers#update"
 
   scope :sellers, path: ':seller', as: :seller do
     get ':seller', to: "sellers#show"
@@ -42,6 +43,7 @@ Rails.application.routes.draw do
   namespace :seller, path: ':seller', as: :seller do
     resources :categories, param: :slug, only: [:show]
     resources :products
+    resources :sellers, only: [:edit]
     get '/', to: 'sellers#index'
     get "/dashboard",  to: "sellers#index"
     resources :auctions, only: [:index, :new, :create]
