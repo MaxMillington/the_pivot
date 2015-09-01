@@ -1,6 +1,7 @@
 <div class="col-sm-4 col-lg-4 col-md-4">
   <div class="feature-card">
-    <%= image_tag featured_product.image_url, class: "img-responsive", 
+    <h4 id="featured-name"><%= link_to featured_product.name, '/#' %></h4>
+    <%= image_tag featured_product.image_url, class: "img-responsive",
                   alt: "#{featured_product.name} image" %>
   </div>
 </div>
