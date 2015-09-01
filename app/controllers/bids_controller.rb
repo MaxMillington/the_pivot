@@ -3,6 +3,7 @@ class BidsController < ApplicationController
   def create
     @bid = Bid.new(bid_params)
     @bid.assign_attributes(user_id: params[:user_id], auction_id: params[:auction_id])
+    @auction = Auction.find(params[:auction_id])
     if @bid.save
       flash[:notice] = "You are the high bidder!"
       @bid.outbid_user.send_outbid_email
