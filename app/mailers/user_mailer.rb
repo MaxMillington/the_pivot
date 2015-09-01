@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
     )
   end
 
-  def contact(winner)
+  def win_bid(winner)
     @winner = winner
 
     mail(
