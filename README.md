@@ -1,7 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/michael-reeves/redrum_nursery.png?label=ready&title=Ready)](https://waffle.io/michael-reeves/redrum_nursery)
-# REDRUM NURSERY
+# COLLECTOR'S WORLD
 
-The final objective for this project was to use Ruby on Rails to build an online commerce platform to facilitate online ordering. For fun we also experimented with integrating Stripe for payment processing and Twilio for sending SMS upon receiving payment as well as allowing an 'admin' to call a customer from the browser.
+The final objective for this project was to pivot an existing Ruby on Rails online commerce platform to facilitate online ordering of plants to a bidding platform for collectables. 
 
 ### Learning Goals
 
