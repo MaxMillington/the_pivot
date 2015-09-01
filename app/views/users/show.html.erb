@@ -30,19 +30,31 @@
     </div>
   </div>
   <div class="well col-sm-12">
-    <h3 class="text-center">Auctions</h3>
+    <h3 class="text-center">Won Auctions</h3>
     <div class="table-responsive">
       <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Auction Number</th>
-            <th>Product Name</th>
-            <th>Ending Date</th>
-            <th>Winning Bid</th>
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
         <tbody>
+        <% if @auctions.count == 0 %>
+            <tr>
+              <td>No won auctions...yet.</td>
+              <td class="order-details-link">
+                <a href="<%= auctions_path %>">
+                  <span class="glyphicon glyphicon-list-alt" aria-hidden="true">
+                  </span>
+                  View Auctions
+                </a>
+              </td>
+            </tr>
+          <% else %>
+            <thead>
+            <tr>
+              <th>Auction Number</th>
+              <th>Product Name</th>
+              <th>Ending Date</th>
+              <th>Winning Bid</th>
+              <th>&nbsp;</th>
+            </tr>
+            </thead>
           <% @auctions.each do |auction| %>
             <tr>
               <td># <%= auction.id %></td>
@@ -58,6 +70,7 @@
               </td>
             </tr>
           <% end %>
+         <% end %>
         </tbody>
       </table>
     </div>

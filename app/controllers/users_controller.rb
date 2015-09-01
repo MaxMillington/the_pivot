@@ -20,7 +20,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @auctions = current_user.auctions.uniq
+    @auctions = current_user.auctions.uniq.find_all do |auction|
+      auction.bids.last.user == current_user && auction.ending_time < DateTime.now
+    end
   end
 
   def feed

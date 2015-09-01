@@ -62,7 +62,11 @@
               <p>Current Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
               <p>Current High Bidder: <%= @auction.bids.last.user.full_name %></p>
         <% end %>
+          <% if DateTime.now > @auction.ending_time %>
+          <p>Auction is over.</p>
+          <% else %>
           <%= render 'partials/bid_form' %>
+          <% end %>
         </div>
 
 
