@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="text-center">Edit Your Business' Details</h1>
+  <p class="lead text-center">Edit Account</p>
+  <div class="well col-sm-6 col-sm-offset-3">
+    <%= form_for @seller do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+    <%= f.submit "Edit Business", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

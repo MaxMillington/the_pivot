@@ -8,4 +8,23 @@ class SellersController < ApplicationController
     @seller = Seller.find(params[:seller])
   end
 
+  def update
+    @seller = Seller.find(params[:id])
+    seller_slug = @seller.slug
+    if @seller.update(seller_params) 
+      flash.keep[:success] = "Your business information has been updated." 
+      seller = Seller.find(params[:id])
+      redirect_to seller_dashboard_path(seller.slug)
+    else
+      flash.keep[:warning] = @seller.errors.full_messages.join(". ")
+      redirect_to seller_dashboard_path(seller_slug)
+    end
+  end
+
+  private
+
+  def seller_params
+    params.require(:seller).permit(:name, :email)
+  end
+
 end
