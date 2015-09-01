@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     roles.exists?(name: 'registered_user')
   end
 
+  def send_creation_email
+    UserMailer.account_creation(self).deliver_now
+  end
+
   private
 
   def strip_whitespace
