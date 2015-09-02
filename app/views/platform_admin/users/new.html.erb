@@ -2,7 +2,7 @@
   <h1 class="text-center"></h1>
   <p class="lead text-center">Create Seller Admin</p>
   <div class="well col-sm-6 col-sm-offset-3">
-    <%= form_for @user, url: profile_path do |f| %>
+    <%= form_for @user, url: {action: "create"} do |f| %>
         <div class="form-group">
           <%= f.label :first_name, "First Name" %>
           <%= f.text_field :first_name, class: "form-control" %>
@@ -18,7 +18,8 @@
         <div class="form-group">
           <%= f.label :seller_id %>
           <%= f.collection_select :seller_id, Seller.all,
-                                  :id, :name, {}, { class: "form-control", include_blank: "None" } %>
+                                  :id, :name, {},
+                                  { class: "form-control", include_blank: "None" } %>
         </div>
         <div class="form-group">
           <%= f.label :password, "Password (min 8 characters)" %>
