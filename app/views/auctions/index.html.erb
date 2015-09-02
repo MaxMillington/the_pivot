@@ -1,5 +1,12 @@
 <!-- Page Content -->
 <div class="container">
+  <ol class="breadcrumb">
+    <li><a href="<%= seller_dashboard_path(@seller.slug) %>">Admin Dashboard</a></li>
+    <li class="active">All Auctions</li>
+    <li><a href="<%= new_seller_auction_path(@seller.slug) %>">Add New Auction</a></li>
+  </ol>
+</div>
+<div class="container">
 
   <div class="row">
 
