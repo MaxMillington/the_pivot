@@ -149,7 +149,7 @@ class Seed
 
     Product.create(name: "Singed Lawrence Taylor Jersey",
                    description: "Own the jersey of the most dangerous linebacker every to set foot on the field.",
-                   image_url: "sports/lt.jpeg",
+                   image_url: "sports/lawrence-taylor.jpg",
                    category_id: 3,
                    condition: "mint",
                    seller_id: Seller.all.sample.id)
@@ -542,9 +542,9 @@ class Seed
 
     7.times do |i|
 
-      Product.create(name: "Singed Lawrence Taylor Jersey",
+      Product.create(name: "Signed Lawrence Taylor Jersey",
                      description: "Own the jersey of the most dangerous linebacker every to set foot on the field.",
-                     image_url: "sports/lt.jpg",
+                     image_url: "sports/lawrence-taylor.jpg",
                      category_id: 3,
                      condition: "mint",
                      seller_id: Seller.all.sample.id)
