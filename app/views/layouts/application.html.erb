@@ -4,6 +4,7 @@
   <title>Collector's World</title>
   <link href='https://fonts.googleapis.com/css?family=Roboto:900italic' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -13,7 +14,6 @@
   <%= render partial: 'partials/flash_messages' %>
 
   <%= yield %>
-
   <%= render partial: 'layouts/footer' %>
 </body>
 </html>

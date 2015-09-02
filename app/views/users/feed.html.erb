@@ -1,36 +1,38 @@
 <h1 id="feed-title">My Active Bids</h1>
 
 <div class="row feed-row">
-<% @auctions.each do |auction| %>
-    <div class="feed-card col-md-4">
-    <% if auction.bids.last.user.full_name == current_user.full_name %>
-        <div class="jumbotron auction-jumbo auction-jumbo-winning">
-          <%= image_tag auction.product.image_url, class: "img-responsive auction-jumbo-picture" %>
-          <h4><%= link_to auction.product.name, auction_path(auction) %></h4>
-          <section class="feed-info">
-            <p>You are the current High Bidder!</p>
-            <p>Your Current High Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
-          <p>Time Remaining: <%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
-          </section>
-        </div>
+  <% @auctions.each do |auction| %>
+      <div class="col-sm-4">
+        <% if auction.bids.last.user.full_name == current_user.full_name %>
+            <div class="thumbnail auction-index-card">
+              <%= image_tag auction.product.image_url, class: "img-responsive auction-jumbo-picture" %>
+              <div class="caption">
+                <h5><%= link_to auction.product.name, auction_path(auction.id) %>
+                </h5>
+                <p>You are the current High Bidder!</p>
+                <p>Your Current High Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
+                <p>Time Remaining: <%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
+              </div>
+            </div>
         <% else %>
-        <div class="jumbotron auction-jumbo auction-jumbo-losing">
-            <%= image_tag auction.product.image_url, class: "img-responsive auction-jumbo-picture" %>
-            <h4><%= link_to auction.product.name, auction_path(auction) %></h4>
-          <section class="feed-info">
-            <p>Current High Bidder: <%= auction.bids.last.user.full_name %></p>
-            <p>Current Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
-          <p>Time Remaining: <%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
-          <%= form_for @bid do |f| %>
-                <div><%= hidden_field_tag :auction_id, auction.id %></div>
-                <div><%= hidden_field_tag :user_id, current_user.id %></div>
-                <%= f.label :amount %>
-                <%= f.text_field :amount%>
-                <%= f.submit %>
+            <div class="thumbnail auction-index-card-losing">
+              <%= image_tag auction.product.image_url, class: "img-responsive auction-jumbo-picture" %>
+              <div class="caption">
+                <h5><%= link_to auction.product.name, auction_path(auction.id) %>
+                </h5>
+                <p>Current High Bidder: <%= auction.bids.last.user.full_name %></p>
+                <p>Current Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
+                <p>Time Remaining: <%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
+                <%= form_for @bid do |f| %>
+                    <div><%= hidden_field_tag :auction_id, auction.id %></div>
+                    <div><%= hidden_field_tag :user_id, current_user.id %></div>
+                    <%= f.label :amount %>
+                    <%= f.text_field :amount%>
+                    <%= f.submit class: "btn btn-success btn-sm" %>
+                <% end %>
+              </div>
+            </div>
             <% end %>
-          </section>
-        </div>
-    <% end %>
-    </div>
-<% end %>
-</div>
+      </div>
+      <% end %>
+      </div>
