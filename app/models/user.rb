@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     UserMailer.account_creation(self).deliver_now
   end
 
+  def send_outbid_email
+    UserMailer.send_outbid_email(self).deliver_now
+  end
+
   private
 
   def strip_whitespace

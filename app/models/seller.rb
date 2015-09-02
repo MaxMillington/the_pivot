@@ -11,6 +11,15 @@ class Seller < ActiveRecord::Base
     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   validates :slug, uniqueness: true
 
+  def send_seller_bid_email
+    SellerMailer.send_seller_bid_email(self).deliver_now
+  end
+
+  def send_auction_over_email
+    SellerMailer.send_auction_over_email(self).deliver_now
+  end
+
+
   protected
 
   def add_slug

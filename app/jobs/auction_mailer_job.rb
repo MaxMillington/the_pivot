@@ -1,9 +1,12 @@
 class AuctionMailerJob < ActiveJob::Base
   queue_as :default
 
-
   def perform(auction)
-    NotificationsMailer.contact(auction.winner).deliver_now
+    UserMailer.win_bid(auction.winner).deliver_now
+  end
+
+  def perform_auction_notification(seller)
+    SellerMailer.send_auction_over_email(seller.email).deliver_now
   end
 
 end

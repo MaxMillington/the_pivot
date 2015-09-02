@@ -8,13 +8,21 @@ class UserMailer < ApplicationMailer
     )
   end
 
-
-  def contact(winner)
-    @winner = winner
-
+  def send_outbid_email(loser)
+    @loser = loser
     mail(
-        to: winner.email,
-        subject: "Message from #{winner.name}",
+        to: @loser.email,
+        subject: "You have been outbid!",
     )
   end
+
+
+  def win_bid(winner)
+    @winner = winner
+    mail(
+        to: @winner.email,
+        subject: "You won an auction #{@winner.name}!",
+    )
+  end
+
 end

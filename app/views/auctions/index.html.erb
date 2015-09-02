@@ -17,9 +17,12 @@
 
     <div class="col-md-9">
 
-      <div class="row carousel-holder">
-
-
+      <div class="row auction-index-title">
+        <% if params[:category_id] %>
+        <h1><%= Category.find(params[:category_id]).name.pluralize(1) %> Auctions</h1>
+        <% else %>
+          <h1>All Auctions</h1>
+        <% end %>
       </div>
 
 
@@ -37,9 +40,9 @@
                   <% if auction.bids.count == 0 %>
                       <p><span class="bold">No bids yet</span></p>
                   <% else %>
-                      <p>Current Bid: <span class="bold"><%= number_to_currency(auction.bids.last.amount) %></span></p>
+                      <h5>Current Bid: <span class="bold green"><%= number_to_currency(auction.bids.last.amount) %></span></h5>
                 <% end %>
-                  <p>Time Remaining: <span class="bold"><%= distance_of_time_in_words(Time.now, auction.ending_time) %></span></p>
+                  <h5>Time Remaining: <span class="bold red"><%= distance_of_time_in_words(Time.now, auction.ending_time) %></span></h5>
                 </div>
               </div>
             </div>

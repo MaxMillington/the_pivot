@@ -6,6 +6,8 @@ class BidsController < ApplicationController
     @auction = Auction.find(params[:auction_id])
     if @bid.save
       flash[:notice] = "You are the high bidder!"
+      @bid.outbid_user.send_outbid_email
+      @bid.bid_seller.send_seller_bid_email
       redirect_to auction_path(@bid.auction.id)
     else
       flash[:error] = "Bid amount needs to be greater than current bid"
