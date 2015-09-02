@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   root to: "static_pages#index"
 
   resources :products, only: [:index, :show, :edit, :update]

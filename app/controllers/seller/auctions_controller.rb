@@ -3,8 +3,8 @@ class Seller::AuctionsController < ApplicationController
 
   def index
     @categories = Category.all
-    seller = Seller.find_by(slug: params[:seller])
-    @auctions = seller.auctions.active.paginate(:page => params[:page], :per_page => 20)
+    @seller = Seller.find_by(slug: params[:seller])
+    @auctions = @seller.auctions.active.paginate(:page => params[:page], :per_page => 20)
     if params[:category_id]
       category_id = params.permit(:category_id)[:category_id]
       @auctions = @auctions.joins(:category).where(categories: { id: category_id })
@@ -38,9 +38,8 @@ class Seller::AuctionsController < ApplicationController
 
     if @auction.save
       flash[:success] = "Your new auction has been scheduled."
-      # Mailer jobs to implement later
-      # AuctionMailerJob.perform_later(@auction, at: ending_time.to_s)
-      # AuctionMailerJob.perform_auction_notification(@seller, at: ending_time.to_s)
+      SellerNotifier.perform_in((TimeDifference.between(starting_time,ending_time).in_minutes.to_i).minutes, @seller)
+      UserNotifier.perform_in((TimeDifference.between(starting_time,ending_time).in_minutes.to_i).minutes, @auction)
       redirect_to seller_dashboard_path(params[:seller])
     else
       @seller = Seller.find_by(slug: params[:seller])

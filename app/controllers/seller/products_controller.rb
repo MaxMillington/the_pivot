@@ -6,8 +6,9 @@ class Seller::ProductsController < ApplicationController
   def index
     @categories = Category.all
     @products = Product.where(seller_id: @seller.id).paginate(:page => params[:page], :per_page => 20)
-    filtering_params(params).each do |key, value|
-      @products = @products.public_send(key, value) if value.present?
+    if params[:category_id]
+      category_id = params.permit(:category_id)[:category_id]
+      @products = @products.where(categories: { id: category_id })
     end
   end
 
