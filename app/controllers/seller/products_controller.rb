@@ -8,7 +8,7 @@ class Seller::ProductsController < ApplicationController
     @products = Product.where(seller_id: @seller.id).paginate(:page => params[:page], :per_page => 20)
     if params[:category_id]
       category_id = params.permit(:category_id)[:category_id]
-      @products = @products.where(categories: { id: category_id })
+      @products = @products.where(category_id: category_id)
     end
   end
 
