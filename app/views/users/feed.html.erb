@@ -15,7 +15,7 @@
               </div>
             </div>
         <% else %>
-            <div class="thumbnail auction-index-card-losing">
+            <div class="thumbnail auction-index-card losing">
               <%= image_tag auction.product.image_url, class: "img-responsive auction-jumbo-picture" %>
               <div class="caption">
                 <h5><%= link_to auction.product.name, auction_path(auction.id) %>

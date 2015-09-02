@@ -16,6 +16,7 @@ gem 'bootswatch-sass'
 # Use Faker
 gem 'faker'
 gem 'sidekiq'
+gem 'sinatra', :require => nil
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -36,7 +37,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-gem 'puma'
+# gem 'puma'
+
+gem 'redis-rails'
+gem 'time_difference'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
