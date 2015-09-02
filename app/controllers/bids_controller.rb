@@ -4,7 +4,10 @@ class BidsController < ApplicationController
     @bid = Bid.new(bid_params)
     @bid.assign_attributes(user_id: params[:user_id], auction_id: params[:auction_id])
     @auction = Auction.find(params[:auction_id])
-    if @bid.save
+    if @bid.amount.nil?
+      flash[:warning] = "You must enter a bid amount."
+      redirect_to auction_path(@bid.auction.id)
+    elsif @bid.save
       flash[:success] = "You are the high bidder!"
       @bid.outbid_user.send_outbid_email
       @bid.bid_seller.send_seller_bid_email
