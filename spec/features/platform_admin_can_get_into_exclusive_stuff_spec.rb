@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Platform Admin can view Platform Admin Dashboard" do
-  scenario "Platform Admin logs in and sees Platform Admin Dashboard" do
+  scenario "Platform Admin logs in and sees Platform Admin Dashboard and can click links to get into exclusive stuff" do
     @seller = Seller.create(name: "ACME",
                             email: "hello@acme.com")
 
@@ -13,6 +13,11 @@ feature "Platform Admin can view Platform Admin Dashboard" do
                                email: "email@example.com",
                                password: "password",
                                seller_id: @seller.id)
+
+    @regular_user = User.create(first_name: "Steve",
+                last_name: "McQueen",
+                email: "monkey@steve.com",
+                password: "password")
 
     Role.create(name: "platform_admin")
     Role.create(name: "seller_admin")
@@ -37,6 +42,18 @@ feature "Platform Admin can view Platform Admin Dashboard" do
 
     click_link("View All Products")
     expect(current_path).to eq(products_path)
+
+    click_link("Platform Admin Dashboard")
+    expect(current_path).to eq(platform_admin_dashboard_path)
+
+    click_link("View All Auctions")
+    expect(current_path).to eq(auctions_path)
+
+    click_link("Platform Admin Dashboard")
+
+    click_link("View All Users")
+    expect(current_path).to eq(platform_admin_users_path)
+    expect(page).to have_content("Steve McQueen")
 
 
   end
