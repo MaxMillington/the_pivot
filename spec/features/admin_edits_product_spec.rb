@@ -36,7 +36,7 @@ feature "seller/store admin edits a product" do
 
     expect(current_path).to eq(seller_products_path(@seller.slug))
 
-    click_link "edit"
+    click_link "Edit"
 
     fill_in "Name", with: "The Amazing Superman"
     fill_in "Description", with: "This is the new description"
