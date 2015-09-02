@@ -3,8 +3,8 @@ class Seller::AuctionsController < ApplicationController
 
   def index
     @categories = Category.all
-    seller = Seller.find_by(slug: params[:seller])
-    @auctions = seller.auctions.active.paginate(:page => params[:page], :per_page => 20)
+    @seller = Seller.find_by(slug: params[:seller])
+    @auctions = @seller.auctions.active.paginate(:page => params[:page], :per_page => 20)
     if params[:category_id]
       category_id = params.permit(:category_id)[:category_id]
       @auctions = @auctions.joins(:category).where(categories: { id: category_id })

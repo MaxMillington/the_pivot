@@ -61,12 +61,16 @@ h6 {
 }
 
 .featured-auctions {
-    background: url(image-path("wood-texture.jpg"));
-  }
+    background: rgba(0,0,0,.2);
+    margin: 100px auto 150px auto;
+    max-width: 1000px;
+    border: solid black 2px;
+
+}
 
 .featured-auctions h1{
   text-align: center;
-  color:#e74c3c;
+  color:black;
   font-weight: 300;
   background: rgba(255,255,255,.7);
   border: solid white 2px;
@@ -452,9 +456,6 @@ a.list-group-item {
 
 // Footer Styles
 
-footer {
-  margin-top: 60px;
-}
 
 .footer {
   position: absolute;
