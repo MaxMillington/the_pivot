@@ -60,6 +60,10 @@ feature "Platform Admin can view Platform Admin Dashboard" do
     expect(current_path).to eq(new_platform_admin_seller_path)
     expect(page).to have_content("Create")
 
+    fill_in "Name", with: nil
+    fill_in "Email", with: nil
+    expect(current_path).to eq(new_platform_admin_seller_path)
+
     fill_in "Name", with: "Chuck's Roast"
     fill_in "Email", with: "chuck@email.com"
     click_link_or_button("Create")
@@ -79,7 +83,16 @@ feature "Platform Admin can view Platform Admin Dashboard" do
 
     expect(page).to have_content("Successfully Created Seller Admin, Steve Jones")
 
+    click_link "Logout"
 
+    visit login_path
 
+    fill_in "Email", with: "email@example.com"
+    fill_in "Password", with: "password"
+    click_button "Login"
+
+    click_link "Sellers"
+    expect(current_path).to eq(sellers_path)
+    
   end
 end
