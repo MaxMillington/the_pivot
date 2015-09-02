@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: "static_pages#index"
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show, :edit, :update]
   resources :categories, param: :slug, only: [:index, :show]
   resources :orders, only: [:index, :show]
   resources :addresses, only: [:new, :update, :create]
@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get :sellers, to: "sellers#index"
   patch "/sellers/:id", to: "sellers#update"
+  get "sellers/new", to: "sellers#new"
+  post "sellers/new", to: "sellers#create"
 
   scope :sellers, path: ':seller', as: :seller do
     get ':seller', to: "sellers#show"
@@ -37,6 +39,7 @@ Rails.application.routes.draw do
     resources :products
     resources :users
     resources :sellers
+    post "/sellers/new", to: "sellers#create"
     resources :auctions
 
     get "/dashboard",  to: "admins#index"
