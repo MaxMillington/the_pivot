@@ -95,4 +95,39 @@ feature "Platform Admin can view Platform Admin Dashboard" do
     expect(current_path).to eq(sellers_path)
 
   end
+
+  scenario "Platform Admin logs in and sees Platform Admin Dashboard and can click links to get into exclusive stuff" do
+    @seller = Seller.create(name: "ACME",
+                            email: "hello@acme.com")
+
+    platform_admin = User.create(first_name: "John",
+                                 last_name: "Doe",
+                                 email: "email@example.com",
+                                 password: "password",
+                                 seller_id: @seller.id)
+
+    @regular_user = User.create(first_name: "Steve",
+                                last_name: "McQueen",
+                                email: "monkey@steve.com",
+                                password: "password")
+
+    Role.create(name: "platform_admin")
+    Role.create(name: "seller_admin")
+    Role.create(name: "registered_user")
+
+    platform_admin.roles << Role.find_by(name: "platform_admin")
+
+    visit login_path
+
+    fill_in "Email", with: "email@example.com"
+    fill_in "Password", with: "password"
+    click_button "Login"
+
+    visit platform_admin_dashboard_path
+
+    click_link "Sellers"
+    expect(current_path).to eq(sellers_path)
+
+    save_and_open_page
+  end
 end
