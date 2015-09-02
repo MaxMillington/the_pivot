@@ -103,13 +103,24 @@ feature "Platform Admin can view Platform Admin Dashboard" do
     platform_admin = User.create(first_name: "John",
                                  last_name: "Doe",
                                  email: "email@example.com",
-                                 password: "password",
-                                 seller_id: @seller.id)
+                                 password: "password")
 
     @regular_user = User.create(first_name: "Steve",
                                 last_name: "McQueen",
                                 email: "monkey@steve.com",
                                 password: "password")
+
+    @category = Category.create!(
+        name: "Video Games",
+        description: Faker::Lorem.paragraph,
+        image_url: 'pacman.jpg')
+
+    @product = Product.create(name: "Vintage Atari Gaming System",
+                              description: "Take a trip back in time and kill some alien invaders and play some pong in this classic video game console ",
+                              image_url: "video_games/atari.jpg",
+                              category_id: @category.id,
+                              condition: "good",
+                              seller_id: @seller.id)
 
     Role.create(name: "platform_admin")
     Role.create(name: "seller_admin")
@@ -125,9 +136,16 @@ feature "Platform Admin can view Platform Admin Dashboard" do
 
     visit platform_admin_dashboard_path
 
+    click_link_or_button "View All Products"
+    
+    click_link_or_button "delete"
+    expect(page).to have_content("Successfully deleted product.")
+
     click_link "Sellers"
     expect(current_path).to eq(sellers_path)
 
     click_link "Delete Seller"
+    expect(page).to have_content("Successfully deleted seller.")
+
   end
 end
