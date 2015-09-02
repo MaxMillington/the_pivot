@@ -55,6 +55,10 @@ feature "Platform Admin can view Platform Admin Dashboard" do
     expect(current_path).to eq(platform_admin_users_path)
     expect(page).to have_content("Steve McQueen")
 
+    click_link("Platform Admin Dashboard")
+    click_link("Create A Seller")
+    expect(current_path).to eq(sellers_new_path)
+    expect(page).to have_content("Create a New Seller")
 
   end
 end
