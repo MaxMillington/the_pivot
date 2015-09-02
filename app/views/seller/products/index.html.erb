@@ -12,37 +12,53 @@
   <div class="row">
 
     <div class="col-md-3"><br>
-      <div class="list-group">
-        <% @categories.each do |category| %>
-          <%= link_to category.name,
-            {controller: 'products', action: 'index', :category_id => category.id },
-            class: 'list-group-item' %>
-        <% end %>
+      <div class="ui rail">
+        <div class="ui sticky">
+          <div class="list-group">
+            <%= link_to "View All", {controller: 'products', action: 'index'},
+                        class: 'list-group-item'  %>
+            <% @categories.each do |category| %>
+                <%= link_to category.name,
+                            {controller: 'products', action: 'index', :category_id => category.id },
+                            class: 'list-group-item' %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="col-md-9">
-      <div class="row"> <br>
-        <% @products.each do |product| %>
-          <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-              <%=link_to image_tag(product.image_url),
-                seller_product_path(@seller.slug, product.id),
-                class: 'img-responsive' %>
-              <div class="caption">
-                <h4><%= link_to product.name, seller_product_path(@seller.slug, product.id) %>
-              </h4>
-              <p><%= truncate(product.description, length: 80) %></p>
-              <%= link_to "edit", edit_seller_product_path(@seller.slug, product.id) %>
+      <div id="context">
+        <div class="row auction-index-title">
+          <% if params[:category_id] %>
+              <h1><%= Category.find(params[:category_id]).name.pluralize(1) %> Products</h1>
+          <% else %>
+              <h1>All Products</h1>
+          <% end %>
+        </div>
+
+
+        <div class="row">
+          <% @products.each do |product| %>
+              <div class="col-sm-4">
+                <div id="index" class="thumbnail auction-index-card">
+                  <div class="auction-card-picture">
+                    <%=link_to image_tag(product.image_url),
+                               seller_product_path(@seller.slug, product.id),
+                               class: 'img-responsive' %>
+                  </div>
+                  <div class="caption">
+                    <h4><%= link_to product.name, seller_product_path(@seller.slug, product.id) %>
+                    </h4>
+                    <h6><%= link_to "Edit", edit_seller_product_path(@seller.slug, product.id) %></h6>
+                    <p><%= truncate(product.description, length: 80) %></p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        <% end %>
-
+          <% end %>
+        </div>
       </div>
-
     </div>
-
   </div>
 
   <!-- Pagination -->
@@ -55,5 +71,17 @@
       </ul>
     </div>
   </div>
-
 </div>
+</div>
+<script>
+
+    $(document).ready( function () {
+        $('a.list-group-item').addClass("auction-nav").addClass("ui sticky");
+        $('.ui.sticky')
+                .sticky({
+                    context: '#context',
+                    pushing: true
+                })
+    });
+
+</script>

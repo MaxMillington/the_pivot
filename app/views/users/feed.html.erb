@@ -4,25 +4,25 @@
   <% @auctions.each do |auction| %>
       <div class="col-sm-4">
         <% if auction.bids.last.user.full_name == current_user.full_name %>
-            <div class="thumbnail auction-index-card">
+            <div class="thumbnail auction-index-card feed-card">
               <%= image_tag auction.product.image_url, class: "img-responsive auction-jumbo-picture" %>
               <div class="caption">
                 <h5><%= link_to auction.product.name, auction_path(auction.id) %>
                 </h5>
                 <p>You are the current High Bidder!</p>
-                <p>Your Current High Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
-                <p>Time Remaining: <%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
+                <p><span class="text-muted">Your Current High Bid: </span><%= number_to_currency(auction.bids.last.amount) %></p>
+                <p><span class="text-muted">Time Remaining: </span><%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
               </div>
             </div>
         <% else %>
-            <div class="thumbnail auction-index-card losing">
+            <div class="thumbnail auction-index-card feed-card losing">
               <%= image_tag auction.product.image_url, class: "img-responsive auction-jumbo-picture" %>
               <div class="caption">
                 <h5><%= link_to auction.product.name, auction_path(auction.id) %>
                 </h5>
-                <p>Current High Bidder: <%= auction.bids.last.user.full_name %></p>
-                <p>Current Bid: <%= number_to_currency(auction.bids.last.amount) %></p>
-                <p>Time Remaining: <%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
+                <p><span class="text-muted">Current High Bidder: </span><%= auction.bids.last.user.full_name %></p>
+                <p><span class="text-muted">Current Bid: </span><%= number_to_currency(auction.bids.last.amount) %></p>
+                <p><span class="text-muted">Time Remaining: </span><%= distance_of_time_in_words(Time.now, auction.ending_time) %></p>
                 <%= form_for @bid do |f| %>
                     <div><%= hidden_field_tag :auction_id, auction.id %></div>
                     <div><%= hidden_field_tag :user_id, current_user.id %></div>

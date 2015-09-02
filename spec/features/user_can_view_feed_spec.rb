@@ -49,7 +49,7 @@ feature "User can view feed page with active bids" do
 
   scenario "bid on auction and see in feed" do
 
-    click_link "Computer"
+    click_link_or_button "Computer"
     fill_in "Amount", with: "600.00"
     click_button 'Create Bid'
     click_link_or_button("Feed")
@@ -60,7 +60,7 @@ feature "User can view feed page with active bids" do
 
   scenario "bid on auction, someone else out bids you and see in feed" do
 
-    click_link "Computer"
+    click_link_or_button "Computer"
     fill_in "Amount", with: "600.00"
     click_button 'Create Bid'
     click_link_or_button("Feed")
@@ -79,7 +79,7 @@ feature "User can view feed page with active bids" do
     expect(page).to have_content("Current Bid: $700.00")
 
     click_link "Auctions"
-    click_link "Computer"
+    click_link_or_button "Computer"
     fill_in "Amount", with: "800.00"
     click_button 'Create Bid'
     click_link_or_button("Feed")
@@ -90,7 +90,7 @@ feature "User can view feed page with active bids" do
 
   scenario "bid on auction from the feed page" do
 
-    click_link "Computer"
+    click_link_or_button "Computer"
     fill_in "Amount", with: "600.00"
     click_button 'Create Bid'
     click_link_or_button("Feed")

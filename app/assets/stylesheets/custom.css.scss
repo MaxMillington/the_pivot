@@ -42,7 +42,7 @@ h6 {
   font-size:48px;
   font-weight: 100;
   margin-top: 350px;
-  margin-left: 30px;
+  margin-left: 40px;
 }
 
 #title {
@@ -61,8 +61,8 @@ h6 {
 }
 
 .featured-auctions {
-    background: rgba(0,0,0,.2);
-    margin: 100px auto 150px auto;
+    background: #2099a3;
+    margin: 50px auto 150px auto;
     max-width: 1000px;
     border: solid black 2px;
 
@@ -72,8 +72,6 @@ h6 {
   text-align: center;
   color:black;
   font-weight: 300;
-  background: rgba(255,255,255,.7);
-  border: solid white 2px;
 }
 
 #index-foods,
@@ -365,6 +363,12 @@ h6 {
   font-size: 16px;
 }
 
+// Category Index Page Styles
+
+.category-row {
+  margin: 30px 100px 50px 100px;
+}
+
 // Auction Show Page Styles
 
 .auction-index-title {
@@ -382,6 +386,14 @@ h6 {
   box-shadow: black 1px 2px 4px;
 }
 
+.feed-card {
+  max-height: 200px;
+}
+
+.feed-card .losing {
+  max-height: 200px;
+}
+
 .auction-index-card:hover {
   border: solid #2ecc71 5px;
 }
@@ -393,12 +405,21 @@ h6 {
 .auction-card-picture img{
   padding-top: 15px;
   display: block;
-  min-width:250px;
-  max-width:250px;
+  min-width:225px;
+  max-width:225px;
   min-height:150px;
   max-height:150px;
-  width: auto;
-  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+.auction-info {
+
+}
+
+.auction-bid {
+  width: 300px;
 }
 
 .bold {
@@ -444,6 +465,11 @@ a.list-group-item {
 .pic-col {
   margin-right: 20%;
 }
+
+.auction-show-page {
+  margin-top: 50px;
+}
+
 .auction-show-picture img {
   width: 100%;
   min-height: 400px;
@@ -451,7 +477,21 @@ a.list-group-item {
 }
 
 .caption-full {
-  height:300px;
+  height:350px;
+}
+
+.auction-info h3{
+  margin-bottom:40px;
+}
+
+.caption-full .btn {
+  float:right;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.bid-form {
+  margin-top: 30px;
 }
 
 // Footer Styles

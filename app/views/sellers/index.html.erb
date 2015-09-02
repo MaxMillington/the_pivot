@@ -26,26 +26,25 @@
 
     <% @sellers.each do |seller| %>
 
-        <div class="col-md-3 col-sm-6 hero-feature">
-          <div class="thumbnail">
-            <img src="<%= seller.image_url %>" alt="seller">
+        <div class="col-sm-4">
+          <div id="index" class="thumbnail auction-index-card">
+            <div class="auction-card-picture seller">
+              <%= image_tag seller.image_url %>
+            </div>
             <div class="caption">
-              <h3><%= seller.name %></h3>
+              <h5><%= seller.name %></h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
               <p>
                 <%= link_to "View Auctions", seller_path(seller), class: "btn btn-primary" %>
                 <% if platform_admin? %>
                     <%= link_to "Delete Seller", platform_admin_seller_path(seller.id), method: :delete,
-                    class: "btn btn-primary"%>
+                                class: "btn btn-primary"%>
                 <% end %>
               </p>
             </div>
           </div>
         </div>
     <% end %>
-
-
-
   </div>
   <!-- /.row -->
 
