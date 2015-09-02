@@ -3,7 +3,11 @@
   font-family: "Kaushan Script Regular";
 }
 
-html,
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   height: 100%;
 }
@@ -34,29 +38,21 @@ h6 {
 .page-header {
   border: 0;
   color: #fff;
-  text-align: center;
-  font-weight: 500;
-  margin-top: 0;
+  text-align: left;
+  font-size:48px;
+  font-weight: 100;
+  margin-top: 350px;
+  margin-left: 30px;
 }
 
-.featured {
-  color: #ffffff;
-  float: none;
-  text-align: center;
-  font-weight: 800;
-  text-shadow: white 2px 3px 10px;
+#title {
+  font-size:62px;
+  font-weight: 300;
 }
 
-#featured-name a{
-  color: white;
-  font-weight: 700;
-  float:left;
-  position: absolute;
-  background: rgba(0,0,0,.7)
-}
 
 .main-image {
-  background: url(image-path("super-mario-world.jpg")) left bottom;
+  background: url(image-path("181H.jpg")) left bottom;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
@@ -64,13 +60,20 @@ h6 {
   height: 500px;
 }
 
-.secondary-image {
-  background: url(image-path("coins-mario-underground.jpg")) left bottom;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
-  height: 500px;
+.featured-auctions {
+    background: rgba(0,0,0,.2);
+    margin: 100px auto 150px auto;
+    max-width: 1000px;
+    border: solid black 2px;
+
+}
+
+.featured-auctions h1{
+  text-align: center;
+  color:black;
+  font-weight: 300;
+  background: rgba(255,255,255,.7);
+  border: solid white 2px;
 }
 
 #index-foods,
@@ -88,17 +91,6 @@ h6 {
   }
 }
 
-#index-foods {
-  background-image: url(image-path("frog-in-pitcher-plant.jpg"));
-}
-
-#index-plants {
-  background-image: url(image-path("venus_flytrap.jpg"));
-}
-
-#index-accessories {
-  background-image: url(image-path("planters.jpg"));
-}
 
 .img-portfolio {
   margin-bottom: 30px;
@@ -268,11 +260,7 @@ h6 {
   font-style: italic;
 }
 
-// Footer Styles
 
-footer {
-  margin: 50px 0;
-}
 
 // Responsive Styles
 
@@ -365,13 +353,6 @@ footer {
   padding: 10px;
   background: rgba(0, 0, 0, 0);
 }
-.auction-jumbo-winning {
-  background: #0b7c7c;
-}
-
-.auction-jumbo-losing {
-  background: rgba(102, 35, 30, 0.6);
-}
 
 .feed-info {
   margin-top: 75px;
@@ -401,12 +382,23 @@ footer {
   box-shadow: black 1px 2px 4px;
 }
 
-.auction-index-card img{
+.auction-index-card:hover {
+  border: solid #2ecc71 5px;
+}
+
+.auction-index-card.losing:hover {
+  border: solid #e74c3c 5px;
+}
+
+.auction-card-picture img{
   padding-top: 15px;
-  min-height: 150px;
-  max-height: 150px;
-  min-width: 150px;
-  max-width: 150px;
+  display: block;
+  min-width:250px;
+  max-width:250px;
+  min-height:150px;
+  max-height:150px;
+  width: auto;
+  height: auto;
 }
 
 .bold {
@@ -414,14 +406,25 @@ footer {
 }
 
 .green {
-  color: green;
+  color: #2ecc71;
 }
 
 .red {
-  color: red;
+  color: #e74c3c;
 }
 
-.auction-index-card p{
+a.list-group-item {
+  color: white;
+  font-weight: 200;
+}
+
+.auction-nav {
+  background-color: #e74c3c;
+
+}
+
+
+#index p{
   font-size: 12px;
 }
 
@@ -451,9 +454,25 @@ footer {
   height:300px;
 }
 
-#footer {
-  background: black;
+// Footer Styles
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  height: auto;
+  height: 60px;
+  background-color: #2b2b2b;
+}
+
+.footer p {
+  padding-top: 20px;
+  color: white;
+}
+
+
+.social-media {
+  float:right;
+  margin-top: -30px;
   color: white;
 }

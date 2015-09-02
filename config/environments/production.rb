@@ -3,13 +3,14 @@ Rails.application.configure do
 
 
   config.action_mailer.delivery_method = :smtp
-
+  host = 'the-pivot.herokuapp.com'
+  config.action_mailer.default_url_options = { host: host }
   config.action_mailer.smtp_settings = {
-      address:              'smtp.mandrillapp.com',
-      port:                 '587',
-      domain:               'collectorsworld.com',
-      user_name:            'maxmillington89@gmail.com',
-      password:             'm95ZFibYtMIY_30z5Ot7IA',
+      address:              'smtp.sendgrid.net',
+      port:                 587,
+      domain:               "the-pivot.herokuapp.com",
+      user_name:            'sabondano',
+      password:             'collectorsworld1',
       authentication:       'plain',
       enable_starttls_auto: true
   }

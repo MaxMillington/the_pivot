@@ -1,0 +1,23 @@
+<h1>Featured Auctions</h1>
+<% @auctions.each do |auction| %>
+      <div class="col-sm-4">
+        <div class="thumbnail auction-index-card">
+          <div class="auction-card-picture">
+          <%=link_to image_tag(auction.product.image_url),
+                     auction_path(auction.id),
+                     class: 'img-circle img-responsive img-center'%>
+          </div>
+          <div class="caption">
+            <h5><%= link_to auction.product.name, auction_path(auction.id) %>
+            </h5>
+            <p>Starting Price: <span class="bold"><%= number_to_currency(auction.starting_price) %></span></p>
+            <% if auction.bids.count == 0 %>
+                <p><span class="bold">No bids yet</span></p>
+            <% else %>
+                <h5>Current Bid: <span class="bold green"><%= number_to_currency(auction.bids.last.amount) %></span></h5>
+            <% end %>
+            <h5>Time Remaining: <span class="bold red"><%= distance_of_time_in_words(Time.now, auction.ending_time) %></span></h5>
+          </div>
+        </div>
+      </div>
+<% end %>

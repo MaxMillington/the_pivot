@@ -4,35 +4,39 @@
   <div class="row">
 
     <div class="col-md-3"><br>
-      <div class="list-group">
-        <%= link_to "View All", {controller: 'auctions', action: 'index'},
-                    class: 'list-group-item'  %>
-        <% @categories.each do |category| %>
-            <%= link_to category.name,
-                        {controller: 'auctions', action: 'index', :category_id => category.id },
-                        class: 'list-group-item' %>
-        <% end %>
+      <div class="ui rail">
+        <div class="ui sticky">
+          <div class="list-group">
+            <%= link_to "View All", {controller: 'auctions', action: 'index'},
+                        class: 'list-group-item'  %>
+            <% @categories.each do |category| %>
+                <%= link_to category.name,
+                            {controller: 'auctions', action: 'index', :category_id => category.id },
+                            class: 'list-group-item' %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="col-md-9">
-
-      <div class="row auction-index-title">
-        <% if params[:category_id] %>
-        <h1><%= Category.find(params[:category_id]).name.pluralize(1) %> Auctions</h1>
-        <% else %>
-          <h1>All Auctions</h1>
-        <% end %>
-      </div>
+      <div id="context">
+        <div class="row auction-index-title">
+            <% if params[:category_id] %>
+            <h1><%= Category.find(params[:category_id]).name.pluralize(1) %> Auctions</h1>
+            <% else %>
+              <h1>All Auctions</h1>
+            <% end %>
+          </div>
 
 
       <div class="row">
         <% @auctions.each do |auction| %>
             <div class="col-sm-4">
-              <div class="thumbnail auction-index-card">
-                <%=link_to image_tag(auction.product.image_url),
-                           auction_path(auction.id),
-                           class: 'img-circle img-responsive img-center'%>
+              <div id="index" class="thumbnail auction-index-card">
+                <div class="auction-card-picture">
+                <%= image_tag auction.product.image_url %>
+                </div>
                 <div class="caption">
                   <h5><%= link_to auction.product.name, auction_path(auction.id) %>
                   </h5>
@@ -62,6 +66,18 @@
       </ul>
     </div>
   </div>
-
-
 </div>
+</div>
+
+<script>
+
+    $(document).ready( function () {
+        $('a.list-group-item').addClass("auction-nav").addClass("ui sticky");
+        $('.ui.sticky')
+                .sticky({
+                    context: '#context',
+                    pushing: true
+                })
+    });
+
+</script>

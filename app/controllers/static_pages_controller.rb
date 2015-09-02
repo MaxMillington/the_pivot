@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
   def index
-    load_featured_products
+    @auctions = Auction.active.sample(6)
   end
 end
