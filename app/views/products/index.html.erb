@@ -27,6 +27,7 @@
                   </h4>
                   <p><%= truncate(product.description, length: 80) %></p>
                   <%= link_to "edit", edit_product_path(product) %>
+                  <%= link_to "delete", product_path(product), method: :delete if platform_admin? %>
                 </div>
               </div>
             </div>

@@ -24,6 +24,14 @@ class PlatformAdmin::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "Successfully deleted user."
+    redirect_to platform_admin_dashboard_path
+  end
+
+
   private
 
   def user_params
