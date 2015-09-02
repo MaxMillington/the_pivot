@@ -5,8 +5,8 @@ class BidsController < ApplicationController
     @bid.assign_attributes(user_id: params[:user_id], auction_id: params[:auction_id])
     @auction = Auction.find(params[:auction_id])
     if @bid.save
+      @bid.outbid_user.send_outbid_email_and_text
       flash[:success] = "You are the high bidder!"
-      @bid.outbid_user.send_outbid_email
       @bid.bid_seller.send_seller_bid_email
       redirect_to auction_path(@bid.auction.id)
     else
