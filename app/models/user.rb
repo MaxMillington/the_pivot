@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :bids
   has_many :auctions, through: :bids
-  has_many :addresses, as: :addressable
+  has_many :addresses, as: :addressable, dependent: :destroy
   has_many :user_roles, dependent: :destroy
   has_many :roles, through: :user_roles
   belongs_to :seller
