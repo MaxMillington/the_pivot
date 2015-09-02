@@ -19,4 +19,14 @@ class Auction < ActiveRecord::Base
   def winner
     bids.last.user
   end
+
+  def status
+    if (starting_time <= Time.now) && (ending_time >= Time.now)
+      "active"
+    elsif starting_time >= Time.now
+      "scheduled"
+    else
+      "ended"
+    end
+  end
 end
