@@ -42,6 +42,15 @@ class Seed
 
     seller_admin.roles << Role.find_by(name: "seller_admin")
 
+    seller_admin2 = User.create!(
+        first_name: "Sebastian",
+        last_name: "Abondano",
+        email: "sabondano1@gmail.com",
+        password: "password",
+        seller_id: 21)
+
+    seller_admin2.roles << Role.find_by(name: "seller_admin")
+
     platform_admin = User.create!(
         first_name: "platform",
         last_name: "admin",
@@ -59,6 +68,11 @@ class Seed
           email: Faker::Internet.email,
           image_url: Faker::Avatar.image)
     end
+
+    Seller.create!(
+              name: "Groovy Toys",
+              email: "sabondano1@gmail.com",
+              image_url: Faker::Avatar.image)
   end
 
   def generate_addresses
