@@ -1,0 +1,16 @@
+<div class="container">
+  <h3 class="text-center">Create a New Seller</h3>
+  <div class="well col-sm-6 col-sm-offset-3">
+    <%= form_for(:seller) do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
+        <%= f.submit "Create", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

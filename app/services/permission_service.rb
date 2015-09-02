@@ -36,6 +36,7 @@
     return true if controller == 'bids' && action.in?(%w(index show new create edit update))
     return true if controller == 'addresses' && action.in?(%w(new create edit update))
     return true if controller == 'platform_admin/admins' && action.in?(%w(index))
+    return true if controller == 'platform_admin/sellers' && action.in?(%w(new create destroy update edit index))
   end
 
   def seller_admin_permissions
