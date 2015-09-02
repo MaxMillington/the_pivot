@@ -128,6 +128,6 @@ feature "Platform Admin can view Platform Admin Dashboard" do
     click_link "Sellers"
     expect(current_path).to eq(sellers_path)
 
-    save_and_open_page
+    click_link "Delete Seller"
   end
 end
