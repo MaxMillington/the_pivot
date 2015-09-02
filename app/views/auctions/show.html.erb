@@ -1,5 +1,5 @@
 <!-- Page Content -->
-<div class="container">
+<div class="container auction-show-page">
 
   <div class="row">
 
@@ -9,50 +9,48 @@
       </div>
     </div>
     <div class="col-md-3"><br>
-      <div class="well">
+      <div class="well auction-info">
         <div class="caption-full">
-          <h4><a href="#"><%= @auction.product.name %></a>
-          </h4>
+          <h3><%= @auction.product.name %></h3>
           <p><%= @auction.product.description %></p><br>
-          <p>Condition: <%= @auction.product.condition %></p><br>
-          <p>Seller: <%= link_to Seller.find(@auction.product.seller_id).name, seller_path(Seller.find(@auction.product.seller_id)) %></p><br>
-
+          <h5>Condition: <%= @auction.product.condition.upcase %></h5><br>
+          <h5>Seller: <%= link_to Seller.find(@auction.product.seller_id).name, seller_path(Seller.find(@auction.product.seller_id)) %></h5><br>
         </div>
       </div>
     </div>
     <div class="col-md-3"><br>
-      <div class="well">
+      <div class="well auction-bid">
         <div class="caption-full">
           <h3>Bid Status</h3>
           <% if DateTime.now < @auction.ending_time %>
-            <p>Time Remaining: <%= distance_of_time_in_words(Time.now, @auction.ending_time) %></p>
-            <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
+              <p>Starting Price: <br><span class="bold"><%= number_to_currency(@auction.starting_price) %></span></p>
             <% if @auction.bids.count == 0 %>
-              <p>No bids yet</p>
+              <h4>No bids yet</h4>
             <% else %>
-              <p>Current Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
-              <p>Current High Bidder: <%= @auction.bids.last.user.full_name %></p>
+              <h4>Current Bid: <br><span class="green"><%= number_to_currency(@auction.bids.last.amount) %></span></h4>
+              <h4>Current High Bidder: <br><span class="bold"><%= @auction.bids.last.user.full_name %></span></h4>
             <% end %>
-            <%= render 'partials/bid_form' %>
+              <h4>Time Remaining: <br><span class="red"><%= distance_of_time_in_words(Time.now, @auction.ending_time) %></span></h4>
+              <%= render 'partials/bid_form' %>
           <% else %>
-            <p>Starting Price: <%= number_to_currency(@auction.starting_price) %></p>
-            <p>Total Bids: <%= @auction.bids.count %></p>
-            <p>Winning Bid: <%= number_to_currency(@auction.bids.last.amount) %></p>
-            <p>Winning Bidder: <%= @auction.bids.last.user.full_name %></p>
-            <br>
-            <h3>Auction is over.</h3>
-          <% end %>
+              <% if @auction.bids.count == 0 %>
+                  <p>Starting Price: <br><span class="bold"><%= number_to_currency(@auction.starting_price) %></span></p>
+                  <h4>Winning Bidder: <br><span class="red">No one bid on this product.</span></h4>
+                  <br>
+                  <h3><span class="red">Auction is over.</span></h3>
+              <% else %>
+                <p>Starting Price: <br><span class="bold"><%= number_to_currency(@auction.starting_price) %></span></p>
+                <h4>Total Bids: <br><span class="bold"><%= @auction.bids.count %></span></h4>
+                <h4>Winning Bidder: <br><span class="bold"><%= @auction.bids.last.user.full_name %></span></h4>
+                  <h4>Winning Bid: <br><span class="green"><%= number_to_currency(@auction.bids.last.amount) %></span></h4>
+                  <br>
+                <h3><span class="red">Auction is over.</span></h3>
+              <% end %>
+        <% end %>
         </div>
       </div>
     </div>
   </div>
-
-</div>
-<!-- /.container -->
-
-<div class="container">
-
-  <hr>
 
 </div>
 <!-- /.container -->

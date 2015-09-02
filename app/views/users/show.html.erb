@@ -10,22 +10,30 @@
     </div>
     <div id="billing-address" class="col-sm-4">
       <% current_user.addresses.billing.each do |billing| %>
-        <h4>Billing Address</h4>
-        <p><%= billing.address_1 %></p>
-        <p><%= billing.address_2 %></p>
-        <p><%= billing.city %></p>
-        <p><%= billing.state %></p>
-        <p><%= billing.zip_code %></p>
+        <h4><strong>Billing Address</strong></h4>
+        <address>
+        <br><%= billing.address_1 %>
+        <% if billing.address_2.length > 0 %>
+        <br><%= billing.address_2 %>
+        <br><%= billing.city %>, <%= billing.state %>, <%= billing.zip_code %>
+        <% else %>
+        <br><%= billing.city %>, <%= billing.state %>, <%= billing.zip_code %>
+              <% end %>
+        </address>
       <% end %>
     </div>
     <div id="shipping-address" class="col-sm-4">
       <% current_user.addresses.shipping.each do |shipping| %>
-        <h4>Shipping Address</h4>
-        <p><%= shipping.address_1 %></p>
-        <p><%= shipping.address_2 %></p>
-        <p><%= shipping.city %></p>
-        <p><%= shipping.state %></p>
-        <p><%= shipping.zip_code %></p>
+          <h4><strong>Shipping Address</strong></h4>
+          <address>
+            <br><%= shipping.address_1 %>
+            <% if shipping.address_2.length > 0 %>
+                <br><%= shipping.address_2 %>
+                <br><%= shipping.city %>, <%= shipping.state %>, <%= shipping.zip_code %>
+            <% else %>
+                <br><%= shipping.city %>, <%= shipping.state %>, <%= shipping.zip_code %>
+            <% end %>
+          </address>
       <% end %>
     </div>
   </div>

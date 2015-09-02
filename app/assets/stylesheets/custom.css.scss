@@ -382,6 +382,14 @@ h6 {
   box-shadow: black 1px 2px 4px;
 }
 
+.feed-card {
+  max-height: 200px;
+}
+
+.feed-card .losing {
+  max-height: 200px;
+}
+
 .auction-index-card:hover {
   border: solid #2ecc71 5px;
 }
@@ -401,8 +409,13 @@ h6 {
   margin-left: auto;
 }
 
-.seller {
 
+.auction-info {
+
+}
+
+.auction-bid {
+  width: 300px;
 }
 
 .bold {
@@ -448,6 +461,11 @@ a.list-group-item {
 .pic-col {
   margin-right: 20%;
 }
+
+.auction-show-page {
+  margin-top: 50px;
+}
+
 .auction-show-picture img {
   width: 100%;
   min-height: 400px;
@@ -455,7 +473,21 @@ a.list-group-item {
 }
 
 .caption-full {
-  height:300px;
+  height:350px;
+}
+
+.auction-info h3{
+  margin-bottom:40px;
+}
+
+.caption-full .btn {
+  float:right;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.bid-form {
+  margin-top: 30px;
 }
 
 // Footer Styles
