@@ -2,7 +2,7 @@ class Seller < ActiveRecord::Base
   has_many :addresses, as: :addressable
   has_many :products, dependent: :destroy
   has_many :auctions, through: :products, dependent: :destroy
-  has_many :users
+  has_many :users, dependent: :destroy
 
   before_validation :strip_whitespace
   before_validation :add_slug
