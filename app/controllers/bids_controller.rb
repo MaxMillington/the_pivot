@@ -8,8 +8,8 @@ class BidsController < ApplicationController
       flash[:warning] = "You must enter a bid amount."
       redirect_to auction_path(@bid.auction.id)
     elsif @bid.save
+      @bid.outbid_user.send_outbid_email_and_text
       flash[:success] = "You are the high bidder!"
-      @bid.outbid_user.send_outbid_email
       @bid.bid_seller.send_seller_bid_email
       redirect_to auction_path(@bid.auction.id)
     else
