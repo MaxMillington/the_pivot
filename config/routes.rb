@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get :sellers, to: "sellers#index"
   patch "/sellers/:id", to: "sellers#update"
   get "sellers/new", to: "sellers#new"
-  post "sellers", to: "sellers#create"
+  post "sellers/new", to: "sellers#create"
 
   scope :sellers, path: ':seller', as: :seller do
     get ':seller', to: "sellers#show"

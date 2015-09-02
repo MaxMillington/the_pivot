@@ -21,6 +21,22 @@ class SellersController < ApplicationController
     end
   end
 
+  def new
+    @seller = Seller.new
+  end
+
+  def create
+    @seller = Seller.new(seller_params)
+
+    if @seller.save
+      flash[:success] = "Successfully created new seller."
+      redirect_to platform_admin_sellers_path(@seller.slug)
+    else
+      flash.now[:warning] = @seller.errors.full_messages.join(". ")
+      render :new
+    end
+  end
+
   private
 
   def seller_params
