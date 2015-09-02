@@ -58,7 +58,28 @@ feature "Platform Admin can view Platform Admin Dashboard" do
     click_link("Platform Admin Dashboard")
     click_link("Create A Seller")
     expect(current_path).to eq(new_platform_admin_seller_path)
-    expect(page).to have_content("Create a New Seller")
+    expect(page).to have_content("Create")
+
+    fill_in "Name", with: "Chuck's Roast"
+    fill_in "Email", with: "chuck@email.com"
+    click_link_or_button("Create")
+    expect(page).to have_content("Successfully created new seller.")
+
+    click_link("Platform Admin Dashboard")
+    click_link("Create Seller Admin")
+    expect(current_path).to eq(new_platform_admin_user_path)
+
+
+    fill_in "First Name", with: "Steve"
+    fill_in "Last Name", with: "Jones"
+    fill_in "Email", with: "jones@example.com"
+    select "ACME", from: "user[seller_id]"
+    fill_in "Password", with: "password"
+    click_button "Create Seller Admin"
+
+    expect(page).to have_content("Successfully Created Seller Admin, Steve Jones")
+
+
 
   end
 end
