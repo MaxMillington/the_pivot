@@ -25,17 +25,19 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
+        <th>Action</th>
       </tr>
       </thead>
       <tbody>
       <% @users.each do |user| %>
           <tr>
             <td>
-              <%= user.id %>
+              <%= link_to user.id, "#" %>
             </td>
             <td><%= user.first_name %></td>
             <td><%= user.last_name %></td>
             <td><%= user.email %></td>
+            <td><%= link_to "Delete", platform_admin_user_path(user.id), method: :delete %></td>
           </tr>
       <% end %>
       </tbody>
