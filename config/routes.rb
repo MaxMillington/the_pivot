@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :products
     resources :users
     resources :sellers
+    post "/sellers/new", to: "sellers#create"
     resources :auctions
 
     get "/dashboard",  to: "admins#index"

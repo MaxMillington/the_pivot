@@ -17,4 +17,10 @@ class PlatformAdmin::SellersController < ApplicationController
 
   end
 
+  private
+
+  def seller_params
+    params.require(:seller).permit(:name, :email)
+  end
+
 end
