@@ -1,6 +1,6 @@
 <div class="container">
-  <h1 class="text-center">Welcome to Collector's World</h1>
-  <p class="lead text-center">Create Account</p>
+  <h1 class="text-center"></h1>
+  <p class="lead text-center">Create Seller Admin</p>
   <div class="well col-sm-6 col-sm-offset-3">
     <%= form_for @user, url: profile_path do |f| %>
         <div class="form-group">
@@ -24,7 +24,7 @@
           <%= f.label :password, "Password (min 8 characters)" %>
           <%= f.password_field :password, class: "form-control" %>
         </div>
-        <%= f.submit "Create Account", class: "btn btn-success" %>
+        <%= f.submit "Create Seller Admin", class: "btn btn-success" %>
     <% end %>
   </div>
 </div>
