@@ -38,8 +38,9 @@ class Seller::AuctionsController < ApplicationController
 
     if @auction.save
       flash[:success] = "Your new auction has been scheduled."
-      AuctionMailerJob.perform_later(@auction, at: ending_time.to_s)
-      AuctionMailerJob.perform_auction_notification(@seller, at: ending_time.to_s)
+      # Mailer jobs to implement later
+      # AuctionMailerJob.perform_later(@auction, at: ending_time.to_s)
+      # AuctionMailerJob.perform_auction_notification(@seller, at: ending_time.to_s)
       redirect_to seller_dashboard_path(params[:seller])
     else
       @seller = Seller.find_by(slug: params[:seller])

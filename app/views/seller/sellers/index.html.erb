@@ -1,13 +1,15 @@
 <div class="container">
+  <br>
   <h3 class="text-center">Seller Dashboard</h3>
+  <br>
   <div class="row">
-    <div class="col-sm-6 ">
+    <div class="col-lg-6 col-lg-offset-3 ">
       <a class="btn btn-block btn-primary"
          href="<%= edit_seller_seller_path(current_seller.slug, current_seller.id) %>">
         Edit Business Details <span class="glyphicon glyphicon-edit" aria-hidden="true">
       </a>
     </div>
-    <div class="col-sm-6 ">
+    <div class="col-lg-6 col-lg-offset-3">
       <a class="btn btn-block btn-primary" href="<%= seller_auctions_path(current_seller.slug) %>">
         View All Auctions <span class="glyphicon glyphicon-tags" aria-hidden="true">
       </a>
@@ -15,10 +17,12 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-6 ">
-
+    <div class="col-lg-6 col-lg-offset-3">
+      <a class="btn btn-block btn-primary" href="<%= new_seller_auction_path(current_seller.slug) %>">
+        Create New Auction <span class="glyphicon glyphicon-folder-open" aria-hidden="true">
+      </a>
     </div>
-    <div class="col-sm-6 ">
+    <div class="col-lg-6 col-lg-offset-3">
       <a class="btn btn-block btn-primary" href="<%= seller_products_path(current_seller.slug) %>">
         View All Products <span class="glyphicon glyphicon-folder-open" aria-hidden="true">
       </a>
