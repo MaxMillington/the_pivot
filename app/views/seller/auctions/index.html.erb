@@ -54,7 +54,10 @@
                     <% else %>
                         <h5>Current Bid: <span class="bold green"><%= number_to_currency(auction.bids.last.amount) %></span></h5>
                     <% end %>
+                    <% if auction.status == "active" %>
                     <h5>Time Remaining: <span class="bold red"><%= distance_of_time_in_words(Time.now, auction.ending_time) %></span></h5>
+                  <% end %>
+                    <p>Status: <%= auction.status %></p>
                   </div>
                 </div>
               </div>
