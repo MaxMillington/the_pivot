@@ -62,13 +62,87 @@ class Seed
   end
 
   def generate_sellers
-    20.times do |i|
+
       Seller.create!(
-          name: Faker::Company.name,
+          name: "Johnson & Johnson Inc.",
           email: Faker::Internet.email,
           image_url: Faker::Avatar.image)
-    end
-
+      Seller.create!(
+          name: "3M",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Toyz R Us",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Target",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "ESPN",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Audi",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "All Things Inc.",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Forever 21",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "DVD's We Sell",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Chutes and Ladders",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Made in the USA",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Benelli",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "General Mills",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Best Buy",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Radio Shack",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "JC Penny",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Timbuk Toys",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Kid Creatives",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Furniture World",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
+      Seller.create!(
+          name: "Old Stuff is Us",
+          email: Faker::Internet.email,
+          image_url: Faker::Avatar.image)
     Seller.create!(
               name: "Groovy Toys",
               email: "sabondano1@gmail.com",
@@ -88,7 +162,7 @@ class Seed
       )
     end
 
-    1.upto(20) do |i|
+    1.upto(21) do |i|
       Address.create!(
           type_of: 0,
           address_1: Faker::Address.street_address,
