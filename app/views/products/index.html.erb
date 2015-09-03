@@ -48,7 +48,7 @@
                   <div class="caption">
                     <h4><%= link_to product.name, product_path(product) %>
                     </h4>
-                    <h6><%= link_to "Edit", edit_seller_product_path(product.seller.slug, product.id) %> <%= link_to "Delete", product_path(product.id), method: :delete %></h6>
+                    <h6><%= link_to "Edit", edit_seller_product_path(product.seller.slug, product.id) %></h6>
                     <p><%= truncate(product.description, length: 80) %></p>
                   </div>
                 </div>
