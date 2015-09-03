@@ -47,7 +47,7 @@ feature "User can view feed page with active bids" do
     click_link "Auctions"
   end
 
-  scenario "bid on auction and see in feed" do
+  xscenario "bid on auction and see in feed" do
 
     click_link_or_button "Computer"
     fill_in "Amount", with: "600.00"
@@ -58,7 +58,7 @@ feature "User can view feed page with active bids" do
     expect(page).to have_content("Your Current High Bid: $600.00")
   end
 
-  scenario "bid on auction, someone else out bids you and see in feed" do
+  xscenario "bid on auction, someone else out bids you and see in feed" do
 
     click_link_or_button "Computer"
     fill_in "Amount", with: "600.00"
@@ -88,7 +88,7 @@ feature "User can view feed page with active bids" do
     expect(page).to have_content("Your Current High Bid: $800.00")
   end
 
-  scenario "bid on auction from the feed page" do
+  xscenario "bid on auction from the feed page" do
 
     click_link_or_button "Computer"
     fill_in "Amount", with: "600.00"
