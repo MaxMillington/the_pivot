@@ -1,4 +1,5 @@
 Rails.application.configure do
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:ac2292ba338595601b9509f2a3d3f0c5@tarpon.redistogo.com:11069/'
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :test
