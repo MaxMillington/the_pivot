@@ -125,6 +125,7 @@ h6 {
 
 .alert {
   padding-left: 5%;
+  margin-bottom: 0;
 }
 // Home Page Carousel
 .carousel {
@@ -521,4 +522,8 @@ a.list-group-item {
   float:right;
   margin-top: -30px;
   color: white;
+}
+
+#login-btn{
+  float: right;
 }
