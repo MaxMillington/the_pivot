@@ -21,7 +21,7 @@ class UserMailer < ApplicationMailer
     @winner = winner
     mail(
         to: @winner.email,
-        subject: "You won an auction #{@winner.name}!",
+        subject: "You won an auction #{@winner.full_name}!",
     )
   end
 
