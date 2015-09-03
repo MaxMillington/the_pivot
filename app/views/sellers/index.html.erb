@@ -27,7 +27,7 @@
     <% @sellers.each do |seller| %>
 
         <div class="col-sm-4">
-          <div id="index" class="thumbnail auction-index-card">
+          <div id="index" class="thumbnail auction-index-card seller">
             <div class="auction-card-picture seller">
               <%= image_tag seller.image_url %>
             </div>
@@ -37,9 +37,11 @@
               <p>
                 <%= link_to "View Auctions", seller_path(seller), class: "btn btn-primary" %>
                 <% if platform_admin? %>
-                    <%= link_to "Delete Seller", platform_admin_seller_path(seller.id), method: :delete,
+                    <%= link_to "Delete Seller", platform_admin_seller_path(seller.id),
+                                method: :delete,
                                 class: "btn btn-primary"%>
-                    <%= link_to "View Products", seller_products_path(seller.slug), class: "btn btn-primary"%>
+                    <%= link_to "View Products", seller_products_path(seller.slug),
+                                class: "btn btn-primary"%>
                 <% end %>
               </p>
             </div>
