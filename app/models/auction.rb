@@ -29,4 +29,8 @@ class Auction < ActiveRecord::Base
       "ended"
     end
   end
+
+  def self.search(search)
+    joins(:product).where("name ILIKE ?", "%#{search}%")
+  end
 end
