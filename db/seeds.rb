@@ -66,87 +66,87 @@ class Seed
       Seller.create!(
           name: "Johnson & Johnson Inc.",
           email: Faker::Internet.email,
-          image_url: "sellers/ddaniel.jpeg")
+          image_url: "sellers/Ddaniel.jpeg")
       Seller.create!(
           name: "3M",
           email: Faker::Internet.email,
-          image_url: "sellers/adam.jpeg")
+          image_url: "sellers/Adam.jpeg")
       Seller.create!(
           name: "Toyz R Us",
           email: Faker::Internet.email,
-          image_url: "sellers/carmer.jpeg")
+          image_url: "sellers/Carmer.jpeg")
       Seller.create!(
           name: "Target",
           email: Faker::Internet.email,
-          image_url: "sellers/david.jpeg")
+          image_url: "sellers/David.jpeg")
       Seller.create!(
           name: "ESPN",
           email: Faker::Internet.email,
-          image_url: "sellers/drew.jpeg")
+          image_url: "sellers/Drew.jpeg")
       Seller.create!(
           name: "Audi",
           email: Faker::Internet.email,
-          image_url: "sellers/horace.jpeg")
+          image_url: "sellers/Horace.jpeg")
       Seller.create!(
           name: "All Things Inc.",
           email: Faker::Internet.email,
-          image_url: "sellers/jai.jpeg")
+          image_url: "sellers/Jai.jpeg")
       Seller.create!(
           name: "Forever 21",
           email: Faker::Internet.email,
-          image_url: "sellers/jorge.jpeg")
+          image_url: "sellers/Jorge.jpeg")
       Seller.create!(
           name: "DVD's We Sell",
           email: Faker::Internet.email,
-          image_url: "sellers/kristina.jpeg")
+          image_url: "sellers/Kristina.jpeg")
       Seller.create!(
           name: "Chutes and Ladders",
           email: Faker::Internet.email,
-          image_url: "sellers/justin.jpeg")
+          image_url: "sellers/Justin.jpeg")
       Seller.create!(
           name: "Made in the USA",
           email: Faker::Internet.email,
-          image_url: "sellers/mike-d.jpeg")
+          image_url: "sellers/Mike-d.jpeg")
       Seller.create!(
           name: "Benelli",
           email: Faker::Internet.email,
-          image_url: "sellers/mike-dao.jpeg")
+          image_url: "sellers/Mike-dao.jpeg")
       Seller.create!(
           name: "General Mills",
           email: Faker::Internet.email,
-          image_url: "sellers/mitch.jpeg")
+          image_url: "sellers/Mitch.jpeg")
       Seller.create!(
           name: "Best Buy",
           email: Faker::Internet.email,
-          image_url: "sellers/orion.jpeg")
+          image_url: "sellers/Orion.jpeg")
       Seller.create!(
           name: "Radio Shack",
           email: Faker::Internet.email,
-          image_url: "sellers/other-rachel.jpeg")
+          image_url: "sellers/Other-rachel.jpeg")
       Seller.create!(
           name: "JC Penny",
           email: Faker::Internet.email,
-          image_url: "sellers/rachel.jpeg")
+          image_url: "sellers/Rachel.jpeg")
       Seller.create!(
           name: "Timbuk Toys",
           email: Faker::Internet.email,
-          image_url: "sellers/tan.jpeg")
+          image_url: "sellers/Tan.jpeg")
       Seller.create!(
           name: "Kid Creatives",
           email: Faker::Internet.email,
-          image_url: "sellers/steve.jpeg")
+          image_url: "sellers/Steve.jpeg")
       Seller.create!(
           name: "Furniture World",
           email: Faker::Internet.email,
-          image_url: "sellers/sean.jpeg")
+          image_url: "sellers/Sean.jpeg")
       Seller.create!(
           name: "Legends Never Die",
           email: Faker::Internet.email,
-          image_url: "sellers/mike-reeves")
+          image_url: "sellers/Mike-reeves")
     Seller.create!(
               name: "Groovy Toys",
               email: "sabondano1@gmail.com",
-              image_url: "sellers/sebastian.jpeg")
+              image_url: "sellers/Sebastian.jpeg")
   end
 
   def generate_addresses
