@@ -52,11 +52,11 @@
         <th>Product</th>
         <th>Starting Date/Time</th>
         <th>Ending Date/Time</th>
-        <th>Winner</th>
+        <th>Highest Bidder/Winner</th>
       </tr>
       <% @auctions.each do |auction| %>
         <tr>
-          <td><%= auction.id %></td>
+          <td><%= link_to auction.id, auction_path(auction.id) %></td>
           <td><%= auction.product.name %></td>
           <td><%= auction.starting_time %></td>
           <td><%= auction.ending_time %></td>
