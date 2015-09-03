@@ -3,41 +3,41 @@
   <h3 class="text-center">Seller Dashboard</h3>
   <br>
   <div syle="display: inline-block">
-  <div class="container-fluid">
-    <ul class="nav nav-pills">
+    <div class="container-fluid">
+      <ul class="nav nav-pills">
 
-      <li>
-        <a href="<%= edit_seller_seller_path(current_seller.slug, current_seller.id) %>">
-          Edit Business Details <span class="glyphicon glyphicon-edit" aria-hidden="true">
-        </a>
-      </li>
+        <li>
+          <a href="<%= edit_seller_seller_path(current_seller.slug, current_seller.id) %>">
+            Edit Business Details <span class="glyphicon glyphicon-edit" aria-hidden="true">
+          </a>
+        </li>
 
-      <li>
-        <a href="<%= seller_auctions_path(current_seller.slug) %>">
-          View All Auctions <span class="glyphicon glyphicon-tags" aria-hidden="true">
-        </a>
-      </li>
+        <li>
+          <a href="<%= seller_auctions_path(current_seller.slug) %>">
+            View All Auctions <span class="glyphicon glyphicon-tags" aria-hidden="true">
+          </a>
+        </li>
 
-      <li>
-        <a href="<%= new_seller_auction_path(current_seller.slug) %>">
-          Create New Auction <span class="glyphicon glyphicon-plus" aria-hidden="true">
-        </a>
-      </li>
+        <li>
+          <a href="<%= new_seller_auction_path(current_seller.slug) %>">
+            Create New Auction <span class="glyphicon glyphicon-plus" aria-hidden="true">
+          </a>
+        </li>
 
-      <li>
-        <a href="<%= seller_products_path(current_seller.slug) %>">
-          View All Products <span class="glyphicon glyphicon-folder-open" aria-hidden="true">
-        </a>
-      </li>
+        <li>
+          <a href="<%= seller_products_path(current_seller.slug) %>">
+            View All Products <span class="glyphicon glyphicon-folder-open" aria-hidden="true">
+          </a>
+        </li>
 
-      <li>
-        <a href="<%= new_seller_product_path(current_seller.slug) %>">
-          Create New Product <span class="glyphicon glyphicon-plus" aria-hidden="true">
-        </a>
-      </li>
+        <li>
+          <a href="<%= new_seller_product_path(current_seller.slug) %>">
+            Create New Product <span class="glyphicon glyphicon-plus" aria-hidden="true">
+          </a>
+        </li>
 
-    </ul>
-  </div>
+      </ul>
+    </div>
   </div>
   <br>
   <br>
@@ -46,15 +46,15 @@
   <% if @auctions.empty? %>
     <p class="text-center text-muted">You haven't created any auctions. Go and create one! :)</p>
   <% else %>
-    <% @auctions.each do |auction| %>
-      <table class="table table-striped">
-        <tr>
-          <th>Auction ID</th>
-          <th>Product</th>
-          <th>Starting Date/Time</th>
-          <th>Ending Date/Time</th>
-          <th>Winner</th>
-        </tr>
+    <table class="table table-striped">
+      <tr>
+        <th>Auction ID</th>
+        <th>Product</th>
+        <th>Starting Date/Time</th>
+        <th>Ending Date/Time</th>
+        <th>Winner</th>
+      </tr>
+      <% @auctions.each do |auction| %>
         <tr>
           <td><%= auction.id %></td>
           <td><%= auction.product.name %></td>
@@ -65,6 +65,6 @@
       <% end %>
     <% end %>
 
-      </table>
+    </table>
 
 </div>
