@@ -13,12 +13,6 @@ class Seller::SellersController < ApplicationController
     @seller = Seller.find_by(slug: params[:seller])
   end
 
-  def update
-    @seller = Seller.find_by(slug: params[:seller])
-    @seller = Seller.update(seller_params) 
-    redirect_to seller_dashboard_path(@seller.slug)
-  end
-
   private
 
   def seller_params
