@@ -142,7 +142,7 @@ class Seed
       Seller.create!(
           name: "Legends Never Die",
           email: Faker::Internet.email,
-          image_url: "sellers/Mike-reeves")
+          image_url: "sellers/Mike-reeves.jpg")
     Seller.create!(
               name: "Groovy Toys",
               email: "sabondano1@gmail.com",
