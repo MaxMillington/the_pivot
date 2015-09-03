@@ -16,11 +16,11 @@
         <div class="ui sticky">
           <div class="list-group">
             <%= link_to "View All", {controller: 'products', action: 'index'},
-                        class: 'list-group-item'  %>
+                        class: 'list-group-item auction-nav'  %>
             <% @categories.each do |category| %>
                 <%= link_to category.name,
                             {controller: 'products', action: 'index', :category_id => category.id },
-                            class: 'list-group-item' %>
+                            class: 'list-group-item auction-nav' %>
             <% end %>
           </div>
         </div>
@@ -73,6 +73,7 @@
   </div>
 </div>
 </div>
+
 <script>
 
     $(document).ready( function () {
