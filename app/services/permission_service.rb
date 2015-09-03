@@ -32,6 +32,7 @@
     return true if controller == 'sellers' && action.in?(%w(index show new create))
     return true if controller == 'products' && action.in?(%w(index show new create edit update destroy))
     return true if controller == 'seller/sellers' && action.in?(%w(index show new create edit update))
+    return true if controller == 'seller/auctions' && action.in?(%w(index new create edit update))
     return true if controller == 'seller/products' && action.in?(%w(index show new create edit update destroy))
     return true if controller == 'auctions' && action.in?(%w(index show))
     return true if controller == 'bids' && action.in?(%w(index show new create edit update))
@@ -49,7 +50,7 @@
     return true if controller == 'seller/auctions' && action.in?(%w(index new create))
     return true if controller == 'seller/products' && action.in?(%w(index show new create edit update destroy))
     return true if controller == 'seller/sellers' && action.in?(%w(index show new edit update))
-    return true if controller == 'auctions' && action.in?(%w(index show))
+    return true if controller == 'auctions' && action.in?(%w(index show new create))
     return true if controller == 'bids' && action.in?(%w(index show new create edit update))
     return true if controller == 'addresses' && action.in?(%w(new create edit update))
   end

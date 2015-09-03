@@ -1,0 +1,36 @@
+<div class="container">
+ <ol class="breadcrumb">
+   <li><a href="<%= platform_admin_dashboard_path %>">Platform Admin Dashboard</a></li>
+   <li><a href="<%= seller_products_path %>">All Products</a></li>
+   <li class="active">Add Auction</li>
+ </ol>
+</div>
+<div class="container">
+  <h1 class="text-center">Add a New Auction</h1>
+  <div class="well col-sm-6 col-sm-offset-3">
+    <%= form_for @auction, :url => seller_auctions_path do |f| %>
+    <div class="form-group">
+      <%= f.label :product_id %>
+      <%= f.hidden_text_field :product_id, params[:product_id] %>
+    </div>
+        <div class="form-group">
+          <%= f.label :seller %>
+          <%= f.collection_select :seller_id, Seller.all,
+                                  :id, :name, {}, { class: "form-control", include_blank: "None" } %>
+        </div>
+    <div class="form-group">
+      <%= f.label :starting_price %>
+      <%= f.text_field :starting_price, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :starting_time %>
+      <%= select_datetime DateTime.now, prefix: :starting_time, ampm: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :ending_time %>
+      <%= select_datetime DateTime.now, prefix: :ending_time, ampm: true %>
+    </div>
+      <%= f.submit "Add Auction", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
