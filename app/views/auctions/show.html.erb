@@ -24,14 +24,18 @@
           <h3>Bid Status</h3>
           <% if DateTime.now < @auction.ending_time %>
               <p>Starting Price: <br><span class="bold"><%= number_to_currency(@auction.starting_price) %></span></p>
-            <% if @auction.bids.count == 0 %>
-              <h4>No bids yet</h4>
-            <% else %>
-              <h4>Current Bid: <br><span class="green"><%= number_to_currency(@auction.bids.last.amount) %></span></h4>
-              <h4>Current High Bidder: <br><span class="bold"><%= @auction.bids.last.user.full_name %></span></h4>
-            <% end %>
+              <% if @auction.bids.count == 0 %>
+                  <h4>No bids yet</h4>
+              <% else %>
+                  <h4>Current Bid: <br><span class="green"><%= number_to_currency(@auction.bids.last.amount) %></span></h4>
+                  <h4>Current High Bidder: <br><span class="bold"><%= @auction.bids.last.user.full_name %></span></h4>
+              <% end %>
               <h4>Time Remaining: <br><span class="red"><%= distance_of_time_in_words(Time.now, @auction.ending_time) %></span></h4>
-              <%= render 'partials/bid_form' %>
+              <% if registered_user? || seller_admin? || platform_admin? %>
+                  <%= render 'partials/bid_form' %>
+              <% else %>
+                  <p>Please <%= link_to "login", login_path %> or <%= link_to "create account", profile_new_path %> to bid.</p>
+              <% end %>
           <% else %>
               <% if @auction.bids.count == 0 %>
                   <p>Starting Price: <br><span class="bold"><%= number_to_currency(@auction.starting_price) %></span></p>
@@ -39,14 +43,14 @@
                   <br>
                   <h3><span class="red">Auction is over.</span></h3>
               <% else %>
-                <p>Starting Price: <br><span class="bold"><%= number_to_currency(@auction.starting_price) %></span></p>
-                <h4>Total Bids: <br><span class="bold"><%= @auction.bids.count %></span></h4>
-                <h4>Winning Bidder: <br><span class="bold"><%= @auction.bids.last.user.full_name %></span></h4>
+                  <p>Starting Price: <br><span class="bold"><%= number_to_currency(@auction.starting_price) %></span></p>
+                  <h4>Total Bids: <br><span class="bold"><%= @auction.bids.count %></span></h4>
+                  <h4>Winning Bidder: <br><span class="bold"><%= @auction.bids.last.user.full_name %></span></h4>
                   <h4>Winning Bid: <br><span class="green"><%= number_to_currency(@auction.bids.last.amount) %></span></h4>
                   <br>
-                <h3><span class="red">Auction is over.</span></h3>
+                  <h3><span class="red">Auction is over.</span></h3>
               <% end %>
-        <% end %>
+          <% end %>
         </div>
       </div>
     </div>
