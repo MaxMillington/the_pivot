@@ -1,9 +1,4 @@
 
-
-<body>
-
-<!-- Image Background Page Header -->
-<!-- Note: The background image is set within the business-casual.css file. -->
 <header class="business-header">
   <div class="container">
     <div class="row">
@@ -16,9 +11,7 @@
 
 <!-- Page Content -->
 <div class="container">
-
   <hr>
-
   <div class="row">
     <div class="col-sm-8">
       <h2>What We Do</h2>
@@ -42,34 +35,30 @@
   <!-- /.row -->
 
   <hr>
-<h2>Auctions:</h2><br>
   <div class="row">
-    <% @seller.auctions.each do |auction| %>
-
-        <div class="col-sm-4">
-          <%= link_to image_tag(auction.product.image_url, size: '100x100'),
-                      auction_path(auction.id),
-                      class: "img-circle img-responsive img-center" %>
-          <h2><%= auction.product.name %></h2>
-          <p><%= auction.product.description %></p>
-        </div>
+    <% if @seller.auctions.count == 0 %>
+        <h2 id="no-results">No active auctions</h2>
+    <% else %>
+        <% @seller.auctions.each do |auction| %>
+            <div class="col-sm-4">
+              <div id="index" class="thumbnail auction-index-card">
+                <div class="auction-card-picture">
+                  <%=link_to image_tag(auction.product.image_url), auction_path(auction) %>
+                </div>
+                <div class="caption">
+                  <h5><%= link_to auction.product.name, auction_path(auction.id) %>
+                  </h5>
+                  <p>Starting Price: <span class="bold"><%= number_to_currency(auction.starting_price) %></span></p>
+                  <% if auction.bids.count == 0 %>
+                      <p><span class="bold">No bids yet</span></p>
+                  <% else %>
+                      <h5>Current Bid: <span class="bold green"><%= number_to_currency(auction.bids.last.amount) %></span></h5>
+                  <% end %>
+                  <h5>Time Remaining: <span class="bold red"><%= distance_of_time_in_words(Time.now, auction.ending_time) %></span></h5>
+                </div>
+              </div>
+            </div>
+        <% end %>
     <% end %>
-
   </div>
-  <!-- /.row -->
-
-  <hr>
-
-
 </div>
-<!-- /.container -->
-
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
