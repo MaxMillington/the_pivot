@@ -105,43 +105,43 @@ class Seed
   def generate_categories
     Category.create!(
         name: "Video Games",
-        description: Faker::Lorem.paragraph,
+        description: "So much fun you're eyes will bleed!",
         image_url: 'pacman.jpg')
     Category.create!(
         name: "Instruments",
-        description: Faker::Lorem.paragraph,
+        description: "Music is a beautiful thing, get the tool to make it.",
         image_url: 'nocaster.jpg')
     Category.create!(
         name: "Sports",
-        description: Faker::Lorem.paragraph,
+        description: "Sports sports sports all day every day.",
         image_url: 'MJ.jpg')
     Category.create!(
         name: "Toys",
-        description: Faker::Lorem.paragraph,
+        description: "Fun toys for all ages!",
         image_url: 'boba_fett.jpg')
     Category.create!(
         name: "Cars",
-        description: Faker::Lorem.paragraph,
+        description: "Git in a new whip and ride away to freedom.",
         image_url: 'model_e.jpg')
     Category.create!(
         name: "Comics",
-        description: Faker::Lorem.paragraph,
+        description: "Funny comics that stand the test of time.",
         image_url: 'comics/action_comics.jpg')
     Category.create!(
         name: "Books",
-        description: Faker::Lorem.paragraph,
+        description: "Knowledge from trees to your eyes.",
         image_url: 'bible.jpg')
     Category.create!(
         name: "Antiques",
-        description: Faker::Lorem.paragraph,
+        description: "Old things that are worth a lot. Check them out.",
         image_url: 'chippendale.jpg')
     Category.create!(
         name: "Entertainment",
-        description: Faker::Lorem.paragraph,
+        description: "Be prepared to be amazed and laugh and cry and be in awe.",
         image_url: 'marilyn.jpg')
     Category.create!(
         name: "Guns",
-        description: Faker::Lorem.paragraph,
+        description: "All your hunting needs in one stop. The buck stops here.",
         image_url: 'guns.jpg')
   end
 

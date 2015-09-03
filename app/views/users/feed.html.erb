@@ -1,6 +1,9 @@
 <h1 id="feed-title">My Active Bids</h1>
 
 <div class="row feed-row">
+  <% if @auctions.count == 0%>
+          <h2 id="no-results">No bids on active auctions</h2>
+      <% else %>
   <% @auctions.each do |auction| %>
       <div class="col-sm-4">
         <% if auction.bids.last.user.full_name == current_user.full_name %>
@@ -35,4 +38,5 @@
             <% end %>
       </div>
       <% end %>
-      </div>
+  <% end %>
+</div>
