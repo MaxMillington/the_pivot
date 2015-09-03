@@ -12,8 +12,9 @@
   <!-- Navigation -->
   <%= render partial: 'layouts/navigation' %>
   <%= render partial: 'partials/flash_messages' %>
-
   <%= yield %>
+  <div id="footer-spacer">
+  <%= render partial: 'layouts/footer' %>
+  </div>
 </body>
-<%= render partial: 'layouts/footer' %>
 </html>
