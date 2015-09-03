@@ -10,10 +10,8 @@ class Bid < ActiveRecord::Base
   end
 
   def outbid_user
-    if self.auction.bids.count >= 2
+    if self.auction.bids.count > 1
       self.auction.bids[-2].user
-    else
-      self.user
     end
   end
 
