@@ -38,8 +38,8 @@ class Seller::AuctionsController < ApplicationController
 
     if @auction.save
       flash[:success] = "Your new auction has been scheduled."
-      SellerNotifier.perform_in((TimeDifference.between(starting_time,ending_time).in_minutes.to_i).minutes, @seller)
-      UserNotifier.perform_in((TimeDifference.between(starting_time,ending_time).in_minutes.to_i).minutes, @auction)
+      # SellerNotifier.perform_in((TimeDifference.between(starting_time,ending_time).in_minutes.to_i).minutes, @seller)
+      # UserNotifier.perform_in((TimeDifference.between(starting_time,ending_time).in_minutes.to_i).minutes, @auction)
       redirect_to seller_dashboard_path(params[:seller])
     else
       @seller = Seller.find_by(slug: params[:seller])
