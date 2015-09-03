@@ -17,7 +17,11 @@ class Auction < ActiveRecord::Base
   end
 
   def winner
-    bids.last.user
+    if bids.empty?
+      "-"
+    else
+      bids.last.user.full_name
+    end
   end
 
   def status

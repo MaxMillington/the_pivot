@@ -3,6 +3,7 @@ class Seller::SellersController < ApplicationController
 
   def index
     @sellers = Seller.all
+    @auctions = current_seller.auctions
   end
 
   def show
