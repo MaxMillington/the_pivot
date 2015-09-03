@@ -40,24 +40,29 @@
 
         <div class="row">
           <% @auctions.each do |auction| %>
-              <div class="col-sm-4">
+              <div id="auction-card" class="col-sm-4 pad">
                 <div id="index" class="thumbnail auction-index-card">
                   <div class="auction-card-picture">
-                    <%= image_tag auction.product.image_url %>
+                    <%= link_to image_tag(auction.product.image_url),
+                                auction_path(auction.id) %>
                   </div>
                   <div class="caption">
-                    <h5><%= link_to auction.product.name, auction_path(auction.id) %>
+                    <h5><%= link_to auction.product.name,
+                                    auction_path(auction.id) %>
                     </h5>
-                    <p>Starting Price: <span class="bold"><%= number_to_currency(auction.starting_price) %></span></p>
+                    <p>Starting Price: <span class="bold">
+                      <%= number_to_currency(auction.starting_price) %></span></p>
                     <% if auction.bids.count == 0 %>
                         <p><span class="bold">No bids yet</span></p>
                     <% else %>
-                        <h5>Current Bid: <span class="bold green"><%= number_to_currency(auction.bids.last.amount) %></span></h5>
+                        <h5>Current Bid: <span class="bold green">
+                          <%= number_to_currency(auction.bids.last.amount) %></span></h5>
                     <% end %>
-                    <% if auction.status == "active" %>
-                    <h5>Time Remaining: <span class="bold red"><%= distance_of_time_in_words(Time.now, auction.ending_time) %></span></h5>
+                   <% if auction.status == "active" %>
+                    <h5>Time Remaining: <span class="bold red">
+                      <%= distance_of_time_in_words(Time.now, auction.ending_time) %></span></h5>
                   <% end %>
-                    <p>Status: <%= auction.status %></p>
+                    <p class="status">Status: <%= auction.status %></p>
                   </div>
                 </div>
               </div>
