@@ -14,14 +14,19 @@
         View All Auctions <span class="glyphicon glyphicon-tags" aria-hidden="true">
       </a>
     </div>
-  </div>
 
-  <div class="row">
     <div class="col-lg-6 col-lg-offset-3">
       <a class="btn btn-block btn-primary" href="<%= new_seller_auction_path(current_seller.slug) %>">
-        Create New Auction <span class="glyphicon glyphicon-folder-open" aria-hidden="true">
+        Create New Auction <span class="glyphicon glyphicon-plus" aria-hidden="true">
       </a>
     </div>
+
+    <div class="col-lg-6 col-lg-offset-3">
+      <a class="btn btn-block btn-primary" href="<%= new_seller_product_path(current_seller.slug) %>">
+        Create New Product <span class="glyphicon glyphicon-plus" aria-hidden="true">
+      </a>
+    </div>
+
     <div class="col-lg-6 col-lg-offset-3">
       <a class="btn btn-block btn-primary" href="<%= seller_products_path(current_seller.slug) %>">
         View All Products <span class="glyphicon glyphicon-folder-open" aria-hidden="true">

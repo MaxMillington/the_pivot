@@ -34,8 +34,13 @@ class User < ActiveRecord::Base
     UserMailer.account_creation(self).deliver_now
   end
 
-  def send_outbid_email
+  def send_outbid_email_and_text
     UserMailer.send_outbid_email(self).deliver_now
+    client = Twilio::REST::Client.new(ENV["TWILIO_ACCOUNT_SID"],
+                                      ENV["TWILIO_AUTH_TOKEN"])
+    client.messages.create(from: "17723245092",
+                           to: "17724183162",
+                           body: "You've been outbid!")
   end
 
   private
