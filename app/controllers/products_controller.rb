@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     flash[:success] = "Successfully deleted product."
-    redirect_to platform_admin_dashboard_path
+    redirect_to products_path
   end
 
   private

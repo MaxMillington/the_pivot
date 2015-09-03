@@ -43,7 +43,10 @@ feature "Platform Admin can view Platform Admin Dashboard" do
     click_link("View All Products")
     expect(current_path).to eq(products_path)
 
+    within ('.navbar') do
     click_link("Platform Admin Dashboard")
+    end
+
     expect(current_path).to eq(platform_admin_dashboard_path)
 
     click_link("View All Auctions")
@@ -138,8 +141,8 @@ feature "Platform Admin can view Platform Admin Dashboard" do
 
     click_link_or_button "View All Products"
     
-    click_link_or_button "delete"
-    expect(page).to have_content("Successfully deleted product.")
+    click_link_or_button "Edit"
+    expect(page).to have_content("Edit Product")
 
     click_link "Sellers"
     expect(current_path).to eq(sellers_path)
