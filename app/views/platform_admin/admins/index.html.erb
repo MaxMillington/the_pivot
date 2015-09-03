@@ -1,53 +1,72 @@
 <div class="container">
   <h3 class="text-center">Platform Admin Dashboard</h3>
 
-  <br><br><br>
+  <br>
 
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <a class="btn btn-block btn-primary" href="<%= platform_admin_users_path %>">
-        View All Users <span class="glyphicon glyphicon-folder-open" aria-hidden="true">
-      </a>
-    </div>
+  <div class="container-fluid">
+    <ul class="nav nav-pills">
+
+      <li>
+        <a href="<%= platform_admin_users_path %>">
+          View All Users <span class="glyphicon glyphicon-user" aria-hidden="true">
+        </a>
+      </li>
+
+      <li>
+        <a href="<%= products_path %>">
+          View All Products <span class="glyphicon glyphicon-folder-open" aria-hidden="true">
+        </a>
+      </li>
+
+      <li>
+        <a href="<%= auctions_path %>">
+          View All Auctions <span class="glyphicon glyphicon-tags" aria-hidden="true">
+        </a>
+      </li>
+
+      <li>
+        <a href="<%= sellers_path %>">
+          View All Sellers <span class="glyphicon glyphicon-tags" aria-hidden="true">
+        </a>
+      </li>
+
+      <li>
+        <a href="<%= new_platform_admin_seller_path %>">
+          Create A Seller <span class="glyphicon glyphicon-plus" aria-hidden="true">
+        </a>
+      </li>
+
+      <li>
+        <a href="<%= new_platform_admin_user_path %>">
+          Create Seller Admin <span class="glyphicon glyphicon-plus" aria-hidden="true">
+        </a>
+      </li>
+
+    </ul>
   </div>
 
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <a class="btn btn-block btn-primary" href="<%= products_path %>">
-        View All Products <span class="glyphicon glyphicon-folder-open" aria-hidden="true">
-      </a>
-    </div>
-  </div>
+  <% if @sellers.empty? %>
+    <p class="text-center text-muted">There are no sellers..... yet. :)</p>
+  <% else %>
+    <table class="table table-striped">
+      <tr>
+        <th>Seller ID</th>
+        <th>Name</th>
+        <th># of Products</th>
+        <th># of Auctions</th>
+        <th>Created at</th>
+      </tr>
+      <% @sellers.each do |seller| %>
+        <tr>
+          <td><%= seller.id %></td>
+          <td><%= link_to seller.name, seller_products_path(seller.slug)  %></td>
+          <td><%= seller.products.count %></td>
+          <td><%= seller.auctions.count %></td>
+          <td><%= seller.created_at %></td>
+        </tr>
+      <% end %>
+    <% end %>
 
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <a class="btn btn-block btn-primary" href="<%= auctions_path %>">
-        View All Auctions <span class="glyphicon glyphicon-tags" aria-hidden="true">
-      </a>
-    </div>
-  </div>
+    </table>
 
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <a class="btn btn-block btn-primary" href="<%= sellers_path %>">
-        View All Sellers <span class="glyphicon glyphicon-tags" aria-hidden="true">
-      </a>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <a class="btn btn-block btn-primary" href="<%= new_platform_admin_seller_path %>">
-        Create A Seller <span class="glyphicon glyphicon-folder-open" aria-hidden="true">
-      </a>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <a class="btn btn-block btn-primary" href="<%= new_platform_admin_user_path %>">
-        Create Seller Admin <span class="glyphicon glyphicon-folder-open" aria-hidden="true">
-      </a>
-    </div>
-  </div>
 </div>
