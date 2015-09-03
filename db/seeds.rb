@@ -161,7 +161,7 @@ class Seed
                    condition: "excellent",
                    seller_id: Seller.all.sample.id)
 
-    Product.create(name: "Singed Lawrence Taylor Jersey",
+    Product.create(name: "Signed Lawrence Taylor Jersey",
                    description: "Own the jersey of the most dangerous linebacker every to set foot on the field.",
                    image_url: "sports/lawrence-taylor.jpg",
                    category_id: 3,

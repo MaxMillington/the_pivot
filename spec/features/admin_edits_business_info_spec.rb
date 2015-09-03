@@ -5,6 +5,9 @@ feature "a seller/store admin can edit his business' info" do
     @seller = Seller.create(name: "ACME",
                             email: "hello@acme.com")
 
+    @seller2 = Seller.create(name: "name",
+                             email: "email@email.com")
+
     seller_admin = User.create(first_name: "John",
                                last_name: "Doe",
                                email: "email@example.com",
@@ -57,5 +60,8 @@ feature "a seller/store admin can edit his business' info" do
     seller = Seller.find(@seller.id)
     expect(current_path).to eq(seller_dashboard_path(seller.slug))
     expect(page).to have_content("Name can't be blank. Email is invalid")
+
+    visit seller_dashboard_path(@seller2.slug)
+    expect(current_path).to eq(root_path)
   end
 end

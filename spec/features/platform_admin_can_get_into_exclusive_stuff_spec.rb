@@ -76,6 +76,14 @@ feature "Platform Admin can view Platform Admin Dashboard" do
     click_link("Create Seller Admin")
     expect(current_path).to eq(new_platform_admin_user_path)
 
+    fill_in "First Name", with: nil
+    fill_in "Last Name", with: nil
+    fill_in "Email", with: nil
+    select "ACME", from: nil
+    fill_in "Password", with: nil
+    click_button "Create Seller Admin"
+    
+    expect(page).to have_content("Password can't be blank.")
 
     fill_in "First Name", with: "Steve"
     fill_in "Last Name", with: "Jones"
