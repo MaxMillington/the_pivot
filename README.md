@@ -1,7 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/michael-reeves/redrum_nursery.png?label=ready&title=Ready)](https://waffle.io/michael-reeves/redrum_nursery)
 # COLLECTOR'S WORLD
 
-The final objective for this project was to pivot an existing Ruby on Rails online commerce platform to facilitate online ordering of plants to a bidding platform for collectables. 
+The final objective for this project was to pivot an existing Ruby on Rails online commerce platform  to a bidding platform for collectibles. 
 
 ### Learning Goals
 
